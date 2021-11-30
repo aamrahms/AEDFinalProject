@@ -3,12 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Student;
+package Business.Organisations;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author aamrah
  */
-public class StudentDirectory {
+public class ResourceCoordinator {
+    
+    //private ArrayList<Case> cases;
+    
     
 }

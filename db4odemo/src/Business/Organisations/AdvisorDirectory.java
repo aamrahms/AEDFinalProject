@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.NUPD;
+package Business.Organisations;
 
 /**
  *
  * @author aamrah
  */
-public class PoliceOfficerDirectory {
+public class AdvisorDirectory {
     
 }

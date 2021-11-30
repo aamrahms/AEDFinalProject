@@ -28,17 +28,16 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        tblComplaints = new javax.swing.JTable();
+        lblHeading = new javax.swing.JLabel();
+        btnPoliceOfficer = new javax.swing.JButton();
+        btnUhcs = new javax.swing.JButton();
+        btnRedeye = new javax.swing.JButton();
+        btnOUEC = new javax.swing.JButton();
+        lblAssign = new javax.swing.JLabel();
+        btnInvestigator = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -57,26 +56,29 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblComplaints.setColumnSelectionAllowed(true);
+        jScrollPane1.setViewportView(tblComplaints);
+        tblComplaints.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jLabel1.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        jLabel1.setText("All Complaints");
+        lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        lblHeading.setText("All Complaints");
 
-        jButton1.setText("Police Officer");
+        btnPoliceOfficer.setText("Police Officer");
+        btnPoliceOfficer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPoliceOfficerActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("University Health & Counselling Services");
+        btnUhcs.setText("University Health & Counselling Services");
 
-        jButton3.setText("RedEye Support");
+        btnRedeye.setText("RedEye Support");
 
-        jButton4.setText("LGBTQ Support");
+        btnOUEC.setText("Office of Equity and Compliance");
 
-        jButton5.setText("Office of Equity and Compliance");
+        lblAssign.setText("Assign to :");
 
-        jLabel2.setText("Assign to :");
-
-        jButton6.setText("Investigator");
+        btnInvestigator.setText("Investigator");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,60 +88,64 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(333, 333, 333)
-                        .addComponent(jLabel1))
+                        .addComponent(lblHeading))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
+                            .addComponent(lblAssign)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(85, 85, 85)
-                                .addComponent(jButton3)
-                                .addGap(57, 57, 57)
-                                .addComponent(jButton6)
+                                .addComponent(btnPoliceOfficer)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4))
+                                .addComponent(btnRedeye)
+                                .addGap(151, 151, 151)
+                                .addComponent(btnInvestigator))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(btnUhcs)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton5)))))
+                                .addComponent(btnOUEC)))))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(lblHeading)
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel2)
+                .addComponent(lblAssign)
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton6))
+                    .addComponent(btnPoliceOfficer)
+                    .addComponent(btnRedeye)
+                    .addComponent(btnInvestigator))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5))
+                    .addComponent(btnUhcs)
+                    .addComponent(btnOUEC))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPoliceOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoliceOfficerActionPerformed
+        // TODO add your handling code here:
+          PoliceOfficerJPanel policePanel= new PoliceOfficerJPanel();
+//        userProcessContainer.add("ManageRestaurants",restaurantPanel);
+//        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+//        cardlayout.next(userProcessContainer);
+    }//GEN-LAST:event_btnPoliceOfficerActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btnInvestigator;
+    private javax.swing.JButton btnOUEC;
+    private javax.swing.JButton btnPoliceOfficer;
+    private javax.swing.JButton btnRedeye;
+    private javax.swing.JButton btnUhcs;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblAssign;
+    private javax.swing.JLabel lblHeading;
+    private javax.swing.JTable tblComplaints;
     // End of variables declaration//GEN-END:variables
 }

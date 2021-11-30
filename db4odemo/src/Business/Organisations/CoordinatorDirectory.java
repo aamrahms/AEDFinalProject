@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.OUEC;
+package Business.Organisations;
 
 /**
  *
  * @author aamrah
  */
-public class President {
-    //assigns complaints
+public class CoordinatorDirectory {
+    
 }

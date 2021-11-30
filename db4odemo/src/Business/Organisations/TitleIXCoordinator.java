@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.NUPD;
+package Business.Organisations;
 
 /**
  *
  * @author aamrah
  */
-public class ChiefOfficer {
+public class TitleIXCoordinator {
+    //TitleIX can be a field in Coordinator class
     
 }

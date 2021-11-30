@@ -5,7 +5,7 @@
  */
 package Business.Complaint;
 
-import Business.Student.Student;
+import Business.Organisations.Student;
 
 /**
  *

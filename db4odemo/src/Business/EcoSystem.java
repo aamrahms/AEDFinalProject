@@ -11,7 +11,7 @@ import Business.Customer.CustomerDirectory;
 //import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
-import Business.Student.StudentDirectory;
+import Business.Organisations.StudentDirectory;
 import java.util.ArrayList;
 
 /**
