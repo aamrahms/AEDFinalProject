@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author raunak
+ * @author aamrah
  */
 public abstract class Organization {
 
@@ -25,9 +25,15 @@ public abstract class Organization {
     
     public enum Type{
         //Defined absolute values of organisation, each role
-        RestaurantAdmin("RestaurantAdmin"),
         Student("Student"),
-        DeliveryMan("Delivery"),
+        PoliceOfficer("PoliceOfficer"),
+        ChiefOfficer("ChiefOfficer"),
+        PoliceInvestigator("PoliceInvestigator"),
+        Doctor("Doctor"),
+        Receptionist("Receptionist"),
+        Advisor("Advisor"),
+        OUECCoordinator("OUECCoordinator"),
+        OUECInvestigator("OUECInvestigator"),
         SysAdmin("Sysadmin");
         
         private String value;//inside bracs value

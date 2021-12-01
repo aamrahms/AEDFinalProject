@@ -7,7 +7,7 @@ package Business;
 
 import Business.Organisations.AdvisorDirectory;
 import Business.Organisations.DoctorDirectory;
-import Business.Organisations.InvestigatorDirectory;
+import Business.Organisations.OUECInvestigatorDirectory;
 import Business.Organisations.OUECCoordinatorDirectory;
 import Business.Organisations.PoliceOfficerDirectory;
 import Business.Role.Role;
@@ -27,7 +27,7 @@ public class EcoSystem extends Organization{
     private OUECCoordinatorDirectory ouecCoordinators;
     private DoctorDirectory doctorDirectory;
     private AdvisorDirectory advisorDirectory;
-    private InvestigatorDirectory investigatorDirectory;
+    private OUECInvestigatorDirectory investigatorDirectory;
 
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
 
@@ -117,13 +117,13 @@ public class EcoSystem extends Organization{
         this.advisorDirectory = advisorDirectory;
     }
 
-    public InvestigatorDirectory getInvestigatorDirectory() {
+    public OUECInvestigatorDirectory getInvestigatorDirectory() {
         if(investigatorDirectory==null)
-            this.investigatorDirectory= new InvestigatorDirectory();
+            this.investigatorDirectory= new OUECInvestigatorDirectory();
         return investigatorDirectory;
     }
 
-    public void setInvestigatorDirectory(InvestigatorDirectory investigatorDirectory) {
+    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
         this.investigatorDirectory = investigatorDirectory;
     }   
     
