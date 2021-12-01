@@ -130,8 +130,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
 
     private void btnPoliceOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoliceOfficerActionPerformed
         // TODO add your handling code here:
-          PoliceOfficerJPanel policePanel= new PoliceOfficerJPanel();
-//        userProcessContainer.add("ManageRestaurants",restaurantPanel);
+//        PoliceOfficerJPanel policePanel= new PoliceOfficerJPanel();
+//        userProcessContainer.add("",restaurantPanel);
 //        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
 //        cardlayout.next(userProcessContainer);
     }//GEN-LAST:event_btnPoliceOfficerActionPerformed

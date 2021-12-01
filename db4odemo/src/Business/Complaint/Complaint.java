@@ -14,7 +14,7 @@ import Business.Organisations.Student;
 public class Complaint {
     
     
-    String Location;
+    String Location; 
     String typeOfComplaint;  //Emergency and Normal
     
     //if(Emergency) ==>goto emergency Panel 
