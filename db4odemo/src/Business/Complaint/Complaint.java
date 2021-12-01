@@ -6,6 +6,7 @@
 package Business.Complaint;
 
 import Business.Organisations.Student;
+import java.util.Date;
 
 /**
  *
@@ -18,21 +19,32 @@ public class Complaint {
     private String status;
     private Student victimStudent;
     private String typeOfComplaint;
+    private String dateOfIncident;
+    
+    //in case of Emergency complaint : location + date
+    //add once location feature added
+    //private String location;
     private static int count =0;
+    //in case of normal complaint : accused student + date(manual)
+    private Student accusedStudent;
+   
 
-    public Complaint(String typeOfComplaint, Student student) {
+    public Complaint(String typeOfComplaint, Student student, String dateOfIncident/*,String location*/) {
         this.ComplaintID = String.valueOf(count++);
         this.status = "New";
         this.victimStudent=student;
         this.typeOfComplaint=typeOfComplaint;
+        //this.location = location;
+        if(typeOfComplaint.equals("Emergency"))
+        {
+            this.dateOfIncident=String.valueOf(new Date());
+        }
+        else if (typeOfComplaint.equals("Normal"))
+        {
+            this.dateOfIncident=dateOfIncident;
+        }
+        
     }
-
-//Emergency and Normal
-    
-    //if(Emergency) ==>goto emergency Panel 
-    //else if (Normal) ==>Normal Complaint
-    
-    //discrimination , assault, allegedAccusation, firing , Plagarism
 
     public String getComplaintID() {
         return ComplaintID;
@@ -48,10 +60,46 @@ public class Complaint {
 
     public void setStatus(String status) {
         this.status = status;
+    }  
+    public String getDateOfIncident() {
+        return dateOfIncident;
+    }
+
+    public void setDateOfIncident(String dateOfIncident) {
+        this.dateOfIncident = dateOfIncident;
+    }
+    //add once location feature added
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+
+    public Student getVictimStudent() {
+        return victimStudent;
+    }
+
+    public void setVictimStudent(Student victimStudent) {
+        this.victimStudent = victimStudent;
+    }
+
+    public String getTypeOfComplaint() {
+        return typeOfComplaint;
+    }
+
+    public void setTypeOfComplaint(String typeOfComplaint) {
+        this.typeOfComplaint = typeOfComplaint;
+    }
+
+    public Student getAccusedStudent() {
+        return accusedStudent;
+    }
+
+    public void setAccusedStudent(Student accusedStudent) {
+        this.accusedStudent = accusedStudent;
     }
     
     
-    
-    
-    
-}
+}  

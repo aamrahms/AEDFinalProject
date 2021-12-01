@@ -1,7 +1,8 @@
-db4odemo/nbproject/private/private.properties
-db4odemo/nbproject/project.properties
-db4odemo/nbproject/private/private.xml
-db4odemo/build/built-jar.properties
-
-db4odemo/Databank.db4o
-
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

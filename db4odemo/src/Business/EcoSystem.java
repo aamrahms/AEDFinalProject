@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization{
     
     private static EcoSystem business;
+    
     private StudentDirectory studentDirectory;
     private PoliceOfficerDirectory policeDirectory;
     private OUECCoordinatorDirectory ouecCoordinators;
@@ -30,8 +31,6 @@ public class EcoSystem extends Organization{
     private OUECInvestigatorDirectory investigatorDirectory;
 
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
-
-        
         this.studentDirectory = studentDirectory;
         this.policeDirectory= policeDirectory;
         this.ouecCoordinators=ouecCoordinators;
