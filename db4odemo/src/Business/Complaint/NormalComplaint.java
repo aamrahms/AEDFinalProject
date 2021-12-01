@@ -10,11 +10,66 @@ import Business.Student.Student;
 /**
  *
  * @author aamrah
+ * @author fianrodrigues
  */
-public class NormalComplaint {
+public class NormalComplaint 
+{
     String dateOfIncident;
-    String time;
+    String timeOfIncident;
     Student accusedStudent;
-    Student victim;
+    Student victimStudent;
+    
+    String describeIncident;
+    //String location;
+
+    public String getDateOfIncident() 
+    {
+        return dateOfIncident;
+    }
+
+    public void setDateOfIncident(String dateOfIncident) 
+    {
+        this.dateOfIncident = dateOfIncident;
+    }
+
+    public String getTimeOfIncident()
+    {
+        return timeOfIncident;
+    }
+
+    public void setTimeOfIncident(String timeOfIncident) 
+    {
+        this.timeOfIncident = timeOfIncident;
+    }
+
+    public Student getAccusedStudent() 
+    {
+        return accusedStudent;
+    }
+
+    public void setAccusedStudent(Student accusedStudent)
+    {
+        this.accusedStudent = accusedStudent;
+    }
+
+    public Student getVictimStudent()
+    {
+        return victimStudent;
+    }
+
+    public void setVictimStudent(Student victimStudent) 
+    {
+        this.victimStudent = victimStudent;
+    }
+
+    public String getDescribeIncident()
+    {
+        return describeIncident;
+    }
+
+    public void setDescribeIncident(String describeIncident)
+    {
+        this.describeIncident = describeIncident;
+    }
     
 }
