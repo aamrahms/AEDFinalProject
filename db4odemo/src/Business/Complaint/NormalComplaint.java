@@ -11,10 +11,14 @@ import Business.Organisations.Student;
  *
  * @author aamrah
  */
-public class NormalComplaint {
-    String dateOfIncident;
-    String time;
-    Student accusedStudent;
-    Student victim;
+public class NormalComplaint extends Complaint{
+    private String dateOfIncident;
+    private String time;
+    private Student accusedStudent;
+    private Student victim;
+
+    public NormalComplaint(String typeOfComplaint, Student student) {
+        super(typeOfComplaint,student);
+    }
     
 }

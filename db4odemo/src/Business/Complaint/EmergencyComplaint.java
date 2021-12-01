@@ -5,13 +5,24 @@
  */
 package Business.Complaint;
 
+import Business.Organisations.Student;
+import java.util.Date;
+
 /**
  *
  * @author aamrah
  */
-public class EmergencyComplaint {
-    String dateOfIncident;
-    String time;
+public class EmergencyComplaint extends Complaint{
+    private String dateOfIncident;
+   
+
+    public EmergencyComplaint(String typeOfComplaint, Student student) {
+        super(typeOfComplaint,student);
+        this.dateOfIncident=String.valueOf(new Date());
+    }
+
+    
+    
     
     
 }

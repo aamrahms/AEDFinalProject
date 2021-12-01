@@ -9,6 +9,6 @@ package Business.Organisations;
  *
  * @author aamrah
  */
-public class InvestigatorDirectory {
+public class OUECInvestigatorDirectory {
     
 }
