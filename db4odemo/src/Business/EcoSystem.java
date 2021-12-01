@@ -1,0 +1,129 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Business;
+
+import Business.Organisations.AdvisorDirectory;
+import Business.Organisations.DoctorDirectory;
+import Business.Organisations.OUECInvestigatorDirectory;
+import Business.Organisations.OUECCoordinatorDirectory;
+import Business.Organisations.PoliceOfficerDirectory;
+import Business.Role.Role;
+import Business.Role.SystemAdminRole;
+import Business.Organisations.StudentDirectory;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author MyPC1
+ */
+public class EcoSystem extends Organization{
+    
+    private static EcoSystem business;
+    
+    private StudentDirectory studentDirectory;
+    private PoliceOfficerDirectory policeDirectory;
+    private OUECCoordinatorDirectory ouecCoordinators;
+    private DoctorDirectory doctorDirectory;
+    private AdvisorDirectory advisorDirectory;
+    private OUECInvestigatorDirectory investigatorDirectory;
+
+    public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
+        this.studentDirectory = studentDirectory;
+        this.policeDirectory= policeDirectory;
+        this.ouecCoordinators=ouecCoordinators;
+    }
+    
+    public static EcoSystem getInstance(){
+        if(business==null){
+            business=new EcoSystem();
+        }
+        return business;
+    }
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        ArrayList<Role> roleList=new ArrayList<Role>();
+        roleList.add(new SystemAdminRole());
+        return roleList;
+    }
+    private EcoSystem(){
+        super(null);
+       // networkList=new ArrayList<Network>();
+    }
+
+    
+    public boolean checkIfUserIsUnique(String userName){
+       //
+       return false;
+    }
+    
+    //Added getters and setters
+    public PoliceOfficerDirectory getPoliceDirectory() {
+        if (policeDirectory==null)
+            this.policeDirectory= new PoliceOfficerDirectory();
+        return this.policeDirectory;
+    }
+
+    public void setPoliceDirectory(PoliceOfficerDirectory policeDirectory) {
+        this.policeDirectory = policeDirectory;
+    }
+
+    public StudentDirectory getStudentDirectory() {
+        if(studentDirectory==null)
+            this.studentDirectory = new StudentDirectory();
+        
+        return this.studentDirectory;
+        
+    }
+
+    public void setStudentDirectory(StudentDirectory studentDirectory) {
+        this.studentDirectory = studentDirectory;
+        
+    }
+
+    public OUECCoordinatorDirectory getOuecCoordinators() {
+        if(ouecCoordinators==null)
+        {
+            this.ouecCoordinators=new OUECCoordinatorDirectory();
+        }
+        return ouecCoordinators;
+    }
+
+    public void setOuecCoordinators(OUECCoordinatorDirectory ouecCoordinators) {
+        this.ouecCoordinators = ouecCoordinators;
+    }
+
+    public DoctorDirectory getDoctorDirectory() {
+        if(doctorDirectory==null)
+            this.doctorDirectory= new DoctorDirectory();
+        return doctorDirectory;
+    }
+
+    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
+        this.doctorDirectory = doctorDirectory;
+    }
+
+    public AdvisorDirectory getAdvisorDirectory() {
+        if(advisorDirectory==null)
+            this.advisorDirectory= new AdvisorDirectory();
+        return advisorDirectory;
+    }
+
+    public void setAdvisorDirectory(AdvisorDirectory advisorDirectory) {
+        this.advisorDirectory = advisorDirectory;
+    }
+
+    public OUECInvestigatorDirectory getInvestigatorDirectory() {
+        if(investigatorDirectory==null)
+            this.investigatorDirectory= new OUECInvestigatorDirectory();
+        return investigatorDirectory;
+    }
+
+    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
+        this.investigatorDirectory = investigatorDirectory;
+    }   
+    
+}
