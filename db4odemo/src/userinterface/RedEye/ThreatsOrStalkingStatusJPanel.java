@@ -9,12 +9,12 @@ package userinterface.RedEye;
  *
  * @author fianrodrigues
  */
-public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
+public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ThreatsOrStalkingJPanel
      */
-    public ThreatsOrStalkingJPanel() {
+    public ThreatsOrStalkingStatusJPanel() {
         initComponents();
     }
 
@@ -27,7 +27,6 @@ public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         btnAcceptCase = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOnTheWay = new javax.swing.JButton();
@@ -76,49 +75,6 @@ public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(btnAcceptCase)
-                .addGap(172, 172, 172)
-                .addComponent(btnOnTheWay)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
-                .addComponent(btnSceneReached)
-                .addGap(192, 192, 192))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSceneReached1)
-                .addGap(135, 135, 135)
-                .addComponent(btnDroppedOffAtUHCS)
-                .addGap(337, 337, 337))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(439, 439, 439)
-                .addComponent(btnTaskCompleted)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSceneReached)
-                    .addComponent(btnAcceptCase)
-                    .addComponent(btnOnTheWay))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDroppedOffAtUHCS)
-                    .addComponent(btnSceneReached1))
-                .addGap(84, 84, 84)
-                .addComponent(btnTaskCompleted)
-                .addGap(279, 279, 279))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -126,18 +82,46 @@ public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
             .addGap(0, 1094, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(157, 157, 157)
+                            .addComponent(btnAcceptCase)
+                            .addGap(172, 172, 172)
+                            .addComponent(btnOnTheWay)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                            .addComponent(btnSceneReached)
+                            .addGap(192, 192, 192))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btnSceneReached1)
+                            .addGap(135, 135, 135)
+                            .addComponent(btnDroppedOffAtUHCS)
+                            .addGap(337, 337, 337))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(439, 439, 439)
+                            .addComponent(btnTaskCompleted)))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 738, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(166, 166, 166)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(137, 137, 137)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnSceneReached)
+                        .addComponent(btnAcceptCase)
+                        .addComponent(btnOnTheWay))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnDroppedOffAtUHCS)
+                        .addComponent(btnSceneReached1))
+                    .addGap(84, 84, 84)
+                    .addComponent(btnTaskCompleted)
+                    .addGap(166, 166, 166)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,6 +154,5 @@ public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSceneReached1;
     private javax.swing.JButton btnTaskCompleted;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
