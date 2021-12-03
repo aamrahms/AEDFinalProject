@@ -5,10 +5,18 @@
  */
 package Business.Organisations;
 
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
-public class OUECInvestigatorOrganisation {
+public class OUECInvestigatorOrganisation extends Organisation{
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.NUPD;
+package userinterface.UHCS;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -13,18 +13,19 @@ import javax.swing.JPanel;
  *
  * @author aamrah
  */
-public class PoliceManJPanel extends javax.swing.JPanel {
-    private JPanel userProcessContainer;
-    private EcoSystem ecosystem;
-    private UserAccount userAccount;
+public class ReceptionistJPanel extends javax.swing.JPanel {
+
     /**
-     * Creates new form PoliceManJPanel
+     * Creates new form ReceptionistJPanel
      */
-    public PoliceManJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    public ReceptionistJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.ecosystem=ecosystem;
-        this.userAccount = account;
+        this.userProcessContainer=userProcessContainer;
+        this.account=account;
+        this.system=system;
     }
 
     /**
@@ -40,11 +41,11 @@ public class PoliceManJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 792, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -52,6 +53,3 @@ public class PoliceManJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
-
-
-    

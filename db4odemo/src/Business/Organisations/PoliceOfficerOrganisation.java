@@ -5,10 +5,25 @@
  */
 package Business.Organisations;
 
+import Business.Role.PoliceOfficerRole;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
-public class PoliceOfficerOrganisation {
+public class PoliceOfficerOrganisation extends Organisation{
+    public PoliceOfficerOrganisation() {
+        super(Organisation.Type.PoliceOfficerOrganisation.getValue());
+    }
+
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+     ArrayList<Role> roles =new ArrayList();
+     roles.add(new PoliceOfficerRole());
+     return roles;
+    }
     
 }

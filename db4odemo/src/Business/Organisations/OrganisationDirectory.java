@@ -24,7 +24,48 @@ public class OrganisationDirectory {
     }
 
     public void createOrganisation(Type type, String name) {
-        this.organisationList = organisationList;
+        Organisation organisation=null;
+        if(type.getValue().equals(Type.ChiefOfficerOrganisation.getValue())){
+            organisation = new ChiefOfficerOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.PoliceOfficerOrganisation.getValue())){
+            organisation = new PoliceOfficerOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.PoliceInvestigatorOrganisation.getValue())){
+            organisation = new PoliceInvestigatorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.StudentOrganisation.getValue())){
+            organisation = new StudentOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.DoctorOrganisation.getValue())){
+            organisation = new DoctorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.ReceptionistOrganisation.getValue())){
+            organisation = new ReceptionistOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.AdvisorOrganisation.getValue())){
+            organisation = new AdvisorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.OUECCoordinatorOrganisation.getValue())){
+            organisation = new OUECCoordinatorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.OUECInvestigatorOrganisation.getValue())){
+            organisation = new OUECInvestigatorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.DriverOrganisation.getValue())){
+            organisation = new DriverOrganisation();
+            organisationList.add(organisation);  
+        }
+        
     }
     
     

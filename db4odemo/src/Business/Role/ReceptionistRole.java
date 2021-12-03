@@ -8,17 +8,19 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.NUPD.PoliceManJPanel;
+import userinterface.UHCS.ReceptionistJPanel;
 
 /**
  *
  * @author aamrah
  */
-public class PoliceManRole extends Role{
-
-    
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new PoliceManJPanel(userProcessContainer, account, system);
+public class ReceptionistRole extends Role{
+    private RoleType roleType;
+    public ReceptionistRole() {
+        roleType=RoleType.Receptionist;
     }
     
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+         return new ReceptionistJPanel(userProcessContainer, account, system);
+    }
 }

@@ -5,10 +5,27 @@
  */
 package Business.Organisations;
 
+import Business.Role.Role;
+import Business.Role.StudentRole;
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
-public class StudentOrganisation {
+public class StudentOrganisation extends Organisation{
+    
+    public StudentOrganisation() {
+        super(Organisation.Type.StudentOrganisation.getValue());
+    }
+
+    
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+     ArrayList<Role> roles =new ArrayList();
+     roles.add(new StudentRole());
+     return roles;
+    }
+    
     
 }
