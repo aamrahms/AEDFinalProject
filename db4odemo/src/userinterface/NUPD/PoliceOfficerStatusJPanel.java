@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.NUPDStatus;
+package userinterface.NUPD;
 
 /**
  *
@@ -122,6 +122,7 @@ public class PoliceOfficerStatusJPanel extends javax.swing.JPanel {
 //        {
 //            JOptionPane.showMessageDialog("Type of Emergency not selected");  
 //        }
+
     }//GEN-LAST:event_btnProcessComplaintsActionPerformed
 
 
