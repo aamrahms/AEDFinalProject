@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.NUPD;
+package userinterface.OUEC;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
@@ -13,15 +13,15 @@ import javax.swing.JPanel;
  *
  * @author aamrah
  */
-public class PoliceInvestigatorJPanel extends javax.swing.JPanel {
+public class OUECInvestigatorJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form PoliceInvestigatorJPanel
+     * Creates new form OUECInvestigatorJPanel
      */
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    public PoliceInvestigatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public OUECInvestigatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;

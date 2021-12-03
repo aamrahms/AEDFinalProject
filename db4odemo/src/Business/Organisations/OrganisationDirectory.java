@@ -33,10 +33,6 @@ public class OrganisationDirectory {
             organisation = new PoliceOfficerOrganisation();
             organisationList.add(organisation);  
         }
-        else if(type.getValue().equals(Type.PoliceInvestigatorOrganisation.getValue())){
-            organisation = new PoliceInvestigatorOrganisation();
-            organisationList.add(organisation);  
-        }
         else if(type.getValue().equals(Type.StudentOrganisation.getValue())){
             organisation = new StudentOrganisation();
             organisationList.add(organisation);  
@@ -51,6 +47,10 @@ public class OrganisationDirectory {
         }
         else if(type.getValue().equals(Type.AdvisorOrganisation.getValue())){
             organisation = new AdvisorOrganisation();
+            organisationList.add(organisation);  
+        }
+        else if(type.getValue().equals(Type.PresidentOrganisation.getValue())){
+            organisation = new PresidentOrganisation();
             organisationList.add(organisation);  
         }
         else if(type.getValue().equals(Type.OUECCoordinatorOrganisation.getValue())){

@@ -20,12 +20,12 @@ public abstract class Role {
         Student("Student"),
         PoliceOfficer("PoliceOfficer"),
         ChiefOfficer("ChiefOfficer"),
-        PoliceInvestigator("PoliceInvestigator"),
         Doctor("Doctor"),
         Receptionist("Receptionist"),
         Advisor("Advisor"),
         OUECCoordinator("OUECCoordinator"),
         OUECInvestigator("OUECInvestigator"),
+        President("President"),
         Driver("Driver"),
         SysAdmin("Sysadmin");
         

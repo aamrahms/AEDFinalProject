@@ -34,6 +34,7 @@ public abstract class Organisation {
         DoctorOrganisation("DoctorOrganisation"),
         ReceptionistOrganisation("ReceptionistOrganisation"),
         AdvisorOrganisation("AdvisorOrganisation"),
+        PresidentOrganisation("PresidentOrganisation"),
         OUECCoordinatorOrganisation("OUECCoordinatorOrganisation"),
         OUECInvestigatorOrganisation("OUECInvestigatorOrganisation"),
         DriverOrganisation("DriverOrganisation") ;

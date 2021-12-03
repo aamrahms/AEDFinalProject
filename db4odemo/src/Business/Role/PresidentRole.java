@@ -8,20 +8,14 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.NUPD.PoliceInvestigatorJPanel;
-
+import userinterface.OUEC.PresidentJPanel;
 
 /**
  *
  * @author aamrah
  */
-public class PoliceInvestigatorRole extends Role {
-    private RoleType roleType;
-    public PoliceInvestigatorRole() {
-        roleType=RoleType.PoliceInvestigator;
-    }
-    
+public class PresidentRole extends Role{
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new PoliceInvestigatorJPanel(userProcessContainer, account, system);
+         return new PresidentJPanel(userProcessContainer, account, system);
     }
 }

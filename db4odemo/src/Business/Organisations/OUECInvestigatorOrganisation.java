@@ -5,6 +5,7 @@
  */
 package Business.Organisations;
 
+import Business.Role.OUECInvestigatorRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -14,9 +15,16 @@ import java.util.ArrayList;
  */
 public class OUECInvestigatorOrganisation extends Organisation{
 
+    public OUECInvestigatorOrganisation() {
+        super(Organisation.Type.PoliceInvestigatorOrganisation.getValue());
+    }
+
+    
     @Override
     public ArrayList<Role> getSupportedRole() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     ArrayList<Role> roles =new ArrayList();
+     roles.add(new OUECInvestigatorRole());
+     return roles;
     }
     
 }

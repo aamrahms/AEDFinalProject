@@ -5,10 +5,28 @@
  */
 package Business.Enterprise;
 
+import Business.Role.AdvisorRole;
+import Business.Role.DoctorRole;
+import Business.Role.DriverRole;
+import Business.Role.ReceptionistRole;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
-public class RedeyeEnterprise {
-    
+public class RedeyeEnterprise extends Enterprise{
+     public RedeyeEnterprise(String name) {
+        super(name, Enterprise.EnterpriseType.RedeyeEnterprise);
+    }
+    //aRRAYLIST OF Organisations 
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        roles=new ArrayList<Role>();
+        roles.add(new DriverRole());
+        
+        return roles;
+    }
 }
