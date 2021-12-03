@@ -33,11 +33,12 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel {
         btnRedEyeNotified = new javax.swing.JButton();
         btnTaskCompleted = new javax.swing.JButton();
         btnSuspectInCustody = new javax.swing.JButton();
+        btnSceneReached = new javax.swing.JButton();
 
         btnAcceptCase.setText("Accept Case");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("THREATS OR STALKING STATUS UPDATE");
+        jLabel1.setText("STATUS FOR SEXUAL ASSAULT COMPLAINTS");
 
         btnOnTheWay.setText("On The Way");
         btnOnTheWay.addActionListener(new java.awt.event.ActionListener() {
@@ -67,27 +68,36 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSceneReached.setText("Scene Reached");
+        btnSceneReached.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSceneReachedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(332, 332, 332)
+                .addContainerGap(191, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnOnTheWay)
-                    .addComponent(btnAcceptCase))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSuspectInCustody)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnRedEyeNotified)))
-                .addGap(295, 295, 295))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(467, 467, 467)
-                .addComponent(btnTaskCompleted)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnSuspectInCustody)
+                        .addGap(148, 148, 148)
+                        .addComponent(btnRedEyeNotified)
+                        .addGap(289, 289, 289))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnAcceptCase)
+                        .addGap(170, 170, 170)
+                        .addComponent(btnOnTheWay)
+                        .addGap(187, 187, 187)
+                        .addComponent(btnSceneReached)
+                        .addGap(147, 147, 147))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnTaskCompleted)
+                        .addGap(444, 444, 444))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,38 +107,44 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel {
                 .addGap(137, 137, 137)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAcceptCase)
-                    .addComponent(btnSuspectInCustody))
+                    .addComponent(btnSceneReached)
+                    .addComponent(btnOnTheWay))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOnTheWay)
-                    .addComponent(btnRedEyeNotified))
+                    .addComponent(btnRedEyeNotified)
+                    .addComponent(btnSuspectInCustody))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
                 .addGap(287, 287, 287))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
+    private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnOnTheWayActionPerformed
-
-    private void btnRedEyeNotifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedEyeNotifiedActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRedEyeNotifiedActionPerformed
+    }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
-    private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
+    private void btnRedEyeNotifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedEyeNotifiedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
+    }//GEN-LAST:event_btnRedEyeNotifiedActionPerformed
+
+    private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOnTheWayActionPerformed
+
+    private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSceneReachedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnRedEyeNotified;
+    private javax.swing.JButton btnSceneReached;
     private javax.swing.JButton btnSuspectInCustody;
     private javax.swing.JButton btnTaskCompleted;
     private javax.swing.JLabel jLabel1;

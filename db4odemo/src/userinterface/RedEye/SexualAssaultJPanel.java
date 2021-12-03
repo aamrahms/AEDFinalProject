@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.NUPD;
+package userinterface.RedEye;
 
 /**
  *
  * @author fianrodrigues
  */
-public class InjuryStatusJPanel extends javax.swing.JPanel {
+public class SexualAssaultJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form InjuryStatusJPanel
+     * Creates new form SexualAssaultJPanel
      */
-    public InjuryStatusJPanel() {
+    public SexualAssaultJPanel() {
         initComponents();
     }
 
@@ -27,18 +27,13 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAcceptCase = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnOnTheWay = new javax.swing.JButton();
         btnSceneReached = new javax.swing.JButton();
         btnDroppedOffAtUHCS = new javax.swing.JButton();
         btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached1 = new javax.swing.JButton();
-
-        btnAcceptCase.setText("Accept Case");
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("STATUS UPDATE FOR INJURY COMPLAINTS");
+        btnAcceptCase = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         btnOnTheWay.setText("On The Way");
         btnOnTheWay.addActionListener(new java.awt.event.ActionListener() {
@@ -75,30 +70,34 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAcceptCase.setText("Accept Case");
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("STATUS UPDATE FOR SEXUAL ASSAULT");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(157, 157, 157)
                 .addComponent(btnAcceptCase)
-                .addGap(167, 167, 167)
+                .addGap(172, 172, 172)
                 .addComponent(btnOnTheWay)
-                .addGap(173, 173, 173)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(btnSceneReached)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addGap(192, 192, 192))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSceneReached1)
-                        .addGap(124, 124, 124)
-                        .addComponent(btnDroppedOffAtUHCS)
-                        .addGap(295, 295, 295))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnTaskCompleted)
-                        .addGap(452, 452, 452))))
+                .addComponent(btnSceneReached1)
+                .addGap(135, 135, 135)
+                .addComponent(btnDroppedOffAtUHCS)
+                .addGap(337, 337, 337))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(439, 439, 439)
+                .addComponent(btnTaskCompleted)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,15 +109,19 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
                     .addComponent(btnSceneReached)
                     .addComponent(btnAcceptCase)
                     .addComponent(btnOnTheWay))
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDroppedOffAtUHCS)
                     .addComponent(btnSceneReached1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
                 .addComponent(btnTaskCompleted)
-                .addGap(287, 287, 287))
+                .addGap(279, 279, 279))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
@@ -127,10 +130,6 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
     private void btnDroppedOffAtUHCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDroppedOffAtUHCSActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDroppedOffAtUHCSActionPerformed
-
-    private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
@@ -148,8 +147,6 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSceneReached;
     private javax.swing.JButton btnSceneReached1;
     private javax.swing.JButton btnTaskCompleted;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

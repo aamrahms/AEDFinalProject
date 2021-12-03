@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.NUPD;
+package userinterface.RedEye;
 
 /**
  *
  * @author fianrodrigues
  */
-public class FirearmsStatusJPanel extends javax.swing.JPanel {
+public class ThreatsOrStalkingJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form FirearmsJPanel
+     * Creates new form ThreatsOrStalkingJPanel
      */
-    public FirearmsStatusJPanel() {
+    public ThreatsOrStalkingJPanel() {
         initComponents();
     }
 
@@ -31,33 +31,20 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel {
         btnAcceptCase = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOnTheWay = new javax.swing.JButton();
-        btnSuspectInCustody = new javax.swing.JButton();
-        btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached = new javax.swing.JButton();
+        btnDroppedOffAtUHCS = new javax.swing.JButton();
+        btnTaskCompleted = new javax.swing.JButton();
+        btnSceneReached1 = new javax.swing.JButton();
 
         btnAcceptCase.setText("Accept Case");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("STATUS UPDATE FOR FIREARM COMPLAINTS");
+        jLabel1.setText("STATUS UPDATE FOR THREATS OR STALKING");
 
         btnOnTheWay.setText("On The Way");
         btnOnTheWay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOnTheWayActionPerformed(evt);
-            }
-        });
-
-        btnSuspectInCustody.setText("Suspect In Custody");
-        btnSuspectInCustody.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuspectInCustodyActionPerformed(evt);
-            }
-        });
-
-        btnTaskCompleted.setText("Task Completed");
-        btnTaskCompleted.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTaskCompletedActionPerformed(evt);
             }
         });
 
@@ -68,42 +55,68 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDroppedOffAtUHCS.setText("Dropped Off At UHCS");
+        btnDroppedOffAtUHCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDroppedOffAtUHCSActionPerformed(evt);
+            }
+        });
+
+        btnTaskCompleted.setText("Task Completed");
+        btnTaskCompleted.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTaskCompletedActionPerformed(evt);
+            }
+        });
+
+        btnSceneReached1.setText("Picked Up The Victim");
+        btnSceneReached1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSceneReached1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(btnAcceptCase)
+                .addGap(172, 172, 172)
+                .addComponent(btnOnTheWay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addComponent(btnSceneReached)
+                .addGap(192, 192, 192))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSceneReached1)
+                .addGap(135, 135, 135)
+                .addComponent(btnDroppedOffAtUHCS)
+                .addGap(337, 337, 337))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(btnAcceptCase)
-                        .addGap(145, 145, 145)
-                        .addComponent(btnOnTheWay)
-                        .addGap(129, 129, 129)
-                        .addComponent(btnSceneReached))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(453, 453, 453)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSuspectInCustody)
-                            .addComponent(btnTaskCompleted))))
-                .addGap(195, 230, Short.MAX_VALUE))
+                .addGap(439, 439, 439)
+                .addComponent(btnTaskCompleted)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(166, 166, 166)
+                .addGap(137, 137, 137)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSceneReached)
                     .addComponent(btnAcceptCase)
-                    .addComponent(btnOnTheWay)
-                    .addComponent(btnSceneReached))
-                .addGap(48, 48, 48)
-                .addComponent(btnSuspectInCustody)
-                .addGap(58, 58, 58)
+                    .addComponent(btnOnTheWay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDroppedOffAtUHCS)
+                    .addComponent(btnSceneReached1))
+                .addGap(84, 84, 84)
                 .addComponent(btnTaskCompleted)
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addGap(279, 279, 279))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -113,17 +126,18 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel {
             .addGap(0, 1094, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 14, Short.MAX_VALUE)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGap(0, 738, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -131,24 +145,29 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
-    private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
+    private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
+    }//GEN-LAST:event_btnSceneReachedActionPerformed
+
+    private void btnDroppedOffAtUHCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDroppedOffAtUHCSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDroppedOffAtUHCSActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
-    private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
+    private void btnSceneReached1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReached1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSceneReachedActionPerformed
+    }//GEN-LAST:event_btnSceneReached1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnDroppedOffAtUHCS;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnSceneReached;
-    private javax.swing.JButton btnSuspectInCustody;
+    private javax.swing.JButton btnSceneReached1;
     private javax.swing.JButton btnTaskCompleted;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
