@@ -5,15 +5,10 @@
  */
 package Business.Organisations;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author aamrah
  */
-public class ResourceCoordinator {
-    
-    //private ArrayList<Case> cases;
-    
+public class ReceptionistOrganisation {
     
 }

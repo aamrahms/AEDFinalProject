@@ -27,13 +27,6 @@ public abstract class Organisation {
     public enum Type{
         //Defined absolute values of organisation, each role
         
-        /*
-        PoliceOrganisation("PoliceOrganisation"),
-        CoOrdinatorOrganisation("CoOrdinatorOrganisation"),
-        InvestigatorOrganisation("InvestigatorOrganisation"),
-        InHouseOrganisation
-        */
-        
         StudentOrganisation("StudentOrganisation"),
         PoliceOfficerOrganisation("PoliceOfficerOrganisation"),
         ChiefOfficerOrganisation("ChiefOfficerOrganisation"),
@@ -61,7 +54,7 @@ public abstract class Organisation {
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         organizationID = counter;
-        //roles= new ArrayList<>();
+        roles= new ArrayList<>();
         ++counter;
     }
     public Organisation(){
