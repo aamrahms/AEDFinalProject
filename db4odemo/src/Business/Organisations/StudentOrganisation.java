@@ -9,7 +9,6 @@ package Business.Organisations;
  *
  * @author aamrah
  */
-public class TitleIXCoordinator {
-    //TitleIX can be a field in Coordinator class
+public class StudentOrganisation {
     
 }

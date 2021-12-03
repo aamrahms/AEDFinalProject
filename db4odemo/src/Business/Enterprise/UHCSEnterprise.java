@@ -9,7 +9,6 @@ package Business.Enterprise;
  *
  * @author aamrah
  */
-public class NUPD {
-    //aRRAYLIST OF Organisations
+public class UHCSEnterprise {
     
 }

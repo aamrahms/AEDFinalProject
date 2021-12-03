@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Organisations;
+package Business.Logic.UHCS;
 
 /**
  *
  * @author aamrah
  */
-public class PoliceOfficerDirectory {
+public class DoctorDirectory {
     
 }

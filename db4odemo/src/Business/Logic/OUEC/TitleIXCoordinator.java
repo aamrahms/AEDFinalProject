@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Enterprise;
+package Business.Logic.OUEC;
 
 /**
  *
  * @author aamrah
  */
-public class RedEye {
+public class TitleIXCoordinator {
+    //TitleIX can be a field in Coordinator class
     
 }

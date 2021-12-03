@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Organisations;
+package Business.Logic.OUEC;
 
 /**
  *
  * @author aamrah
  */
-public class AdvisorDirectory {
+public class OUECInvestigatorDirectory {
     
 }
