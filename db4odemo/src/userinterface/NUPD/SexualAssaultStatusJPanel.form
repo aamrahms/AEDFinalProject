@@ -16,15 +16,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jLabel1" alignment="0" pref="1070" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="191" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnSuspectInCustody" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                       <Component id="btnRedEyeNotified" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="289" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
@@ -32,13 +32,45 @@
                       <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
                       <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="444" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="348" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbmanufactureDate1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtLocation" alignment="0" pref="205" max="32767" attributes="0"/>
+                          <Component id="txtStatus" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbserialNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lboccupancy" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbmanufactureDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtComplaintID" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtVictimName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtAccused" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtType" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,7 +79,37 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtComplaintID" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbmanufactureDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtVictimName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lboccupancy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAccused" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbserialNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtType" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtLocation" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbmanufactureDate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAcceptCase" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSceneReached" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -60,7 +122,7 @@
               </Group>
               <EmptySpace pref="75" max="32767" attributes="0"/>
               <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -116,6 +178,60 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSceneReachedActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbserialNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Type:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtComplaintID">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtVictimName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVictimNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAccused">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAccusedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtType">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTypeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmake">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Complaint ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmanufactureDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Victim Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lboccupancy">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Accused:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmanufactureDate1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtLocation">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtStatus">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStatusActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmake1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Location:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

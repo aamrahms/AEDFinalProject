@@ -34,6 +34,18 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
         btnDroppedOffAtUHCS = new javax.swing.JButton();
         btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached1 = new javax.swing.JButton();
+        lbmanufactureDate = new javax.swing.JLabel();
+        lboccupancy = new javax.swing.JLabel();
+        lbmanufactureDate1 = new javax.swing.JLabel();
+        lbserialNumber = new javax.swing.JLabel();
+        txtLocation = new javax.swing.JTextField();
+        txtComplaintID = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        txtVictimName = new javax.swing.JTextField();
+        txtAccused = new javax.swing.JTextField();
+        txtType = new javax.swing.JTextField();
+        lbmake1 = new javax.swing.JLabel();
+        lbmake = new javax.swing.JLabel();
 
         btnAcceptCase.setText("Accept Case");
 
@@ -75,37 +87,123 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
             }
         });
 
+        lbmanufactureDate.setText("Victim Name:");
+
+        lboccupancy.setText("Accused:");
+
+        lbmanufactureDate1.setText("Status:");
+
+        lbserialNumber.setText("Type:");
+
+        txtStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStatusActionPerformed(evt);
+            }
+        });
+
+        txtVictimName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVictimNameActionPerformed(evt);
+            }
+        });
+
+        txtAccused.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAccusedActionPerformed(evt);
+            }
+        });
+
+        txtType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTypeActionPerformed(evt);
+            }
+        });
+
+        lbmake1.setText("Location:");
+
+        lbmake.setText("Complaint ID:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(btnAcceptCase)
-                .addGap(167, 167, 167)
-                .addComponent(btnOnTheWay)
-                .addGap(173, 173, 173)
-                .addComponent(btnSceneReached)
-                .addContainerGap(173, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAcceptCase)
+                        .addGap(167, 167, 167)
+                        .addComponent(btnOnTheWay)
+                        .addGap(173, 173, 173)
+                        .addComponent(btnSceneReached))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSceneReached1)
-                        .addGap(124, 124, 124)
-                        .addComponent(btnDroppedOffAtUHCS)
-                        .addGap(295, 295, 295))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnTaskCompleted)
-                        .addGap(452, 452, 452))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnSceneReached1)
+                                .addGap(124, 124, 124)
+                                .addComponent(btnDroppedOffAtUHCS)
+                                .addGap(122, 122, 122))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnTaskCompleted)
+                                .addGap(279, 279, 279)))))
+                .addGap(182, 182, 182))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(361, 361, 361)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbmanufactureDate1)
+                            .addComponent(lbmake1))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtLocation)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbserialNumber)
+                            .addComponent(lboccupancy)
+                            .addComponent(lbmanufactureDate)
+                            .addComponent(lbmake))
+                        .addGap(70, 70, 70)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtComplaintID)
+                            .addComponent(txtVictimName)
+                            .addComponent(txtAccused)
+                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137)
+                .addGap(62, 62, 62)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbmake)
+                    .addComponent(txtComplaintID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbmanufactureDate)
+                    .addComponent(txtVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lboccupancy)
+                    .addComponent(txtAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbserialNumber)
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbmake1)
+                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbmanufactureDate1)
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSceneReached)
                     .addComponent(btnAcceptCase)
@@ -116,7 +214,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
                     .addComponent(btnSceneReached1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
-                .addGap(287, 287, 287))
+                .addGap(95, 95, 95))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -126,6 +224,10 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
 
     private void btnDroppedOffAtUHCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDroppedOffAtUHCSActionPerformed
         // TODO add your handling code here:
+        
+        // a pop up for the Police to write a description/feedback
+        // change Status to new at Dropped off at UHCS
+        
     }//GEN-LAST:event_btnDroppedOffAtUHCSActionPerformed
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
@@ -140,6 +242,22 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSceneReached1ActionPerformed
 
+    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStatusActionPerformed
+
+    private void txtVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVictimNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVictimNameActionPerformed
+
+    private void txtAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccusedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAccusedActionPerformed
+
+    private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTypeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
@@ -151,5 +269,17 @@ public class InjuryStatusJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lbmake;
+    private javax.swing.JLabel lbmake1;
+    private javax.swing.JLabel lbmanufactureDate;
+    private javax.swing.JLabel lbmanufactureDate1;
+    private javax.swing.JLabel lboccupancy;
+    private javax.swing.JLabel lbserialNumber;
+    private javax.swing.JTextField txtAccused;
+    private javax.swing.JTextField txtComplaintID;
+    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtType;
+    private javax.swing.JTextField txtVictimName;
     // End of variables declaration//GEN-END:variables
 }
