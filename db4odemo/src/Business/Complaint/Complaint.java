@@ -5,7 +5,7 @@
  */
 package Business.Complaint;
 
-import Business.Organisations.Student;
+import Business.Student.Student;
 import java.util.Date;
 
 /**
