@@ -40,18 +40,18 @@ public class ComplaintDirectory {
         complaintList.add(complaint);
         return complaint;
     }
-     public void appendEmergencyComplaint(EmergencyComplaint complaint/*,String location*/)
-     {
-         //complaint.setLocation(location);
-     }
-     public void appendNormalComplaint(Complaint complaint /*,String location*/ ,String dateOfIncident, Student accusedStudent,Student victimStudent){
-         //complaint.setLocation(location);
-        
-        complaint.setDateOfIncident(dateOfIncident);
-        complaint.setAccusedStudent(accusedStudent);
-        complaint.setVictimStudent(victimStudent);
-        
-     }
+//     public void appendEmergencyComplaint(EmergencyComplaint complaint/*,String location*/)
+//     {
+//         //complaint.setLocation(location);
+//     }
+//     public void appendNormalComplaint(Complaint complaint /*,String location*/ ,String dateOfIncident, Student accusedStudent,Student victimStudent){
+//         //complaint.setLocation(location);
+//        
+//        complaint.setDateOfIncident(dateOfIncident);
+//        complaint.setAccusedStudent(accusedStudent);
+//        complaint.setVictimStudent(victimStudent);
+//        
+//     }
     public ArrayList<Complaint> getComplaintList() {
         return complaintList;
     }
