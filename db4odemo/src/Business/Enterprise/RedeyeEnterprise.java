@@ -5,6 +5,7 @@
  */
 package Business.Enterprise;
 
+import static Business.Organisations.Organisation.Type.DriverOrganisation;
 import Business.Role.AdvisorRole;
 import Business.Role.DoctorRole;
 import Business.Role.DriverRole;
@@ -19,6 +20,8 @@ import java.util.ArrayList;
 public class RedeyeEnterprise extends Enterprise{
      public RedeyeEnterprise(String name) {
         super(name, Enterprise.EnterpriseType.RedeyeEnterprise);
+        this.getOrganisationDirectory().createOrganisation(DriverOrganisation, "DriverOrganisation");
+
     }
     //aRRAYLIST OF Organisations 
 

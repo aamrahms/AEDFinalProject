@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class OUECInvestigatorOrganisation extends Organisation{
 
     public OUECInvestigatorOrganisation() {
-        super(Organisation.Type.PoliceInvestigatorOrganisation.getValue());
+        super(Organisation.Type.OUECInvestigatorOrganisation.getValue());
     }
 
     

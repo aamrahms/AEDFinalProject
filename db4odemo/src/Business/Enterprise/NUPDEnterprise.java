@@ -22,9 +22,9 @@ public class NUPDEnterprise extends Enterprise{
     public NUPDEnterprise(String name) {
         super(name, Enterprise.EnterpriseType.NUPDEnterprise);
         //this.organisationDirectory.add();
+//        if()
         this.getOrganisationDirectory().createOrganisation(PoliceOfficerOrganisation, "PoliceOfficerOrganisation");
         this.getOrganisationDirectory().createOrganisation(ChiefOfficerOrganisation, "ChiefOfficerOrganisation");
-        
         
     }
     //aRRAYLIST OF Organisations 

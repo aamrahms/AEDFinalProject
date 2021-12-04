@@ -6,6 +6,7 @@
 package Business;
 
 import Business.Complaint.ComplaintDirectory;
+import Business.Enterprise.EnterpriseDirectory;
 import Business.Logic.UHCS.AdvisorDirectory;
 import Business.Logic.UHCS.DoctorDirectory;
 import Business.Logic.OUEC.OUECInvestigatorDirectory;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class EcoSystem extends Organisation{
     
     private static EcoSystem business;
+    private EnterpriseDirectory enterpriseDirectory;
     private ComplaintDirectory complaintDirectory;
     
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
