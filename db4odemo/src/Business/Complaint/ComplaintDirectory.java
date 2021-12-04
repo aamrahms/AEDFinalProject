@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Business.Complaint;
-import Business.Organisations.Student;
+import Business.Student.Student;
 import java.util.ArrayList;
 
 /**
