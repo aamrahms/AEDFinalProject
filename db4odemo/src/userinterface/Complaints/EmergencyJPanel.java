@@ -42,8 +42,8 @@ public class EmergencyJPanel extends javax.swing.JPanel
         jLabel2 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        cmbTypeOfEmergency = new javax.swing.JComboBox<>();
+        btnSubmitEmergency = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EMERGENCY COMPLAINT");
@@ -52,9 +52,19 @@ public class EmergencyJPanel extends javax.swing.JPanel
 
         jLabel3.setText("Type:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Injury", "Threats/Stalking", "Sexual Assault", "Firearm" }));
+        cmbTypeOfEmergency.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Injury", "Threats/Stalking", "Sexual Assault", "Firearm" }));
+        cmbTypeOfEmergency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTypeOfEmergencyActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Submit");
+        btnSubmitEmergency.setText("Submit");
+        btnSubmitEmergency.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitEmergencyActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -70,8 +80,8 @@ public class EmergencyJPanel extends javax.swing.JPanel
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubmitEmergency)
+                    .addComponent(cmbTypeOfEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 489, Short.MAX_VALUE))
         );
@@ -87,17 +97,26 @@ public class EmergencyJPanel extends javax.swing.JPanel
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTypeOfEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
-                .addComponent(jButton1)
+                .addComponent(btnSubmitEmergency)
                 .addContainerGap(325, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbTypeOfEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTypeOfEmergencyActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cmbTypeOfEmergencyActionPerformed
+
+    private void btnSubmitEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitEmergencyActionPerformed
+
+    }//GEN-LAST:event_btnSubmitEmergencyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnSubmitEmergency;
+    private javax.swing.JComboBox<String> cmbTypeOfEmergency;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

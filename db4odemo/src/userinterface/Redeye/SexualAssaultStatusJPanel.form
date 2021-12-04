@@ -22,7 +22,7 @@
               <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
               <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="207" max="32767" attributes="0"/>
+              <EmptySpace pref="210" max="32767" attributes="0"/>
               <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
           </Group>
@@ -106,7 +106,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAcceptCase">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Accept Case"/>
+        <Property name="text" type="java.lang.String" value="Accept Ride"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

@@ -83,7 +83,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
             }
         });
 
-        btnAcceptCase.setText("Accept Case");
+        btnAcceptCase.setText("Accept Ride");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("STATUS UPDATE FOR SEXUAL ASSAULT");
@@ -98,7 +98,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 .addComponent(btnAcceptCase)
                 .addGap(172, 172, 172)
                 .addComponent(btnOnTheWay)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addComponent(btnSceneReached)
                 .addGap(192, 192, 192))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()

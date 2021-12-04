@@ -23,6 +23,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     EcoSystem ecosystem;
     String reasons="";
+    
     public FileAComplaintJPanel(JPanel userProcessContainer, EcoSystem ecosystem) 
     {
         initComponents();
@@ -66,6 +67,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        chckAge = new javax.swing.JCheckBox();
 
         lbLocation.setText("Location:");
 
@@ -162,11 +164,21 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
+        chckAge.setText("Age");
+        chckAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chckAgeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 942, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(chckAge)
+                .addContainerGap(825, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -239,7 +251,10 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 657, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(388, Short.MAX_VALUE)
+                .addComponent(chckAge)
+                .addGap(246, 246, 246))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(39, 39, 39)
@@ -373,9 +388,20 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void chckAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckAgeActionPerformed
+        // TODO add your handling code here:
+        
+        if (chckAge.isEnabled())
+        {
+            reasons += " Age ";
+
+        }
+    }//GEN-LAST:event_chckAgeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbTypeOfIncident1;
+    private javax.swing.JCheckBox chckAge;
     private javax.swing.JCheckBox chckDisability;
     private javax.swing.JCheckBox chckGender;
     private javax.swing.JCheckBox chckNationality;

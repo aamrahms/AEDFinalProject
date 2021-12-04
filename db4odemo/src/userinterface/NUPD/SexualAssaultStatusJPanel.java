@@ -5,17 +5,30 @@
  */
 package userinterface.NUPD;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author fianrodrigues
  */
-public class SexualAssaultStatusJPanel extends javax.swing.JPanel {
+public class SexualAssaultStatusJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form SexualAssaultStatusJPanel
      */
-    public SexualAssaultStatusJPanel() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount userAccount;
+    
+    public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = system;
+        this.userAccount = account;
     }
 
     /**

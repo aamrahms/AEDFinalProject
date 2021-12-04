@@ -19,15 +19,15 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
     /**
      * Creates new form PoliceOfficerStatusJPanel
      */
-    private JPanel userProcessContainer;
-    private EcoSystem ecosystem;
-    private UserAccount userAccount;
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount userAccount;
     
     public PoliceOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.ecosystem = system;
         this.userAccount = account;
     }
 

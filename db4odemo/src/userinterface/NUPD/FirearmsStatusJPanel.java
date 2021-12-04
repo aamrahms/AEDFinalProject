@@ -5,6 +5,10 @@
  */
 package userinterface.NUPD;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author fianrodrigues
@@ -15,9 +19,16 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     /**
      * Creates new form FirearmsJPanel
      */
-    public FirearmsStatusJPanel()
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    
+    public FirearmsStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
     {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
