@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.NUPD.PoliceOfficerJPanel1;
+import userinterface.NUPD.PoliceOfficerJPanel;
 
 /**
  *
@@ -18,7 +18,7 @@ public class PoliceOfficerRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new PoliceOfficerJPanel1(userProcessContainer, account, system);
+         return new PoliceOfficerJPanel(userProcessContainer, account, system);
     }
     
 }

@@ -15,7 +15,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     /**
      * Creates new form SexualAssaultJPanel
      */
-    public SexualAssaultStatusJPanel() {
+    public SexualAssaultStatusJPanel()
+    {
         initComponents();
     }
 

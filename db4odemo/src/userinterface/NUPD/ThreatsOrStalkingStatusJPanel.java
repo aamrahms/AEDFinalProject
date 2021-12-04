@@ -10,10 +10,12 @@ package userinterface.NUPD;
  *
  * @author fianrodrigues
  */
-public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
+public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel 
+{
 
     /** Creates new form ThreatsOrStalkingJPanel */
-    public ThreatsOrStalkingStatusJPanel() {
+    public ThreatsOrStalkingStatusJPanel()
+    {
         initComponents();
     }
 

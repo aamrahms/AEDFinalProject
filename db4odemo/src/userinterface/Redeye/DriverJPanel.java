@@ -13,7 +13,8 @@ import javax.swing.JPanel;
  *
  * @author fianrodrigues
  */
-public class DriverJPanel extends javax.swing.JPanel {
+public class DriverJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form DriverJPanel
@@ -21,7 +22,8 @@ public class DriverJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;
