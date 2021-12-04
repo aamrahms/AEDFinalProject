@@ -13,7 +13,8 @@ import javax.swing.JPanel;
  *
  * @author aamrah
  */
-public class AdvisorJPanel extends javax.swing.JPanel {
+public class AdvisorJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form AdvisorJPanel
@@ -21,7 +22,9 @@ public class AdvisorJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    public AdvisorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    
+    public AdvisorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;

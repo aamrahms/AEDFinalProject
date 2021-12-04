@@ -5,17 +5,30 @@
  */
 package userinterface.UHCS;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author fianrodrigues
  */
-public class ReceptionistStatusJPanel extends javax.swing.JPanel {
+public class ReceptionistStatusJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form ReceptionistJPanel
      */
-    public ReceptionistStatusJPanel() {
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    
+    public ReceptionistStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**

@@ -6,6 +6,10 @@
 
 package userinterface.NUPD;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author fianrodrigues
@@ -14,9 +18,16 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
 {
 
     /** Creates new form ThreatsOrStalkingJPanel */
-    public ThreatsOrStalkingStatusJPanel()
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    UserAccount userAccount;
+    
+    public ThreatsOrStalkingStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
     {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecosystem = system;
+        this.userAccount = account;
     }
 
     /** This method is called from within the constructor to

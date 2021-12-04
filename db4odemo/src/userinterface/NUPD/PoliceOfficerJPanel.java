@@ -27,7 +27,7 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem=ecosystem;
+        this.ecosystem = ecosystem;
         this.userAccount = account;
     }
 
