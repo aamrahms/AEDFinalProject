@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                      <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="327" max="32767" attributes="0"/>
+                      <Component id="btnSuspectInCustody" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnRedEyeNotified" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="495" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lbmanufactureDate1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtLocation" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtStatus" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lbserialNumber" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lboccupancy" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbmanufactureDate" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtComplaintID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtVictimName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtAccused" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtType" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtComplaintID" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbmanufactureDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtVictimName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lboccupancy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAccused" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lbserialNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtType" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtLocation" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lbmanufactureDate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnAcceptCase" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOnTheWay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSceneReached" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnRedEyeNotified" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSuspectInCustody" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="btnAcceptCase">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Accept Case"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="STATUS UPDATE FOR THREATS OR STALKING"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnOnTheWay">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="On The Way"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOnTheWayActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnRedEyeNotified">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Red Eye Notified"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRedEyeNotifiedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTaskCompleted">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Task Completed"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaskCompletedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSuspectInCustody">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Suspect In Custody"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuspectInCustodyActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSceneReached">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Scene Reached"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSceneReachedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmanufactureDate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Victim Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lboccupancy">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Accused:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmanufactureDate1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbserialNumber">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Type:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtLocation">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtComplaintID">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtStatus">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtStatusActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtVictimName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVictimNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtAccused">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAccusedActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtType">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTypeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmake1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Location:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbmake">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Complaint ID:"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
