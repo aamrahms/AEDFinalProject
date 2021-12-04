@@ -29,10 +29,10 @@ public class Complaint {
     private Student accusedStudent;
    
 
-    public Complaint(String typeOfComplaint, Student student, String dateOfIncident/*,String location*/) {
+    public Complaint(String typeOfComplaint, Student victimStudent, String dateOfIncident/*,String location*/) {
         this.ComplaintID = String.valueOf(count++);
         this.status = "New";
-        this.victimStudent=student;
+        this.victimStudent=victimStudent;
         this.typeOfComplaint=typeOfComplaint;
         //this.location = location;
         if(typeOfComplaint.equals("Emergency"))

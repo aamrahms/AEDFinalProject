@@ -6,6 +6,7 @@
 package userinterface.Complaints;
 
 import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -20,13 +21,15 @@ public class ComplaintJPanel extends javax.swing.JPanel
      * Creates new form ComplaintJPanel
      */
     JPanel userProcessContainer;
-    EcoSystem ecosystem;
-    
-    public ComplaintJPanel(JPanel userProcessContainer, EcoSystem ecosystem) 
+    EcoSystem system;
+    UserAccount account;
+            
+    public ComplaintJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.system = system;
+        this.account = account;
     }
 
     /**
@@ -87,7 +90,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
         // TODO add your handling code here:
 
-        EmergencyJPanel complaint = new EmergencyJPanel(userProcessContainer, ecosystem);
+        EmergencyJPanel complaint = new EmergencyJPanel(userProcessContainer, system);
         userProcessContainer.add("Emergency", complaint);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
@@ -97,7 +100,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
         // TODO add your handling code here:
         
-        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, ecosystem);
+        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, account,system);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);

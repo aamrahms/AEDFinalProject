@@ -121,5 +121,13 @@ public class EcoSystem extends Organisation{
 //    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
 //        this.investigatorDirectory = investigatorDirectory;
 //    }   
+
+    public ComplaintDirectory getComplaintDirectory() {
+        return complaintDirectory;
+    }
+
+    public void setComplaintDirectory(ComplaintDirectory complaintDirectory) {
+        this.complaintDirectory = complaintDirectory;
+    }
     
 }
