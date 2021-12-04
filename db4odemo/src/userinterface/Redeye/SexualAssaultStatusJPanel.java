@@ -5,6 +5,10 @@
  */
 package userinterface.Redeye;
 
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author fianrodrigues
@@ -15,9 +19,16 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     /**
      * Creates new form SexualAssaultJPanel
      */
-    public SexualAssaultStatusJPanel()
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    
+    public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
     {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
