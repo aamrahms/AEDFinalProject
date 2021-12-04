@@ -5,6 +5,9 @@
  */
 package Business.Enterprise;
 
+import static Business.Organisations.Organisation.Type.AdvisorOrganisation;
+import static Business.Organisations.Organisation.Type.DoctorOrganisation;
+import static Business.Organisations.Organisation.Type.ReceptionistOrganisation;
 import Business.Role.AdvisorRole;
 import Business.Role.DoctorRole;
 import Business.Role.ReceptionistRole;
@@ -18,6 +21,10 @@ import java.util.ArrayList;
 public class UHCSEnterprise extends Enterprise{
      public UHCSEnterprise(String name) {
         super(name, Enterprise.EnterpriseType.UHCSEnterprise);
+        this.getOrganisationDirectory().createOrganisation(DoctorOrganisation, "DoctorOrganisation");
+        this.getOrganisationDirectory().createOrganisation(ReceptionistOrganisation, "ReceptionistOrganisation");
+        this.getOrganisationDirectory().createOrganisation(AdvisorOrganisation, "AdvisorOrganisation");
+
     }
     //aRRAYLIST OF Organisations 
 
