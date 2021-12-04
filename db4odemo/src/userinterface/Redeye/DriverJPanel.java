@@ -22,6 +22,7 @@ public class DriverJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
+    
     public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
     {
         initComponents();

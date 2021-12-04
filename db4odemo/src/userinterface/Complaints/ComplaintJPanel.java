@@ -21,6 +21,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
+    
     public ComplaintJPanel(JPanel userProcessContainer, EcoSystem ecosystem) 
     {
         initComponents();
@@ -52,6 +53,11 @@ public class ComplaintJPanel extends javax.swing.JPanel
         });
 
         btnNormal.setText("NORMAL");
+        btnNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNormalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -81,13 +87,22 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
         // TODO add your handling code here:
 
+        EmergencyJPanel complaint = new EmergencyJPanel(userProcessContainer, ecosystem);
+        userProcessContainer.add("Emergency", complaint);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+  
+    }//GEN-LAST:event_btnEmergencyActionPerformed
+
+    private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
+        // TODO add your handling code here:
+        
         FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, ecosystem);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
-  
-
-    }//GEN-LAST:event_btnEmergencyActionPerformed
+        
+    }//GEN-LAST:event_btnNormalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
