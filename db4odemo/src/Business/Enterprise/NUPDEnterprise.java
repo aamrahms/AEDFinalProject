@@ -5,6 +5,8 @@
  */
 package Business.Enterprise;
 
+import static Business.Organisations.Organisation.Type.ChiefOfficerOrganisation;
+import static Business.Organisations.Organisation.Type.PoliceOfficerOrganisation;
 import Business.Role.ChiefOfficerRole;
 import Business.Role.OUECInvestigatorRole;
 import Business.Role.PoliceOfficerRole;
@@ -19,6 +21,11 @@ public class NUPDEnterprise extends Enterprise{
 
     public NUPDEnterprise(String name) {
         super(name, Enterprise.EnterpriseType.NUPDEnterprise);
+        //this.organisationDirectory.add();
+        this.getOrganisationDirectory().createOrganisation(PoliceOfficerOrganisation, "PoliceOfficerOrganisation");
+        this.getOrganisationDirectory().createOrganisation(ChiefOfficerOrganisation, "ChiefOfficerOrganisation");
+        
+        
     }
     //aRRAYLIST OF Organisations 
 
