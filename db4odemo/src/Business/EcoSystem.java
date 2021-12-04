@@ -5,12 +5,14 @@
  */
 package Business;
 
+import Business.Complaint.ComplaintDirectory;
 import Business.Logic.UHCS.AdvisorDirectory;
 import Business.Logic.UHCS.DoctorDirectory;
 import Business.Logic.OUEC.OUECInvestigatorDirectory;
 import Business.Logic.OUEC.OUECCoordinatorDirectory;
 import Business.Logic.NUPD.PoliceOfficerDirectory;
 import Business.Network.Network;
+import Business.Organisations.Organisation;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Student.StudentDirectory;
@@ -20,22 +22,14 @@ import java.util.ArrayList;
  *
  * @author aamrah
  */
-public class EcoSystem extends Organization{
+public class EcoSystem extends Organisation{
     
     private static EcoSystem business;
-    private ArrayList<Network> networkList;
+    private ComplaintDirectory complaintDirectory;
     
-//    private StudentDirectory studentDirectory;
-//    private PoliceOfficerDirectory policeDirectory;
-//    private OUECCoordinatorDirectory ouecCoordinators;
-//    private DoctorDirectory doctorDirectory;
-//    private AdvisorDirectory advisorDirectory;
-//    private OUECInvestigatorDirectory investigatorDirectory;
-
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
-//        this.studentDirectory = studentDirectory;
-//        this.policeDirectory= policeDirectory;
-//        this.ouecCoordinators=ouecCoordinators;
+        this.complaintDirectory= new ComplaintDirectory();
+
     }
     
     public static EcoSystem getInstance(){
