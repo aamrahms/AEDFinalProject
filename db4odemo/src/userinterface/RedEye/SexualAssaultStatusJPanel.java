@@ -9,7 +9,8 @@ package userinterface.Redeye;
  *
  * @author fianrodrigues
  */
-public class SexualAssaultStatusJPanel extends javax.swing.JPanel {
+public class SexualAssaultStatusJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form SexualAssaultJPanel

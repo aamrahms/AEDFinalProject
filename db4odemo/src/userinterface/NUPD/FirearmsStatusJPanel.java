@@ -9,12 +9,14 @@ package userinterface.NUPD;
  *
  * @author fianrodrigues
  */
-public class FirearmsStatusJPanel extends javax.swing.JPanel {
+public class FirearmsStatusJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form FirearmsJPanel
      */
-    public FirearmsStatusJPanel() {
+    public FirearmsStatusJPanel()
+    {
         initComponents();
     }
 

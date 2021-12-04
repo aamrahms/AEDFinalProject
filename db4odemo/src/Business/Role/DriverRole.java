@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.Redeye.DriverJPanel;
+import userinterface.Redeye.DriverJPanel1;
 
 /**
  *
@@ -21,6 +21,6 @@ public class DriverRole extends Role {
     }
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new DriverJPanel(userProcessContainer, account, system);
+         return new DriverJPanel1(userProcessContainer, account, system);
     }
 }
