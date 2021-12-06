@@ -59,6 +59,7 @@ public class EcoSystem extends Organisation{
     }
     
     //Added getters and setters
+    
 //    public PoliceOfficerDirectory getPoliceDirectory() {
 //        if (policeDirectory==null)
 //            this.policeDirectory= new PoliceOfficerDirectory();
@@ -123,5 +124,21 @@ public class EcoSystem extends Organisation{
 //    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
 //        this.investigatorDirectory = investigatorDirectory;
 //    }   
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+
+    public ComplaintDirectory getComplaintDirectory() {
+        return complaintDirectory;
+    }
+
+    public void setComplaintDirectory(ComplaintDirectory complaintDirectory) {
+        this.complaintDirectory = complaintDirectory;
+    }
     
 }

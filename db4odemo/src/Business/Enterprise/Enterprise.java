@@ -35,7 +35,7 @@ public abstract class Enterprise extends Organisation{
         super(name);
         this.enterpriseType = enterpriseType;
         this.organisationDirectory = new OrganisationDirectory();
-//        this.organisationDirectory.createOrganisation();
+
     }
     
     //getters and setters
