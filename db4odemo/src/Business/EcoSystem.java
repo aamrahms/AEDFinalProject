@@ -6,6 +6,7 @@
 package Business;
 
 import Business.Complaint.ComplaintDirectory;
+import Business.Enterprise.EnterpriseDirectory;
 import Business.Logic.UHCS.AdvisorDirectory;
 import Business.Logic.UHCS.DoctorDirectory;
 import Business.Logic.OUEC.OUECInvestigatorDirectory;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 public class EcoSystem extends Organisation{
     
     private static EcoSystem business;
+    private EnterpriseDirectory enterpriseDirectory;
     private ComplaintDirectory complaintDirectory;
     
     private StudentDirectory studentDirectory;
@@ -64,6 +66,87 @@ public class EcoSystem extends Organisation{
     }
     
     //Added getters and setters
+    
+//    public PoliceOfficerDirectory getPoliceDirectory() {
+//        if (policeDirectory==null)
+//            this.policeDirectory= new PoliceOfficerDirectory();
+//        return this.policeDirectory;
+//    }
+//
+//    public void setPoliceDirectory(PoliceOfficerDirectory policeDirectory) {
+//        this.policeDirectory = policeDirectory;
+//    }
+//
+//    public StudentDirectory getStudentDirectory() {
+//        if(studentDirectory==null)
+//            this.studentDirectory = new StudentDirectory();
+//        
+//        return this.studentDirectory;
+//        
+//    }
+//
+//    public void setStudentDirectory(StudentDirectory studentDirectory) {
+//        this.studentDirectory = studentDirectory;
+//        
+//    }
+//
+//    public OUECCoordinatorDirectory getOuecCoordinators() {
+//        if(ouecCoordinators==null)
+//        {
+//            this.ouecCoordinators=new OUECCoordinatorDirectory();
+//        }
+//        return ouecCoordinators;
+//    }
+//
+//    public void setOuecCoordinators(OUECCoordinatorDirectory ouecCoordinators) {
+//        this.ouecCoordinators = ouecCoordinators;
+//    }
+//
+//    public DoctorDirectory getDoctorDirectory() {
+//        if(doctorDirectory==null)
+//            this.doctorDirectory= new DoctorDirectory();
+//        return doctorDirectory;
+//    }
+//
+//    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
+//        this.doctorDirectory = doctorDirectory;
+//    }
+//
+//    public AdvisorDirectory getAdvisorDirectory() {
+//        if(advisorDirectory==null)
+//            this.advisorDirectory= new AdvisorDirectory();
+//        return advisorDirectory;
+//    }
+//
+//    public void setAdvisorDirectory(AdvisorDirectory advisorDirectory) {
+//        this.advisorDirectory = advisorDirectory;
+//    }
+//
+//    public OUECInvestigatorDirectory getInvestigatorDirectory() {
+//        if(investigatorDirectory==null)
+//            this.investigatorDirectory= new OUECInvestigatorDirectory();
+//        return investigatorDirectory;
+//    }
+//
+//    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
+//        this.investigatorDirectory = investigatorDirectory;
+//    }   
+
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return enterpriseDirectory;
+    }
+
+    public void setEnterpriseDirectory(EnterpriseDirectory enterpriseDirectory) {
+        this.enterpriseDirectory = enterpriseDirectory;
+    }
+
+    public ComplaintDirectory getComplaintDirectory() {
+        return complaintDirectory;
+    }
+
+    public void setComplaintDirectory(ComplaintDirectory complaintDirectory) {
+        this.complaintDirectory = complaintDirectory;
+    }
     public PoliceOfficerDirectory getPoliceDirectory() {
         if (policeDirectory==null)
             this.policeDirectory= new PoliceOfficerDirectory();

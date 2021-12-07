@@ -1,6 +1,8 @@
 package Business;
 
 import Business.Employee.Employee;
+import Business.Role.ChiefOfficerRole;
+import Business.Role.StudentRole;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccount;
 
@@ -23,6 +25,9 @@ public class ConfigureASystem {
         
         Employee employee = system.getEmployeeDirectory().createEmployee("NeuAdmin", "sysadmin", "sysadmin", "localhost", "1234567890", "Admin@neu.edu", "123456789");
         
+        //UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
+        UserAccount ua1 = system.getUserAccountDirectory().createUserAccount("chief", "chief", employee, new ChiefOfficerRole());
+        UserAccount ua2 = system.getUserAccountDirectory().createUserAccount("aamrah", "aamrah", employee, new StudentRole());
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("NeuAdmin", "sysadmin", "sysadmin", employee, new SystemAdminRole());
         
         return system;

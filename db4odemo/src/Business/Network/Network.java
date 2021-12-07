@@ -14,6 +14,8 @@ public class Network {
    
    private String city;
    private EnterpriseDirectory enterpriseDirectory;
+   //COMPLAINTdIRECTORY
+   //STUDENTDIRECTORY
 
     public Network() {
         this.enterpriseDirectory = new EnterpriseDirectory();
