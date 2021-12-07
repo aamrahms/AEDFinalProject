@@ -32,14 +32,14 @@ public class StudentDirectory {
         return null;
     }
     //creating student
-    public Student createStudent(String name, String username, String password, String address, String phone)
+    public Student createStudent(String name, String username, String password, String address, String phone, String email, String neuid)
     {
-        student=new Student(name, username, password,address, phone);
+        student=new Student(name, username, password,address, phone, email, neuid);
         studentDir.add(student);
         return student;
     }
     //updating student profile
-    public void updateStudent(Student student,String name, String username, String password, String address, String phone)
+    public void updateStudent(Student student,String name, String username, String password, String address, String phone, String email, String neuid)
     {
         for (Student c: studentDir)
         {

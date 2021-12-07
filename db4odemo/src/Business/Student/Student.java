@@ -19,14 +19,18 @@ import java.util.ArrayList;
     private String password;
     private String address;
     private String phone;
+    private String email;
+    private String neuid;
     private ArrayList <Complaint> myComplaints;
 
-    public Student(String name, String username, String password, String address, String phone) {
+    public Student(String name, String username, String password, String address, String phone, String email, String neuid) {
         this.name = name;
         this.username = username;
         this.password = password;
         this.address = address;
-        this.phone = phone;        
+        this.phone = phone;
+        this.email = email;
+        this.neuid = neuid;
     }
 
     public String getName() {
