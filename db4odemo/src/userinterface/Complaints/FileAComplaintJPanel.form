@@ -28,9 +28,9 @@
                       <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                          <Component id="lblTitleOfIncident" min="-2" pref="277" max="-2" attributes="0"/>
+                          <Component id="lblTitle2" min="-2" pref="277" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblTitleOfParties" min="-2" pref="277" max="-2" attributes="0"/>
+                          <Component id="lblTitle3" min="-2" pref="277" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -55,12 +55,12 @@
                                           <EmptySpace pref="171" max="32767" attributes="0"/>
                                           <Component id="jLabel11" min="-2" pref="151" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cmbAccusedStudent" min="-2" pref="183" max="-2" attributes="0"/>
+                                          <Component id="jComboBox2" min="-2" pref="183" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtLocation" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                                              <Component id="cmbTypeOfIncident" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cbTypeOfIncident1" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace pref="2" max="-2" attributes="0"/>
                                                   <Component id="jTextField1" min="-2" pref="248" max="-2" attributes="0"/>
@@ -72,7 +72,7 @@
                                               </Group>
                                           </Group>
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="cmbVictimStudent" min="-2" pref="185" max="-2" attributes="0"/>
+                                          <Component id="jComboBox1" min="-2" pref="185" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -105,7 +105,7 @@
                           <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
                           <Component id="btnSubmit" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                          <Component id="btnGoBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -116,9 +116,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="388" max="32767" attributes="0"/>
+              <EmptySpace pref="390" max="32767" attributes="0"/>
               <Component id="chckAge" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="244" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -126,22 +126,22 @@
                   <Component id="lblTitle" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTitleOfIncident" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="lblTitleOfParties" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="lblTitle2" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="lblTitle3" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbDateOfIncident" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="txtDateOfIncident" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbVictimStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTimeOfIncident" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="txtTimeOfIncident" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbAccusedStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -150,7 +150,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbTypeOfIncident" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbTypeOfIncident1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbTypeOfIncident" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -177,7 +177,7 @@
                   <EmptySpace pref="118" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnGoBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
@@ -198,7 +198,7 @@
         <Property name="text" type="java.lang.String" value="Type of Incident:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbTypeOfIncident">
+    <Component class="javax.swing.JComboBox" name="cbTypeOfIncident1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -221,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
     </Component>
-    <Component class="javax.swing.JLabel" name="lblTitleOfParties">
+    <Component class="javax.swing.JLabel" name="lblTitle3">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Details of the Involved Parties"/>
@@ -232,7 +232,7 @@
         <Property name="text" type="java.lang.String" value="Name of the Victim:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbVictimStudent">
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -252,7 +252,7 @@
         <Property name="text" type="java.lang.String" value="Name of the Accused:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbAccusedStudent">
+    <Component class="javax.swing.JComboBox" name="jComboBox2">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -324,9 +324,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtDateOfIncident">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDateOfIncidentActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chckDisability">
       <Properties>
@@ -358,22 +355,19 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSubmitActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblTitleOfIncident">
+    <Component class="javax.swing.JLabel" name="lblTitle2">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Details of the Incident"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnGoBack">
+    <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="text" type="java.lang.String" value="Go Back"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGoBackActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="chckAge">

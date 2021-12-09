@@ -40,7 +40,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAcceptCase = new javax.swing.JButton();
+        btnAcceptRide = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOnTheWay = new javax.swing.JButton();
         btnSceneReached = new javax.swing.JButton();
@@ -48,7 +48,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached1 = new javax.swing.JButton();
 
-        btnAcceptCase.setText("Accept Case");
+        btnAcceptRide.setText("Accept Ride");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("STATUS UPDATE FOR THREATS OR STALKING");
@@ -100,10 +100,10 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(157, 157, 157)
-                            .addComponent(btnAcceptCase)
+                            .addComponent(btnAcceptRide)
                             .addGap(172, 172, 172)
                             .addComponent(btnOnTheWay)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                             .addComponent(btnSceneReached)
                             .addGap(192, 192, 192))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -126,7 +126,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
                     .addGap(137, 137, 137)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSceneReached)
-                        .addComponent(btnAcceptCase)
+                        .addComponent(btnAcceptRide)
                         .addComponent(btnOnTheWay))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -160,7 +160,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnAcceptRide;
     private javax.swing.JButton btnDroppedOffAtUHCS;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnSceneReached;

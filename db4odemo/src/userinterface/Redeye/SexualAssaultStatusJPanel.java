@@ -23,7 +23,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     UserAccount account;
     EcoSystem system;
     
-    public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -45,7 +45,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         btnDroppedOffAtUHCS = new javax.swing.JButton();
         btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached1 = new javax.swing.JButton();
-        btnAcceptCase = new javax.swing.JButton();
+        btnAcceptRide = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         btnOnTheWay.setText("On The Way");
@@ -83,7 +83,12 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
             }
         });
 
-        btnAcceptCase.setText("Accept Ride");
+        btnAcceptRide.setText("Accept Ride");
+        btnAcceptRide.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptRideActionPerformed(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("STATUS UPDATE FOR SEXUAL ASSAULT");
@@ -95,7 +100,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(157, 157, 157)
-                .addComponent(btnAcceptCase)
+                .addComponent(btnAcceptRide)
                 .addGap(172, 172, 172)
                 .addComponent(btnOnTheWay)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
@@ -120,7 +125,7 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 .addGap(137, 137, 137)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSceneReached)
-                    .addComponent(btnAcceptCase)
+                    .addComponent(btnAcceptRide)
                     .addComponent(btnOnTheWay))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -152,9 +157,13 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSceneReached1ActionPerformed
 
+    private void btnAcceptRideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptRideActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAcceptRideActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnAcceptRide;
     private javax.swing.JButton btnDroppedOffAtUHCS;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnSceneReached;

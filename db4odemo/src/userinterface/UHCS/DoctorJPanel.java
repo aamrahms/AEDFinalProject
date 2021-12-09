@@ -21,13 +21,11 @@ public class DoctorJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    
-    public DoctorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
-    {
+    public DoctorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        this.system = system;
+        this.userProcessContainer=userProcessContainer;
+        this.account=account;
+        this.system=system;
     }
 
     /**

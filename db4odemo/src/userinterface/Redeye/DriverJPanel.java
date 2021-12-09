@@ -5,9 +5,12 @@
  */
 package userinterface.Redeye;
 
+import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,20 +20,46 @@ public class DriverJPanel extends javax.swing.JPanel
 {
 
     /**
-     * Creates new form DriverJPanel
+     * Creates new form DriverStatusJPanel
      */
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
+    ArrayList<Complaint> complaintDirectory;
+    DefaultTableModel md;
     
-    public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.account = account;
-        this.system = system;
+        this.userProcessContainer=userProcessContainer;
+        this.account=account;
+        this.system=system;
+        complaintDirectory= this.system.getComplaintDirectory().getComplaintList();
+        
+        populateTable();
     }
 
+    public void populateTable()
+    {
+        
+        md=(DefaultTableModel)tblComplaintsWithStatus.getModel();
+        md.setRowCount(0);
+        Object row[]= new Object[5];
+        
+        for(Complaint c : complaintDirectory)
+        {
+            
+            row[0]=c.getComplaintID();
+            row[1]=c.getTypeOfComplaint();
+            row[2]=c.getVictimStudent().getName();
+            //row[3] = c.getPriority();
+            //row[4] = c.getLocation();
+            row[5]=c.getVictimStudent().getPhone();
+            //row[6] = c.Status();
+            md.addRow(row);
+                   
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +71,7 @@ public class DriverJPanel extends javax.swing.JPanel
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaintsWithStatus = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         btnProcessComplaints = new javax.swing.JButton();
         btnRefreshStatus = new javax.swing.JButton();
 
@@ -69,8 +98,8 @@ public class DriverJPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblComplaintsWithStatus);
         tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("COMPLAINT STATUS");
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("COMPLAINT STATUS");
 
         btnProcessComplaints.setText("Process Complaint");
         btnProcessComplaints.addActionListener(new java.awt.event.ActionListener() {
@@ -85,38 +114,30 @@ public class DriverJPanel extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1056, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(169, 169, 169))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(242, 242, 242)
-                            .addComponent(btnProcessComplaints, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(189, 189, 189)))
-                    .addContainerGap()))
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(191, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(169, 169, 169))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(242, 242, 242)
+                .addComponent(btnProcessComplaints, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(189, 189, 189))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(219, 219, 219)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(51, 51, 51)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(70, 70, 70)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnProcessComplaints)
-                        .addComponent(btnRefreshStatus))
-                    .addContainerGap(219, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProcessComplaints)
+                    .addComponent(btnRefreshStatus))
+                .addContainerGap(381, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,8 +151,8 @@ public class DriverJPanel extends javax.swing.JPanel
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProcessComplaints;
     private javax.swing.JButton btnRefreshStatus;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblComplaintsWithStatus;
     // End of variables declaration//GEN-END:variables
 }

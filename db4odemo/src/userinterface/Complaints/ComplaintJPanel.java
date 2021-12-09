@@ -6,7 +6,6 @@
 package userinterface.Complaints;
 
 import Business.EcoSystem;
-import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -22,14 +21,12 @@ public class ComplaintJPanel extends javax.swing.JPanel
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    UserAccount account;
-            
-    public ComplaintJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    
+    public ComplaintJPanel(JPanel userProcessContainer, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
-        this.account = account;
     }
 
     /**
@@ -90,21 +87,21 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
         // TODO add your handling code here:
 
-        EmergencyJPanel complaint = new EmergencyJPanel(userProcessContainer, system);
-        userProcessContainer.add("Emergency", complaint);
+        EmergencyJPanel complaintForm = new EmergencyJPanel(userProcessContainer, system);
+        userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
   
+
     }//GEN-LAST:event_btnEmergencyActionPerformed
 
     private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
         // TODO add your handling code here:
         
-        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, account,system);
+        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, system);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
-        
     }//GEN-LAST:event_btnNormalActionPerformed
 
 
