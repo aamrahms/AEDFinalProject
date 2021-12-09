@@ -60,6 +60,11 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
         lblComplaintID = new javax.swing.JLabel();
 
         btnAcceptCase.setText("Accept Case");
+        btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptCaseActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -100,6 +105,12 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
         lblStatus.setText("Status:");
 
         lblType.setText("Type:");
+
+        txtComplaintID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtComplaintIDActionPerformed(evt);
+            }
+        });
 
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,6 +259,23 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTypeActionPerformed
+
+    private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
+        // TODO add your handling code here:
+        
+//        txtComplaintID.setText();
+//        txtLocation;
+//        txtAccused;
+//        txtReportedBy;
+//        txtStatus;
+//        txtType;
+
+        txtStatus.setText("Accepted Case");
+    }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
+    private void txtComplaintIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplaintIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtComplaintIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

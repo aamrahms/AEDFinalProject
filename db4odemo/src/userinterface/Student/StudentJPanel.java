@@ -46,7 +46,7 @@ public class StudentJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         btnRaiseComplaint = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAllComplaints = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         btnRaiseComplaint.setText("Raise a Complaint");
@@ -56,10 +56,10 @@ public class StudentJPanel extends javax.swing.JPanel
             }
         });
 
-        jButton1.setText("View All Complaints");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAllComplaints.setText("View All Complaints");
+        btnAllComplaints.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAllComplaintsActionPerformed(evt);
             }
         });
 
@@ -76,10 +76,10 @@ public class StudentJPanel extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(701, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnBack)
-                    .addComponent(jButton1)
-                    .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAllComplaints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
@@ -87,11 +87,11 @@ public class StudentJPanel extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(btnRaiseComplaint)
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addGap(50, 50, 50)
+                .addGap(34, 34, 34)
+                .addComponent(btnAllComplaints)
+                .addGap(38, 38, 38)
                 .addComponent(btnBack)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -105,7 +105,7 @@ public class StudentJPanel extends javax.swing.JPanel
         
     }//GEN-LAST:event_btnRaiseComplaintActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAllComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllComplaintsActionPerformed
         // TODO add your handling code here:
         
         AllComplaintsJPanel allcomplaints = new AllComplaintsJPanel(userProcessContainer, account, system);
@@ -113,7 +113,7 @@ public class StudentJPanel extends javax.swing.JPanel
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAllComplaintsActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -125,8 +125,8 @@ public class StudentJPanel extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAllComplaints;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRaiseComplaint;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
