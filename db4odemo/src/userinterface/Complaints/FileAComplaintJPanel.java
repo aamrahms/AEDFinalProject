@@ -34,6 +34,8 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        system.getStudentDirectory().createStudent("fifi", "fifi", "fifi", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
+        system.getStudentDirectory().createStudent("john", "john", "john", "5 Wiggles", "9819902928", "john11@gmail.com", "201991872");
     }
 
     /**
@@ -202,9 +204,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(61, 61, 61)
                 .addComponent(chckAge)
-                .addContainerGap(787, Short.MAX_VALUE))
+                .addContainerGap(825, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -278,9 +280,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(510, Short.MAX_VALUE)
+                .addContainerGap(388, Short.MAX_VALUE)
                 .addComponent(chckAge)
-                .addGap(124, 124, 124))
+                .addGap(246, 246, 246))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(39, 39, 39)
@@ -425,7 +427,6 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
     private void cmbVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVictimNameActionPerformed
         // TODO add your handling code here:
-        system.getStudentDirectory().createStudent("fifi", "fifi", "fifi", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
         ArrayList<Student> victimStudentList = system.getStudentDirectory().getStudentDir();
         DefaultComboBoxModel model= new DefaultComboBoxModel(victimStudentList.toArray());
         cmbVictimName.setModel( model );
@@ -461,7 +462,6 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
         // TODO add your handling code here:
         
-        system.getStudentDirectory().createStudent("john", "john", "john", "5 Wiggles", "9819902928", "john11@gmail.com", "201991872");
         ArrayList<Student> accusedStudentList = system.getStudentDirectory().getStudentDir();
         DefaultComboBoxModel model= new DefaultComboBoxModel(accusedStudentList.toArray());
         cmbAccusedName.setModel( model );
