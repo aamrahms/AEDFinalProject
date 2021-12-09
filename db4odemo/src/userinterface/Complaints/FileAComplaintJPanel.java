@@ -6,7 +6,12 @@
 package userinterface.Complaints;
 
 import Business.EcoSystem;
+import Business.Student.Student;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 /**
@@ -43,14 +48,14 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         lbLocation = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         lbTypeOfIncident = new javax.swing.JLabel();
-        cbTypeOfIncident1 = new javax.swing.JComboBox<>();
+        cmbTypeOfIncident1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         lblTitle3 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbVictimName = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbAccusedName = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         chckRace = new javax.swing.JCheckBox();
         chckGender = new javax.swing.JCheckBox();
@@ -73,7 +78,12 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
         lbTypeOfIncident.setText("Type of Incident:");
 
-        cbTypeOfIncident1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alleged Accusation", "Assault", "Discrimination", "Firing", "Plaigiarism" }));
+        cmbTypeOfIncident1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Alleged Accusation", "Assault", "Discrimination", "Plaigiarism" }));
+        cmbTypeOfIncident1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTypeOfIncident1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Describe the Incident:");
 
@@ -82,11 +92,21 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
         jLabel3.setText("Name of the Victim:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbVictimName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbVictimName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbVictimNameActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Name of the Accused:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAccusedNameActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("What was the nature of the discrimination?");
 
@@ -209,11 +229,11 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(18, 18, 18)
-                                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(cbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -222,7 +242,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGap(30, 30, 30)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(cmbVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(15, 15, 15))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,21 +288,21 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                         .addComponent(lbDateOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtDateOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbTypeOfIncident))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbTypeOfIncident)
+                        .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2)
@@ -397,11 +417,54 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         }
     }//GEN-LAST:event_chckAgeActionPerformed
 
+    private void cmbVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVictimNameActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<Student> victimStudentList = system.getStudentDirectory().getStudentDir();
+        DefaultComboBoxModel model= new DefaultComboBoxModel(victimStudentList.toArray());
+        cmbVictimName.setModel( model );
+        
+    }//GEN-LAST:event_cmbVictimNameActionPerformed
+
+    private void cmbTypeOfIncident1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTypeOfIncident1ActionPerformed
+        // TODO add your handling code here:
+        
+        String org = ("--Select--".equals(String.valueOf(cmbTypeOfIncident1.getSelectedItem())))? null : String.valueOf(cmbTypeOfIncident1.getSelectedItem());
+        if (org!=null) 
+        {
+
+            if ("Alleged Accusation".equals(org)) 
+            {
+//              go to the next page
+            } 
+            else if ("Assault".equals(org))
+            {
+//                go to the next page
+            }
+            else if ("Discrimination".equals(org)) 
+            {
+//               go to the next page
+            }
+            else if ("Plaigiarism".equals(org))
+            {
+//                go to the next page
+            }
+        }
+    }//GEN-LAST:event_cmbTypeOfIncident1ActionPerformed
+
+    private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<Student> accusedStudentList = system.getStudentDirectory().getStudentDir();
+        DefaultComboBoxModel model= new DefaultComboBoxModel(accusedStudentList.toArray());
+        cmbVictimName.setModel( model );
+        
+    }//GEN-LAST:event_cmbAccusedNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JComboBox<String> cbTypeOfIncident1;
     private javax.swing.JCheckBox chckAge;
     private javax.swing.JCheckBox chckDisability;
     private javax.swing.JCheckBox chckGender;
@@ -410,8 +473,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private javax.swing.JCheckBox chckParentalStatus;
     private javax.swing.JCheckBox chckPoliticalAffiliation;
     private javax.swing.JCheckBox chckRace;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cmbAccusedName;
+    private javax.swing.JComboBox<String> cmbTypeOfIncident1;
+    private javax.swing.JComboBox<String> cmbVictimName;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
