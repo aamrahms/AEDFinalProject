@@ -43,6 +43,11 @@ public abstract class Enterprise extends Organisation{
         this.enterpriseType = enterpriseType;
     }
 
+    public EnterpriseType getEnterpriseType() {
+        return enterpriseType;
+    }
+    
+
     public OrganisationDirectory getOrganisationDirectory() {
         return organisationDirectory;
     }

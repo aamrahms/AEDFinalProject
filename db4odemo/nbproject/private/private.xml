@@ -3,15 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/Business/Role/DriverRole.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/UHCS/ReceptionistJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/Complaints/ComplaintJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/NUPD/ChiefOfficerJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/NUPD/FirearmsStatusJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/Complaints/EmergencyJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/RedEye/DriverJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/Complaints/FileAComplaintJPanel.java</file>
-            <file>file:/Users/fianrodrigues/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/NUPD/InjuryStatusJPanel.java</file>
+            <file>file:/Users/aamrah/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/Student/StudentJPanel.java</file>
+            <file>file:/Users/aamrah/NetBeansProjects/AEDFinalProject/db4odemo/src/Business/Enterprise/EnterpriseDirectory.java</file>
+            <file>file:/Users/aamrah/NetBeansProjects/AEDFinalProject/db4odemo/src/Business/EcoSystem.java</file>
+            <file>file:/Users/aamrah/NetBeansProjects/AEDFinalProject/db4odemo/src/Business/Role/DriverRole.java</file>
+            <file>file:/Users/aamrah/NetBeansProjects/AEDFinalProject/db4odemo/src/userinterface/Signup/EmployeeSignupJPanel.java</file>
         </group>
     </open-files>
 </project-private>

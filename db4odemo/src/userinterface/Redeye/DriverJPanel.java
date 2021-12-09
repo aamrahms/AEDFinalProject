@@ -44,7 +44,7 @@ public class DriverJPanel extends javax.swing.JPanel
         
         md=(DefaultTableModel)tblComplaintsWithStatus.getModel();
         md.setRowCount(0);
-        Object row[]= new Object[6];
+        Object row[]= new Object[5];
         
         for(Complaint c : complaintDirectory)
         {
@@ -98,7 +98,6 @@ public class DriverJPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblComplaintsWithStatus);
         tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("COMPLAINT STATUS");
 
@@ -110,11 +109,6 @@ public class DriverJPanel extends javax.swing.JPanel
         });
 
         btnRefreshStatus.setText("Refresh Status");
-        btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshStatusActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,12 +146,6 @@ public class DriverJPanel extends javax.swing.JPanel
 
         
     }//GEN-LAST:event_btnProcessComplaintsActionPerformed
-
-    private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
-        // TODO add your handling code here:
-        
-        tblComplaintsWithStatus.repaint();
-    }//GEN-LAST:event_btnRefreshStatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,11 +23,49 @@ public class EnterpriseDirectory {
     public ArrayList<Enterprise> getEnterpriseList() {
         return enterpriseList;
     }
+    public Enterprise getEnterprise(Enterprise.EnterpriseType type)
+    {
+        for (Enterprise enterprise : enterpriseList)
+        {
+            if(enterprise.getEnterpriseType().equals(type))
+            {
+                return enterprise;
+            }
+            
+        }
+        return null;
+    }
 
     public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
         this.enterpriseList = enterpriseList;
     }
     
-    
+    public Enterprise createEnterpriseForDirectory(String name, Enterprise.EnterpriseType type)
+    {
+        Enterprise enterprise=null;
+        if(type==Enterprise.EnterpriseType.NUPDEnterprise)
+        {
+            enterprise=new NUPDEnterprise(name);
+        }
+        else if(type==Enterprise.EnterpriseType.OUECEnterprise)
+        {
+            enterprise= new OUECEnterprise(name);
+        }
+        else if(type==Enterprise.EnterpriseType.RedeyeEnterprise)
+        {
+            enterprise= new RedeyeEnterprise(name);
+        }
+        else if(type==Enterprise.EnterpriseType.UHCSEnterprise)
+        {
+            enterprise= new UHCSEnterprise(name);
+        }
+        
+        enterpriseList.add(enterprise);
+        return enterprise;
+    }
+    public void removeEnterprise(Enterprise enterprise)
+    {
+        enterpriseList.remove(enterprise);
+    }
     
 }
