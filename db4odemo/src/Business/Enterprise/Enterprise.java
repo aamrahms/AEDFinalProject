@@ -7,7 +7,7 @@ package Business.Enterprise;
 
 import Business.Organisations.Organisation;
 import Business.Organisations.OrganisationDirectory;
-
+import Business.Student.StudentDirectory;
 /**
  *
  * @author aamrah
@@ -15,6 +15,7 @@ import Business.Organisations.OrganisationDirectory;
 public abstract class Enterprise extends Organisation{
     private EnterpriseType enterpriseType;
     private OrganisationDirectory organisationDirectory;
+    private StudentDirectory studentDirectory;
     private Organisation organisation;
     public enum EnterpriseType {
         NUPDEnterprise("NUPDEnterprise"),
@@ -34,7 +35,7 @@ public abstract class Enterprise extends Organisation{
         super(name);
         this.enterpriseType = enterpriseType;
         this.organisationDirectory = new OrganisationDirectory();
-//        this.organisationDirectory.createOrganisation();
+
     }
     
     //getters and setters

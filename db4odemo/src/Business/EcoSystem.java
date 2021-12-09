@@ -26,6 +26,13 @@ public class EcoSystem extends Organisation{
     
     private static EcoSystem business;
     private ComplaintDirectory complaintDirectory;
+     
+    private StudentDirectory studentDirectory;
+    private PoliceOfficerDirectory policeDirectory;
+    private OUECCoordinatorDirectory ouecCoordinators;
+    private DoctorDirectory doctorDirectory;
+    private AdvisorDirectory advisorDirectory;
+    private OUECInvestigatorDirectory investigatorDirectory;
     
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
         this.complaintDirectory= new ComplaintDirectory();
@@ -57,70 +64,70 @@ public class EcoSystem extends Organisation{
     }
     
     //Added getters and setters
-//    public PoliceOfficerDirectory getPoliceDirectory() {
-//        if (policeDirectory==null)
-//            this.policeDirectory= new PoliceOfficerDirectory();
-//        return this.policeDirectory;
-//    }
-//
-//    public void setPoliceDirectory(PoliceOfficerDirectory policeDirectory) {
-//        this.policeDirectory = policeDirectory;
-//    }
-//
-//    public StudentDirectory getStudentDirectory() {
-//        if(studentDirectory==null)
-//            this.studentDirectory = new StudentDirectory();
-//        
-//        return this.studentDirectory;
-//        
-//    }
-//
-//    public void setStudentDirectory(StudentDirectory studentDirectory) {
-//        this.studentDirectory = studentDirectory;
-//        
-//    }
-//
-//    public OUECCoordinatorDirectory getOuecCoordinators() {
-//        if(ouecCoordinators==null)
-//        {
-//            this.ouecCoordinators=new OUECCoordinatorDirectory();
-//        }
-//        return ouecCoordinators;
-//    }
-//
-//    public void setOuecCoordinators(OUECCoordinatorDirectory ouecCoordinators) {
-//        this.ouecCoordinators = ouecCoordinators;
-//    }
-//
-//    public DoctorDirectory getDoctorDirectory() {
-//        if(doctorDirectory==null)
-//            this.doctorDirectory= new DoctorDirectory();
-//        return doctorDirectory;
-//    }
-//
-//    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
-//        this.doctorDirectory = doctorDirectory;
-//    }
-//
-//    public AdvisorDirectory getAdvisorDirectory() {
-//        if(advisorDirectory==null)
-//            this.advisorDirectory= new AdvisorDirectory();
-//        return advisorDirectory;
-//    }
-//
-//    public void setAdvisorDirectory(AdvisorDirectory advisorDirectory) {
-//        this.advisorDirectory = advisorDirectory;
-//    }
-//
-//    public OUECInvestigatorDirectory getInvestigatorDirectory() {
-//        if(investigatorDirectory==null)
-//            this.investigatorDirectory= new OUECInvestigatorDirectory();
-//        return investigatorDirectory;
-//    }
-//
-//    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
-//        this.investigatorDirectory = investigatorDirectory;
-//    }   
+    public PoliceOfficerDirectory getPoliceDirectory() {
+        if (policeDirectory==null)
+            this.policeDirectory= new PoliceOfficerDirectory();
+        return this.policeDirectory;
+    }
+
+    public void setPoliceDirectory(PoliceOfficerDirectory policeDirectory) {
+        this.policeDirectory = policeDirectory;
+    }
+
+    public StudentDirectory getStudentDirectory() {
+        if(studentDirectory==null)
+            this.studentDirectory = new StudentDirectory();
+        
+        return this.studentDirectory;
+        
+    }
+
+    public void setStudentDirectory(StudentDirectory studentDirectory) {
+        this.studentDirectory = studentDirectory;
+        
+    }
+
+    public OUECCoordinatorDirectory getOuecCoordinators() {
+        if(ouecCoordinators==null)
+        {
+            this.ouecCoordinators=new OUECCoordinatorDirectory();
+        }
+        return ouecCoordinators;
+    }
+
+    public void setOuecCoordinators(OUECCoordinatorDirectory ouecCoordinators) {
+        this.ouecCoordinators = ouecCoordinators;
+    }
+
+    public DoctorDirectory getDoctorDirectory() {
+        if(doctorDirectory==null)
+            this.doctorDirectory= new DoctorDirectory();
+        return doctorDirectory;
+    }
+
+    public void setDoctorDirectory(DoctorDirectory doctorDirectory) {
+        this.doctorDirectory = doctorDirectory;
+    }
+
+    public AdvisorDirectory getAdvisorDirectory() {
+        if(advisorDirectory==null)
+            this.advisorDirectory= new AdvisorDirectory();
+        return advisorDirectory;
+    }
+
+    public void setAdvisorDirectory(AdvisorDirectory advisorDirectory) {
+        this.advisorDirectory = advisorDirectory;
+    }
+
+    public OUECInvestigatorDirectory getInvestigatorDirectory() {
+        if(investigatorDirectory==null)
+            this.investigatorDirectory= new OUECInvestigatorDirectory();
+        return investigatorDirectory;
+    }
+
+    public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
+        this.investigatorDirectory = investigatorDirectory;
+    }   
 
     public ComplaintDirectory getComplaintDirectory() {
         return complaintDirectory;
@@ -130,4 +137,7 @@ public class EcoSystem extends Organisation{
         this.complaintDirectory = complaintDirectory;
     }
     
+
+
 }
+ 

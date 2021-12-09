@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class ComplaintDirectory {
     ArrayList <Complaint> complaintList;
+    //STUDENTDIRECTORY
     Complaint complaint ;
     //Normal 
     //String dateOfIncident; String timeOfIncident; Student accusedStudent; Student victimStudent;
