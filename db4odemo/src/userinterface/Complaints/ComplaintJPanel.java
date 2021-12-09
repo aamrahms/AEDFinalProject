@@ -42,6 +42,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
         btnEmergency = new javax.swing.JButton();
         btnNormal = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SELECT PRIORITY OF COMPLAINT");
 

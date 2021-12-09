@@ -92,7 +92,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
         jLabel3.setText("Name of the Victim:");
 
-        cmbVictimName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbVictimName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "  ", "   ", "   " }));
         cmbVictimName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbVictimNameActionPerformed(evt);
@@ -101,7 +101,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
         jLabel11.setText("Name of the Accused:");
 
-        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
         cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbAccusedNameActionPerformed(evt);
@@ -131,6 +131,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("FILE A COMPLAINT");
 
@@ -173,6 +174,11 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         });
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle2.setText("Details of the Incident");
@@ -196,9 +202,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(99, 99, 99)
                 .addComponent(chckAge)
-                .addContainerGap(825, Short.MAX_VALUE))
+                .addContainerGap(787, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -272,9 +278,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
+                .addContainerGap(510, Short.MAX_VALUE)
                 .addComponent(chckAge)
-                .addGap(244, 244, 244))
+                .addGap(124, 124, 124))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(39, 39, 39)
@@ -419,7 +425,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
     private void cmbVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVictimNameActionPerformed
         // TODO add your handling code here:
-        
+        system.getStudentDirectory().createStudent("fifi", "fifi", "fifi", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
         ArrayList<Student> victimStudentList = system.getStudentDirectory().getStudentDir();
         DefaultComboBoxModel model= new DefaultComboBoxModel(victimStudentList.toArray());
         cmbVictimName.setModel( model );
@@ -455,11 +461,18 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
         // TODO add your handling code here:
         
+        system.getStudentDirectory().createStudent("john", "john", "john", "5 Wiggles", "9819902928", "john11@gmail.com", "201991872");
         ArrayList<Student> accusedStudentList = system.getStudentDirectory().getStudentDir();
         DefaultComboBoxModel model= new DefaultComboBoxModel(accusedStudentList.toArray());
-        cmbVictimName.setModel( model );
+        cmbAccusedName.setModel( model );
         
     }//GEN-LAST:event_cmbAccusedNameActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

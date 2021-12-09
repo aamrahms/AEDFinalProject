@@ -102,6 +102,7 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblComplaintsWithStatus);
         tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("COMPLAINT STATUS");
 

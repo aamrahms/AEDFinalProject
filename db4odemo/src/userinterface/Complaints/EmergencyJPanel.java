@@ -54,6 +54,11 @@ public class EmergencyJPanel extends javax.swing.JPanel
         jLabel3.setText("Type:");
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         cmbTypeOfIncident1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Injury", "Sexual Assault", "Firearm", "Threats or Stalking" }));
         cmbTypeOfIncident1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +114,7 @@ public class EmergencyJPanel extends javax.swing.JPanel
 
             if ("Injury".equals(org))
             {
-                //              go to the next page
+                //             
             }
             else if ("Sexual Assault".equals(org))
             {
@@ -125,6 +130,12 @@ public class EmergencyJPanel extends javax.swing.JPanel
             }
         }
     }//GEN-LAST:event_cmbTypeOfIncident1ActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
