@@ -446,7 +446,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
               {
                   if(NUPDEnterprise!=null)
                     {
-                        NUPDEnterprise.getOrganisationDirectory().getOrganisationList().get()
+                        NUPDEnterprise.getOrganisationDirectory().getOrganisationList();
                     }
               }
 //            Employee e = system.getEmployeeDirectory().createEmployee(name, uname, password, address, phone, email, neuid);

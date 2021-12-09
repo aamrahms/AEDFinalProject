@@ -70,7 +70,7 @@ public class ReceptionistJPanel extends javax.swing.JPanel
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComplaintsWithStatus = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         btnProcessComplaints = new javax.swing.JButton();
         btnRefreshStatus = new javax.swing.JButton();
         btnAcceptCase = new javax.swing.JButton();
@@ -101,8 +101,9 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblComplaintsWithStatus);
         tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("COMPLAINT STATUS");
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("COMPLAINT STATUS");
 
         btnProcessComplaints.setText("Process Complaint");
         btnProcessComplaints.addActionListener(new java.awt.event.ActionListener() {
@@ -112,6 +113,11 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         });
 
         btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshStatusActionPerformed(evt);
+            }
+        });
 
         btnAcceptCase.setText("Accept Case");
 
@@ -125,40 +131,36 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1135, Short.MAX_VALUE)
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(74, 74, 74)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addContainerGap(196, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnProcessComplaints, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnTaskCompleted)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnProcessComplaints, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnTaskCompleted)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnAcceptCase)
-                                            .addGap(153, 153, 153)
-                                            .addComponent(btnAssignDoctor)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAssignAdvisor)))
-                            .addGap(169, 169, 169)))
-                    .addGap(74, 74, 74)))
+                                    .addComponent(btnAcceptCase)
+                                    .addGap(153, 153, 153)
+                                    .addComponent(btnAssignDoctor)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAssignAdvisor)))
+                    .addGap(243, 243, 243)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(644, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(91, 91, 91)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(51, 51, 51)
+                    .addGap(201, 201, 201)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(70, 70, 70)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -184,6 +186,12 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         
     }//GEN-LAST:event_btnProcessComplaintsActionPerformed
 
+    private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
+        // TODO add your handling code here:
+        
+        tblComplaintsWithStatus.repaint();
+    }//GEN-LAST:event_btnRefreshStatusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
@@ -192,8 +200,8 @@ public class ReceptionistJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnProcessComplaints;
     private javax.swing.JButton btnRefreshStatus;
     private javax.swing.JButton btnTaskCompleted;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblComplaintsWithStatus;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,12 +20,13 @@ public class ComplaintJPanel extends javax.swing.JPanel
      * Creates new form ComplaintJPanel
      */
     JPanel userProcessContainer;
-    EcoSystem ecosystem;
-    public ComplaintJPanel(JPanel userProcessContainer, EcoSystem ecosystem) 
+    EcoSystem system;
+    
+    public ComplaintJPanel(JPanel userProcessContainer, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.system = system;
     }
 
     /**
@@ -40,7 +41,9 @@ public class ComplaintJPanel extends javax.swing.JPanel
         jLabel1 = new javax.swing.JLabel();
         btnEmergency = new javax.swing.JButton();
         btnNormal = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SELECT PRIORITY OF COMPLAINT");
 
@@ -52,36 +55,56 @@ public class ComplaintJPanel extends javax.swing.JPanel
         });
 
         btnNormal.setText("NORMAL");
+        btnNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNormalActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(354, 354, 354)
+                .addGap(222, 222, 222)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(159, 159, 159)
+                        .addComponent(btnBack))
                     .addComponent(btnEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addGap(97, 97, 97)
                 .addComponent(btnEmergency)
-                .addGap(33, 33, 33)
-                .addComponent(btnNormal)
-                .addContainerGap(337, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(btnNormal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(btnBack)))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
         // TODO add your handling code here:
 
-        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, ecosystem);
+        EmergencyJPanel complaintForm = new EmergencyJPanel(userProcessContainer, system);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
@@ -89,8 +112,26 @@ public class ComplaintJPanel extends javax.swing.JPanel
 
     }//GEN-LAST:event_btnEmergencyActionPerformed
 
+    private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
+        // TODO add your handling code here:
+        
+        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, system);
+        userProcessContainer.add("FileAComplaint", complaintForm);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+    }//GEN-LAST:event_btnNormalActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEmergency;
     private javax.swing.JButton btnNormal;
     private javax.swing.JLabel jLabel1;

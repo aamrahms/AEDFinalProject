@@ -130,17 +130,9 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
             PoliceOfficer police= policeList.get(selectedRow);
             complaint.setStatus("AssignedToPoliceOfficer");
             police.getComplaintList().add(complaint);
-            
-            
         }
         
-//                order.setStatus("Assigned");
-//                man.getDeliveryOrders().add(order);
-//                JOptionPane.showMessageDialog(this,"Assigned to "+man.getName());
-        //        PoliceOfficerJPanel policePanel= new PoliceOfficerJPanel();
-        //        userProcessContainer.add("",restaurantPanel);
-        //        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
-        //        cardlayout.next(userProcessContainer);
+
     }//GEN-LAST:event_btnAssignActionPerformed
 
 

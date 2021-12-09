@@ -7,14 +7,18 @@ package userinterface.Student;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.Complaints.AllComplaintsJPanel;
 import userinterface.Complaints.ComplaintJPanel;
+import userinterface.Complaints.FileAComplaintJPanel;
 
 /**
  *
  * @author aamrah
  */
-public class StudentJPanel extends javax.swing.JPanel {
+public class StudentJPanel extends javax.swing.JPanel
+{
 
     /**
      * Creates new form StudentJPanel
@@ -22,11 +26,14 @@ public class StudentJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    public StudentJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    
+    public StudentJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.account=account;
-        this.system=system;
+        
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -40,6 +47,7 @@ public class StudentJPanel extends javax.swing.JPanel {
 
         btnRaiseComplaint = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         btnRaiseComplaint.setText("Raise a Complaint");
         btnRaiseComplaint.addActionListener(new java.awt.event.ActionListener() {
@@ -49,39 +57,75 @@ public class StudentJPanel extends javax.swing.JPanel {
         });
 
         jButton1.setText("View All Complaints");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(130, 130, 130))
+                .addContainerGap(701, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack)
+                    .addComponent(jButton1)
+                    .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(137, 137, 137)
                 .addComponent(btnRaiseComplaint)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(29, 29, 29)
                 .addComponent(jButton1)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(btnBack)
+                .addContainerGap(337, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseComplaintActionPerformed
         // TODO add your handling code here:
-         //ComplaintJPanel complaintPanel= new ComplaintJPanel(userProcessContainer, account, system);
-//       userProcessContainer.add("ManageAllCustomers",customerPanel);
-//       CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
-//       cardlayout.next(userProcessContainer);
+        
+        ComplaintJPanel complaintForm = new ComplaintJPanel(userProcessContainer, system);
+        userProcessContainer.add("Complaint", complaintForm);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnRaiseComplaintActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        AllComplaintsJPanel allcomplaints = new AllComplaintsJPanel(userProcessContainer, account, system);
+        userProcessContainer.add("AllComplaints", allcomplaints);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRaiseComplaint;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables

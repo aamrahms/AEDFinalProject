@@ -13,6 +13,14 @@ import java.util.ArrayList;
  */
 public class PoliceOfficer {
     ArrayList<Complaint> complaintList;
+
+    public ArrayList<Complaint> getComplaintList() {
+        return complaintList;
+    }
+
+    public void setComplaintList(ArrayList<Complaint> complaintList) {
+        this.complaintList = complaintList;
+    }
     
     
 }
