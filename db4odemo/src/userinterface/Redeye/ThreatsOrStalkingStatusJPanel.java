@@ -3,19 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.RedEye;
+package userinterface.Redeye;
+
+import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
 
 /**
  *
  * @author fianrodrigues
  */
-public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
+public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form ThreatsOrStalkingJPanel
      */
-    public ThreatsOrStalkingStatusJPanel() {
+    JPanel userProcessContainer;
+    UserAccount account;
+    EcoSystem system;
+    
+    public ThreatsOrStalkingStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -27,7 +40,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAcceptCase = new javax.swing.JButton();
+        btnAcceptRide = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOnTheWay = new javax.swing.JButton();
         btnSceneReached = new javax.swing.JButton();
@@ -35,8 +48,9 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
         btnTaskCompleted = new javax.swing.JButton();
         btnSceneReached1 = new javax.swing.JButton();
 
-        btnAcceptCase.setText("Accept Case");
+        btnAcceptRide.setText("Accept Ride");
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("STATUS UPDATE FOR THREATS OR STALKING");
 
@@ -79,49 +93,41 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1094, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(157, 157, 157)
-                            .addComponent(btnAcceptCase)
-                            .addGap(172, 172, 172)
-                            .addComponent(btnOnTheWay)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                            .addComponent(btnSceneReached)
-                            .addGap(192, 192, 192))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnSceneReached1)
-                            .addGap(135, 135, 135)
-                            .addComponent(btnDroppedOffAtUHCS)
-                            .addGap(337, 337, 337))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(439, 439, 439)
-                            .addComponent(btnTaskCompleted)))
-                    .addContainerGap()))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(btnAcceptRide)
+                .addGap(172, 172, 172)
+                .addComponent(btnOnTheWay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
+                .addComponent(btnSceneReached)
+                .addGap(192, 192, 192))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(btnSceneReached1)
+                .addGap(135, 135, 135)
+                .addComponent(btnDroppedOffAtUHCS)
+                .addGap(337, 337, 337))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(439, 439, 439)
+                .addComponent(btnTaskCompleted))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(166, 166, 166)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(137, 137, 137)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnSceneReached)
-                        .addComponent(btnAcceptCase)
-                        .addComponent(btnOnTheWay))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnDroppedOffAtUHCS)
-                        .addComponent(btnSceneReached1))
-                    .addGap(84, 84, 84)
-                    .addComponent(btnTaskCompleted)
-                    .addGap(166, 166, 166)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(137, 137, 137)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSceneReached)
+                    .addComponent(btnAcceptRide)
+                    .addComponent(btnOnTheWay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDroppedOffAtUHCS)
+                    .addComponent(btnSceneReached1))
+                .addGap(84, 84, 84)
+                .addComponent(btnTaskCompleted)
+                .addGap(265, 265, 265))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -147,7 +153,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnAcceptRide;
     private javax.swing.JButton btnDroppedOffAtUHCS;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnSceneReached;

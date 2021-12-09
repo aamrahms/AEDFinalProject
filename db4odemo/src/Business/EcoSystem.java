@@ -38,7 +38,9 @@ public class EcoSystem extends Organisation{
     
     public EcoSystem( StudentDirectory studentDirectory, PoliceOfficerDirectory policeDirectory,OUECCoordinatorDirectory ouecCoordinators ) {
         this.complaintDirectory= new ComplaintDirectory();
-
+        this.studentDirectory = new StudentDirectory();
+        this.enterpriseDirectory = new EnterpriseDirectory();
+        
     }
     
     public static EcoSystem getInstance(){

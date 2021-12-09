@@ -16,71 +16,62 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="1094" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                          <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                          <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="186" max="32767" attributes="0"/>
-                          <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnSceneReached1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
-                          <Component id="btnDroppedOffAtUHCS" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="439" max="-2" attributes="0"/>
-                          <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
+          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+              <Component id="btnAcceptRide" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+              <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="btnSceneReached1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+              <Component id="btnDroppedOffAtUHCS" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="439" max="-2" attributes="0"/>
+              <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="738" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnSceneReached" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAcceptCase" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnOnTheWay" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnDroppedOffAtUHCS" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSceneReached1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                  <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnSceneReached" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAcceptRide" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnOnTheWay" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnDroppedOffAtUHCS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSceneReached1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+              <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnAcceptCase">
+    <Component class="javax.swing.JButton" name="btnAcceptRide">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Accept Case"/>
+        <Property name="text" type="java.lang.String" value="Accept Ride"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="1"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="STATUS UPDATE FOR THREATS OR STALKING"/>
       </Properties>

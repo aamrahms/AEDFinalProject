@@ -13,7 +13,8 @@ import javax.swing.JPanel;
  *
  * @author aamrah
  */
-public class OUECCoordinatorJPanel extends javax.swing.JPanel {
+public class OUECCoordinatorJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form OUECCoordinatorJPanel
@@ -21,7 +22,9 @@ public class OUECCoordinatorJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    public OUECCoordinatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    
+    public OUECCoordinatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;
