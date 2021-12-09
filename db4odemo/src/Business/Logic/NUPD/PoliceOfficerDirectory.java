@@ -5,10 +5,22 @@
  */
 package Business.Logic.NUPD;
 
+
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
 public class PoliceOfficerDirectory {
+    ArrayList<PoliceOfficer> policeOfficerList;
+
+    public ArrayList<PoliceOfficer> getPoliceOfficerList() {
+        return policeOfficerList;
+    }
+
+    public void setPoliceOfficerList(ArrayList<PoliceOfficer> policeOfficerList) {
+        this.policeOfficerList = policeOfficerList;
+    }
     
 }

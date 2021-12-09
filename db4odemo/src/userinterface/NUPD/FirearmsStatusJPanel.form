@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -43,8 +43,8 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lbmanufactureDate1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLocation" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -54,10 +54,10 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lbserialNumber" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lboccupancy" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbmanufactureDate" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblType" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAccusedStudent" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblReportedBy" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblComplaintID" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -78,35 +78,35 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="56" max="-2" attributes="0"/>
+              <Component id="lblTitle" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace pref="86" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lbmake" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblComplaintID" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="txtComplaintID" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbmanufactureDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblReportedBy" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtReportedBy" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lboccupancy" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAccusedStudent" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAccused" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lbserialNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblType" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtType" alignment="0" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="lbmake1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLocation" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="txtLocation" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbmanufactureDate1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtStatus" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
         <Property name="text" type="java.lang.String" value="Accept Case"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="STATUS UPDATE FOR FIREARM COMPLAINTS"/>
@@ -168,22 +168,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSceneReachedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbmanufactureDate">
+    <Component class="javax.swing.JLabel" name="lblReportedBy">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reported By:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lboccupancy">
+    <Component class="javax.swing.JLabel" name="lblAccusedStudent">
       <Properties>
         <Property name="text" type="java.lang.String" value="Accused:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbmanufactureDate1">
+    <Component class="javax.swing.JLabel" name="lblStatus">
       <Properties>
         <Property name="text" type="java.lang.String" value="Status:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbserialNumber">
+    <Component class="javax.swing.JLabel" name="lblType">
       <Properties>
         <Property name="text" type="java.lang.String" value="Type:"/>
       </Properties>
@@ -212,12 +212,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTypeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbmake1">
+    <Component class="javax.swing.JLabel" name="lblLocation">
       <Properties>
         <Property name="text" type="java.lang.String" value="Location:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbmake">
+    <Component class="javax.swing.JLabel" name="lblComplaintID">
       <Properties>
         <Property name="text" type="java.lang.String" value="Complaint ID:"/>
       </Properties>

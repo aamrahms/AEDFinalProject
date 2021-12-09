@@ -24,10 +24,10 @@
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                          <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAcceptRide" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                           <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="186" max="32767" attributes="0"/>
+                          <EmptySpace pref="189" max="32767" attributes="0"/>
                           <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
@@ -57,7 +57,7 @@
                   <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnSceneReached" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnAcceptCase" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnAcceptRide" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnOnTheWay" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="42" max="32767" attributes="0"/>
@@ -74,9 +74,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnAcceptCase">
+    <Component class="javax.swing.JButton" name="btnAcceptRide">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Accept Case"/>
+        <Property name="text" type="java.lang.String" value="Accept Ride"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

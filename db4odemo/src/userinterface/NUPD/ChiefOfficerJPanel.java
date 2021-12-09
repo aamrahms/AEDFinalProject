@@ -9,7 +9,9 @@ import Business.Complaint.Complaint;
 import Business.Complaint.ComplaintDirectory;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author aamrah
  */
-public class ChiefOfficerJPanel extends javax.swing.JPanel {
+public class ChiefOfficerJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form ChiefOfficerJPanel
@@ -27,12 +30,14 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
     DefaultTableModel md;
-    public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    
+    public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         this.system=system;
-        complaintDirectory= this.system.getComplaintDirectory().getComplaintList();
+        this.complaintDirectory= this.system.getComplaintDirectory().getComplaintList();
         
         populateTable();
         
@@ -169,10 +174,27 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel {
     
     private void btnPoliceOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoliceOfficerActionPerformed
         // TODO add your handling code here:
-//        PoliceOfficerJPanel policePanel= new PoliceOfficerJPanel();
-//        userProcessContainer.add("",restaurantPanel);
-//        CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
-//        cardlayout.next(userProcessContainer);
+        int selectedRow =tblComplaints.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Police Officer!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Complaint complaint= this.complaintDirectory.get(selectedRow);
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
+            {
+                PoliceOfficerAssignJPanel policePanel= new PoliceOfficerAssignJPanel(userProcessContainer, account, system, complaint);
+                userProcessContainer.add("AssignPoliceOfficer",policePanel);
+                CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+                cardlayout.next(userProcessContainer);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+       
+            }
+            
+            
+        }
+         
     }//GEN-LAST:event_btnPoliceOfficerActionPerformed
     
     

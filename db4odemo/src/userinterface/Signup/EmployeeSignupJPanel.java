@@ -6,6 +6,8 @@ package userinterface.Signup;
 
 import Business.EcoSystem;
 import Business.Employee.Employee;
+import Business.Enterprise.Enterprise;
+import Business.Enterprise.EnterpriseDirectory;
 import Business.Role.AdvisorRole;
 import Business.Role.ChiefOfficerRole;
 import Business.Role.DoctorRole;
@@ -21,6 +23,7 @@ import Business.Role.PresidentRole;
 import Business.Role.ReceptionistRole;
 import java.util.regex.Pattern;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,7 +32,9 @@ import java.awt.CardLayout;
 public class EmployeeSignupJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
-    EcoSystem system;    
+    EcoSystem system; 
+    EnterpriseDirectory enterpriseDirectory;
+    Enterprise NUPDEnterprise, OUECEnterprise, UHCSEnterprise, RedeyeEnterprise;
 
     /**
      * Creates new form EmployeeSignup
@@ -39,15 +44,28 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
         
         this.userProcessContainer=userProcessContainer;
         this.system=system;
+        enterpriseDirectory=system.getEnterpriseDirectory();
+//        if(enterpriseDirectory!=null)
+        try{
+            NUPDEnterprise=enterpriseDirectory.getEnterprise(Enterprise.EnterpriseType.NUPDEnterprise);
+            OUECEnterprise=enterpriseDirectory.getEnterprise(Enterprise.EnterpriseType.OUECEnterprise);
+            UHCSEnterprise=enterpriseDirectory.getEnterprise(Enterprise.EnterpriseType.UHCSEnterprise);
+            RedeyeEnterprise=enterpriseDirectory.getEnterprise(Enterprise.EnterpriseType.RedeyeEnterprise);
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, " ED is empty");
+        }
+        
         
         String[] orgArray = {"--Select--", "NUPDEnterprise","OUECEnterprise", "RedeyeEnterprise", "UHCSEnterprise"};
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(orgArray);
         comboOrg.setModel( model );
     }
     
-    private EmployeeSignupJPanel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private EmployeeSignupJPanel() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -424,27 +442,34 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
             }
 
             //"PoliceOfficer","ChiefOfficer","OUECCoordinator","OUECInvestigator", "President","Driver","Doctor","Receptionist", "Advisor"
-
-            Employee e = system.getEmployeeDirectory().createEmployee(name, uname, password, address, phone, email, neuid);
-            if ("PoliceOfficer".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PoliceOfficerRole());
-            } else if ("ChiefOfficer".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ChiefOfficerRole());
-            } else if ("OUECCoordinator".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECCoordinatorRole());
-            } else if ("OUECInvestigator".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECInvestigatorRole());
-            } else if ("President".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PresidentRole());
-            }  else if ("Driver".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DriverRole());
-            } else if ("Doctor".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DoctorRole());
-            } else if ("Receptionist".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ReceptionistRole());
-            } else if ("Advisor".equals(role)) {
-                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new AdvisorRole());
-            }
+              if ("PoliceOfficer".equals(role) )
+              {
+                  if(NUPDEnterprise!=null)
+                    {
+                        NUPDEnterprise.getOrganisationDirectory().getOrganisationList().get()
+                    }
+              }
+//            Employee e = system.getEmployeeDirectory().createEmployee(name, uname, password, address, phone, email, neuid);
+//            if ("PoliceOfficer".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PoliceOfficerRole());
+//                
+//            } else if ("ChiefOfficer".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ChiefOfficerRole());
+//            } else if ("OUECCoordinator".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECCoordinatorRole());
+//            } else if ("OUECInvestigator".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECInvestigatorRole());
+//            } else if ("President".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PresidentRole());
+//            }  else if ("Driver".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DriverRole());
+//            } else if ("Doctor".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DoctorRole());
+//            } else if ("Receptionist".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ReceptionistRole());
+//            } else if ("Advisor".equals(role)) {
+//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new AdvisorRole());
+//            }
 
             JOptionPane.showMessageDialog(null,"You may now proceed to login!");
 
