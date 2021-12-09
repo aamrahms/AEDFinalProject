@@ -3,36 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.OUEC;
-
-import Business.EcoSystem;
-import Business.UserAccount.UserAccount;
-import javax.swing.JPanel;
+package userinterface.Complaints;
 
 /**
  *
- * @author aamrah
+ * @author fianrodrigues
  */
-public class OUECInvestigatorJPanel extends javax.swing.JPanel
-{
+public class AllComplaintsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form OUECInvestigatorJPanel
+     * Creates new form AllComplaintsJPanel
      */
-    JPanel userProcessContainer;
-    UserAccount account;
-    EcoSystem system;
-    
-    public OUECInvestigatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
-    {
+    public AllComplaintsJPanel() {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.account=account;
-        this.system=system;
     }
-
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,11 +31,11 @@ public class OUECInvestigatorJPanel extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 922, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 642, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

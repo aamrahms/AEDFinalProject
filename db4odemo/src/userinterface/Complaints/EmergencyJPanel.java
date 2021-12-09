@@ -20,13 +20,13 @@ public class EmergencyJPanel extends javax.swing.JPanel
      */
     
     JPanel userProcessContainer;
-    EcoSystem ecosystem;
+    EcoSystem system;
     
-    public EmergencyJPanel(JPanel userProcessContainer, EcoSystem ecosystem)
+    public EmergencyJPanel(JPanel userProcessContainer, EcoSystem system)
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-        this.ecosystem = ecosystem;
+        this.system = system;
     }
 
     /**
@@ -42,9 +42,10 @@ public class EmergencyJPanel extends javax.swing.JPanel
         jLabel2 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cmbType = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
+        cmbTypeOfIncident1 = new javax.swing.JComboBox<>();
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EMERGENCY COMPLAINT");
 
@@ -52,14 +53,14 @@ public class EmergencyJPanel extends javax.swing.JPanel
 
         jLabel3.setText("Type:");
 
-        cmbType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Injury", "Threats/Stalking", "Sexual Assault", "Firearm" }));
-        cmbType.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setText("Submit");
+
+        cmbTypeOfIncident1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Select--", "Injury", "Sexual Assault", "Firearm", "Threats or Stalking" }));
+        cmbTypeOfIncident1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbTypeActionPerformed(evt);
+                cmbTypeOfIncident1ActionPerformed(evt);
             }
         });
-
-        btnSubmit.setText("Submit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -76,8 +77,8 @@ public class EmergencyJPanel extends javax.swing.JPanel
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSubmit)
-                    .addComponent(cmbType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 489, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,21 +93,43 @@ public class EmergencyJPanel extends javax.swing.JPanel
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(cmbType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addComponent(btnSubmit)
                 .addContainerGap(325, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTypeActionPerformed
+    private void cmbTypeOfIncident1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTypeOfIncident1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTypeActionPerformed
+
+        String org = ("--Select--".equals(String.valueOf(cmbTypeOfIncident1.getSelectedItem())))? null : String.valueOf(cmbTypeOfIncident1.getSelectedItem());
+        if (org!=null)
+        {
+
+            if ("Injury".equals(org))
+            {
+                //              go to the next page
+            }
+            else if ("Sexual Assault".equals(org))
+            {
+                //                go to the next page
+            }
+            else if ("Firearm".equals(org))
+            {
+                //               go to the next page
+            }
+            else if ("Threats or Stalking".equals(org))
+            {
+                //                go to the next page
+            }
+        }
+    }//GEN-LAST:event_cmbTypeOfIncident1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JComboBox<String> cmbType;
+    private javax.swing.JComboBox<String> cmbTypeOfIncident1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

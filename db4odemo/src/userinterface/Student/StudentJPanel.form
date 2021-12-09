@@ -19,7 +19,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="100" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButton1" max="32767" attributes="0"/>
+                  <Component id="btnViewAllComplaints" max="32767" attributes="0"/>
                   <Component id="btnRaiseComplaint" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
@@ -32,7 +32,7 @@
               <EmptySpace min="-2" pref="121" max="-2" attributes="0"/>
               <Component id="btnRaiseComplaint" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnViewAllComplaints" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="109" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -47,10 +47,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRaiseComplaintActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnViewAllComplaints">
       <Properties>
         <Property name="text" type="java.lang.String" value="View All Complaints"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewAllComplaintsActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

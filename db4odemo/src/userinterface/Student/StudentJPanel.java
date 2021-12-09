@@ -7,8 +7,10 @@ package userinterface.Student;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import userinterface.Complaints.ComplaintJPanel;
+import userinterface.Complaints.FileAComplaintJPanel;
 
 /**
  *
@@ -22,8 +24,10 @@ public class StudentJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
+    
     public StudentJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
         initComponents();
+        
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         this.system=system;
@@ -39,7 +43,7 @@ public class StudentJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnRaiseComplaint = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnViewAllComplaints = new javax.swing.JButton();
 
         btnRaiseComplaint.setText("Raise a Complaint");
         btnRaiseComplaint.addActionListener(new java.awt.event.ActionListener() {
@@ -48,7 +52,12 @@ public class StudentJPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("View All Complaints");
+        btnViewAllComplaints.setText("View All Complaints");
+        btnViewAllComplaints.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewAllComplaintsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,7 +66,7 @@ public class StudentJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewAllComplaints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(130, 130, 130))
         );
@@ -67,22 +76,29 @@ public class StudentJPanel extends javax.swing.JPanel {
                 .addGap(121, 121, 121)
                 .addComponent(btnRaiseComplaint)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnViewAllComplaints)
                 .addContainerGap(109, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseComplaintActionPerformed
         // TODO add your handling code here:
-         //ComplaintJPanel complaintPanel= new ComplaintJPanel(userProcessContainer, account, system);
-//       userProcessContainer.add("ManageAllCustomers",customerPanel);
-//       CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
-//       cardlayout.next(userProcessContainer);
+        
+        
+        ComplaintJPanel complaintForm = new ComplaintJPanel(userProcessContainer, system);
+        userProcessContainer.add("FileAComplaint", complaintForm);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnRaiseComplaintActionPerformed
+
+    private void btnViewAllComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllComplaintsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnViewAllComplaintsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRaiseComplaint;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnViewAllComplaints;
     // End of variables declaration//GEN-END:variables
 }
