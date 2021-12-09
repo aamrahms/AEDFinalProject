@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.Complaints.AllComplaintsJPanel;
 import userinterface.Complaints.ComplaintJPanel;
 import userinterface.Complaints.FileAComplaintJPanel;
 
@@ -16,7 +17,8 @@ import userinterface.Complaints.FileAComplaintJPanel;
  *
  * @author aamrah
  */
-public class StudentJPanel extends javax.swing.JPanel {
+public class StudentJPanel extends javax.swing.JPanel
+{
 
     /**
      * Creates new form StudentJPanel
@@ -84,9 +86,8 @@ public class StudentJPanel extends javax.swing.JPanel {
     private void btnRaiseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseComplaintActionPerformed
         // TODO add your handling code here:
         
-        
         ComplaintJPanel complaintForm = new ComplaintJPanel(userProcessContainer, system);
-        userProcessContainer.add("FileAComplaint", complaintForm);
+        userProcessContainer.add("Complaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
         
@@ -94,6 +95,12 @@ public class StudentJPanel extends javax.swing.JPanel {
 
     private void btnViewAllComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllComplaintsActionPerformed
         // TODO add your handling code here:
+        
+        AllComplaintsJPanel complaintForm = new AllComplaintsJPanel(userProcessContainer, system);
+        userProcessContainer.add("Complaint", complaintForm);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnViewAllComplaintsActionPerformed
 
 
