@@ -27,12 +27,13 @@ public class StudentJPanel extends javax.swing.JPanel
     UserAccount account;
     EcoSystem system;
     
-    public StudentJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
+    public StudentJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
+    {
         initComponents();
         
-        this.userProcessContainer=userProcessContainer;
-        this.account=account;
-        this.system=system;
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
     }
 
     /**
@@ -45,7 +46,8 @@ public class StudentJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         btnRaiseComplaint = new javax.swing.JButton();
-        btnViewAllComplaints = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         btnRaiseComplaint.setText("Raise a Complaint");
         btnRaiseComplaint.addActionListener(new java.awt.event.ActionListener() {
@@ -54,10 +56,17 @@ public class StudentJPanel extends javax.swing.JPanel
             }
         });
 
-        btnViewAllComplaints.setText("View All Complaints");
-        btnViewAllComplaints.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("View All Complaints");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewAllComplaintsActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -67,8 +76,9 @@ public class StudentJPanel extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(701, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnViewAllComplaints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack)
+                    .addComponent(jButton1)
                     .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59))
         );
@@ -77,9 +87,11 @@ public class StudentJPanel extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addGap(137, 137, 137)
                 .addComponent(btnRaiseComplaint)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewAllComplaints)
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jButton1)
+                .addGap(50, 50, 50)
+                .addComponent(btnBack)
+                .addContainerGap(337, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -93,19 +105,28 @@ public class StudentJPanel extends javax.swing.JPanel
         
     }//GEN-LAST:event_btnRaiseComplaintActionPerformed
 
-    private void btnViewAllComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAllComplaintsActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        AllComplaintsJPanel complaintForm = new AllComplaintsJPanel(userProcessContainer, system);
-        userProcessContainer.add("Complaint", complaintForm);
+        AllComplaintsJPanel allcomplaints = new AllComplaintsJPanel(userProcessContainer, account, system);
+        userProcessContainer.add("AllComplaints", allcomplaints);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
         
-    }//GEN-LAST:event_btnViewAllComplaintsActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRaiseComplaint;
-    private javax.swing.JButton btnViewAllComplaints;
+    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }

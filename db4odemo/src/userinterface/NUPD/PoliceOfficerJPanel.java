@@ -114,6 +114,11 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         });
 
         btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshStatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,6 +176,13 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 //        }
 
     }//GEN-LAST:event_btnProcessComplaintsActionPerformed
+
+    private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
+        // TODO add your handling code here:
+        
+        tblComplaintsWithStatus.repaint();
+        
+    }//GEN-LAST:event_btnRefreshStatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

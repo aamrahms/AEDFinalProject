@@ -7,6 +7,7 @@ package userinterface.Complaints;
 
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -23,14 +24,16 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
      */
     JPanel userProcessContainer;
     EcoSystem system;
+    UserAccount account;
     ArrayList<Complaint> complaintDirectory;
     DefaultTableModel md;
     
-    public AllComplaintsJPanel(JPanel userProcessContainer, EcoSystem system) 
+    public AllComplaintsJPanel(JPanel userProcessContainer,  UserAccount account, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account = account;
         complaintDirectory= this.system.getComplaintDirectory().getComplaintList();
         
         populateTable();

@@ -113,6 +113,11 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         });
 
         btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshStatusActionPerformed(evt);
+            }
+        });
 
         btnAcceptCase.setText("Accept Case");
 
@@ -180,6 +185,12 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         // if type is Sexual Assault &&  if status is assigned Advisor enable btnTaskCompleted
         
     }//GEN-LAST:event_btnProcessComplaintsActionPerformed
+
+    private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
+        // TODO add your handling code here:
+        
+        tblComplaintsWithStatus.repaint();
+    }//GEN-LAST:event_btnRefreshStatusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
