@@ -28,13 +28,9 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
     DefaultTableModel md;
-<<<<<<< HEAD
     
     public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
-=======
-    public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
->>>>>>> 23169992677a186ff582b75f0de667bc5066837a
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;

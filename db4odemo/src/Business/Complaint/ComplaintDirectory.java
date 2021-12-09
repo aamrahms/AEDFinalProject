@@ -22,18 +22,18 @@ public class ComplaintDirectory {
     //String timeOfIncident;
     //String location;
     //String describeIncident;
-     public Complaint createComplaint(String typeOfComplaint, Student victimStudent, String dateOfIncident)
+     public Complaint createComplaint(String typeOfComplaint, Student student, String dateOfIncident)
     {
                     
         if(typeOfComplaint.equals("Emergency"))
         {
             //complaint = new EmergencyComplaint(typeOfComplaint, student);
-            complaint= new Complaint(typeOfComplaint, victimStudent,null);
+            complaint= new Complaint(typeOfComplaint, student,null);
         } 
         else if(typeOfComplaint.equals("Normal"))
         {
             //complaint = new NormalComplaint(typeOfComplaint, student);
-            complaint = new Complaint(typeOfComplaint, victimStudent, dateOfIncident);
+            complaint = new Complaint(typeOfComplaint, student, dateOfIncident);
         }
         else{
             return null;
