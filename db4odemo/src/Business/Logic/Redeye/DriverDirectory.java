@@ -18,7 +18,7 @@ public class DriverDirectory {
         return driverList;
     }
 
-    public void setDriverList(ArrayList<Driver>  driverList) {
+    public void setDriverList(ArrayList<Driver> driverList) {
         this.driverList = driverList;
     }
     

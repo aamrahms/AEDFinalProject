@@ -6,7 +6,11 @@
 package userinterface.Complaints;
 
 import Business.EcoSystem;
+import Business.Student.Student;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,12 +25,24 @@ public class ComplaintJPanel extends javax.swing.JPanel
      */
     JPanel userProcessContainer;
     EcoSystem system;
-    
-    public ComplaintJPanel(JPanel userProcessContainer, EcoSystem system) 
+    UserAccount account;
+    ArrayList<Student> studentList;
+    Student victimStudent;
+    public ComplaintJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account= account;
+        studentList=system.getStudentDirectory().getStudentDir();
+        for(Student student : studentList)
+        {
+            if(student.getUserAccount().equals(account))
+            {
+                victimStudent=student;
+            }
+           
+        }
     }
 
     /**
@@ -104,7 +120,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
         // TODO add your handling code here:
 
-        EmergencyJPanel complaintForm = new EmergencyJPanel(userProcessContainer, system);
+        EmergencyJPanel complaintForm = new EmergencyJPanel(userProcessContainer,account, system, victimStudent);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);
@@ -115,7 +131,7 @@ public class ComplaintJPanel extends javax.swing.JPanel
     private void btnNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNormalActionPerformed
         // TODO add your handling code here:
         
-        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, system);
+        FileAComplaintJPanel complaintForm = new FileAComplaintJPanel(userProcessContainer, account,system, victimStudent);
         userProcessContainer.add("FileAComplaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);

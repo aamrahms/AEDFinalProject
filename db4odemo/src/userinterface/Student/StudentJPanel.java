@@ -98,7 +98,7 @@ public class StudentJPanel extends javax.swing.JPanel
     private void btnRaiseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseComplaintActionPerformed
         // TODO add your handling code here:
         
-        ComplaintJPanel complaintForm = new ComplaintJPanel(userProcessContainer, system);
+        ComplaintJPanel complaintForm = new ComplaintJPanel(userProcessContainer, account,system);
         userProcessContainer.add("Complaint", complaintForm);
         CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
         cardlayout.next(userProcessContainer);

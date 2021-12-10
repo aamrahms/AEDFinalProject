@@ -22,28 +22,37 @@ public class Complaint {
     private String dateOfIncident;
     private String sender;
     private String receiver;
+    private String location;
+    private String typeOfIncident;
+   
     
     //in case of Emergency complaint : location + date
     //add once location feature added
-    //private String location;
+    
     private static int count =0;
     //in case of normal complaint : accused student + date(manual)
     private Student accusedStudent;
+    private String natureOfIncident;
+    private String description;
    
 
-    public Complaint(String typeOfComplaint, Student student, String dateOfIncident/*,String location*/) {
+    public Complaint(String typeOfComplaint, Student student, String dateOfIncident,String location, String typeOfIncident) {
         this.ComplaintID = String.valueOf(count++);
         this.status = "FreshCase";
         this.victimStudent=student;
         this.typeOfComplaint=typeOfComplaint;
-        this.sender=null;
+        this.sender="";
         this.receiver="ChiefOfficer";
+        this.typeOfIncident = typeOfIncident;
         
-        //this.location = location;
+        this.location = location;
         if(typeOfComplaint.equals("Emergency"))
         {
             this.dateOfIncident=String.valueOf(new Date());
 //            this.receiver="ChiefOfficer";
+            this.accusedStudent=null;
+            this.natureOfIncident=" ";
+            this.description=" ";
             
         }
         else if (typeOfComplaint.equals("Normal"))
@@ -53,6 +62,7 @@ public class Complaint {
         }
         
     }
+ 
 
     public String getComplaintID() {
         return ComplaintID;
@@ -77,13 +87,13 @@ public class Complaint {
         this.dateOfIncident = dateOfIncident;
     }
     //add once location feature added
-//    public String getLocation() {
-//        return location;
-//    }
-//
-//    public void setLocation(String location) {
-//        this.location = location;
-//    }
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 
     public Student getVictimStudent() {
         return victimStudent;
@@ -123,6 +133,30 @@ public class Complaint {
 
     public void setReceiver(String receiver) {
         this.receiver = receiver;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTypeOfIncident() {
+        return typeOfIncident;
+    }
+
+    public void setTypeOfIncident(String typeOfIncident) {
+        this.typeOfIncident = typeOfIncident;
+    }
+
+    public String getNatureOfIncident() {
+        return natureOfIncident;
+    }
+
+    public void setNatureOfIncident(String natureOfIncident) {
+        this.natureOfIncident = natureOfIncident;
     }
     
     

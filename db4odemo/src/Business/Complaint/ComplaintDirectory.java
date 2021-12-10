@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author aamrah
  */
 public class ComplaintDirectory {
-    ArrayList <Complaint> complaintList;
+    private ArrayList <Complaint> complaintList;
     //STUDENTDIRECTORY
     Complaint complaint ;
     //Normal 
@@ -22,37 +22,47 @@ public class ComplaintDirectory {
     //String timeOfIncident;
     //String location;
     //String describeIncident;
-     public Complaint createComplaint(String typeOfComplaint, Student student, String dateOfIncident)
+
+    public ComplaintDirectory() {
+        this.complaintList = new ArrayList<Complaint>();
+    }
+    
+     public Complaint createComplaint(String typeOfComplaint, Student student, String dateOfIncident , String location, String typeOfIncident)
     {
                     
         if(typeOfComplaint.equals("Emergency"))
         {
             //complaint = new EmergencyComplaint(typeOfComplaint, student);
-            complaint= new Complaint(typeOfComplaint, student,null);
+            complaint= new Complaint(typeOfComplaint, student,null, location, typeOfIncident);
+            complaintList.add(complaint);
         } 
         else if(typeOfComplaint.equals("Normal"))
         {
             //complaint = new NormalComplaint(typeOfComplaint, student);
-            complaint = new Complaint(typeOfComplaint, student, dateOfIncident);
+            complaint = new Complaint(typeOfComplaint, student, dateOfIncident, location, typeOfIncident);
+            complaintList.add(complaint);
         }
         else{
             return null;
         }
-        complaintList.add(complaint);
+        
         return complaint;
     }
 //     public void appendEmergencyComplaint(EmergencyComplaint complaint/*,String location*/)
 //     {
 //         //complaint.setLocation(location);
 //     }
-//     public void appendNormalComplaint(Complaint complaint /*,String location*/ ,String dateOfIncident, Student accusedStudent,Student victimStudent){
-//         //complaint.setLocation(location);
-//        
-//        complaint.setDateOfIncident(dateOfIncident);
-//        complaint.setAccusedStudent(accusedStudent);
-//        complaint.setVictimStudent(victimStudent);
-//        
-//     }
+     public void appendNormalComplaint(Complaint complaint ,String location ,String dateOfIncident, Student accusedStudent, String description,String natureOfIncident){
+         //complaint.setLocation(location);
+        
+        complaint.setDateOfIncident(dateOfIncident);
+        complaint.setAccusedStudent(accusedStudent);
+        //complaint.setVictimStudent(victimStudent);
+        complaint.setDescription(description); 
+        complaint.setNatureOfIncident(natureOfIncident);
+   
+        
+     }
     public ArrayList<Complaint> getComplaintList() {
         return complaintList;
     }

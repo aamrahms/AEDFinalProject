@@ -30,7 +30,12 @@ public class ConfigureASystem {
         UserAccount ua2 = system.getUserAccountDirectory().createUserAccount("aamrah", "aamrah", "aamrah", employee, new StudentRole());
         UserAccount ua3 = system.getUserAccountDirectory().createUserAccount("fian", "fian", "fian", employee, new StudentRole());
         UserAccount ua = system.getUserAccountDirectory().createUserAccount("NeuAdmin", "sysadmin", "sysadmin", employee, new SystemAdminRole());
+        system.getStudentDirectory().createStudent("fifi", "fifi", "fifi", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872", ua3);
+        system.getStudentDirectory().createStudent("aamrah", "aamrah", "aamrah", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872", ua2);
         
+//      system.getStudentDirectory().createStudent("vignesh", "vignesh", "vignesh", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
+//      system.getStudentDirectory().createStudent("vignesh", "vignesh", "vignesh", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
+//     
         return system;
     }
     

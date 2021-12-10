@@ -5,6 +5,7 @@
  */
 package Business.Student;
 
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 
 /**
@@ -32,14 +33,14 @@ public class StudentDirectory {
         return null;
     }
     //creating student
-    public Student createStudent(String name, String username, String password, String address, String phone, String email, String neuid)
+    public Student createStudent(String name, String username, String password, String address, String phone, String email, String neuid, UserAccount ua)
     {
-        student=new Student(name, username, password,address, phone, email, neuid);
+        student=new Student(name, username, password,address, phone, email, neuid, ua);
         studentDir.add(student);
         return student;
     }
     //updating student profile
-    public void updateStudent(Student student,String name, String username, String password, String address, String phone, String email, String neuid)
+    public void updateStudent(Student student,String name, String username, String password, String address, String phone, String email, String neuid, UserAccount userAccount)
     {
         for (Student c: studentDir)
         {
@@ -50,6 +51,7 @@ public class StudentDirectory {
                 student.setPassword(password);
                 student.setAddress(address);
                 student.setPhone(phone);
+                student.setUserAccount(userAccount);
                 break;
             }
         }

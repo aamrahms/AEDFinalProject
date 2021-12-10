@@ -190,7 +190,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         catch(NullPointerException e)
         {
-            JOptionPane.showMessageDialog(null, "Enter a valid username and password!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, e + "Enter a valid username and password!!", "Warning", JOptionPane.WARNING_MESSAGE);
        
         }
         

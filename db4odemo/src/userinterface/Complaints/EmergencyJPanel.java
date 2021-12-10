@@ -5,8 +5,14 @@
  */
 package userinterface.Complaints;
 
+import Business.Complaint.Complaint;
+import Business.Complaint.ComplaintDirectory;
 import Business.EcoSystem;
+import Business.Student.Student;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,13 +27,23 @@ public class EmergencyJPanel extends javax.swing.JPanel
      */
     
     JPanel userProcessContainer;
+    UserAccount account;
     EcoSystem system;
+    ComplaintDirectory complaintDirectory;
+    Complaint complaint;
+    String typeOfIncident;
+    Student victim, accused;
     
-    public EmergencyJPanel(JPanel userProcessContainer, EcoSystem system)
+    public EmergencyJPanel(JPanel userProcessContainer, UserAccount account,EcoSystem system, Student victimStudent)
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;
+        this.account=account;
+        this.victim=victimStudent;
+        complaintDirectory =system.getComplaintDirectory();
+        
+        
     }
 
     /**
@@ -130,25 +146,30 @@ public class EmergencyJPanel extends javax.swing.JPanel
 
             if ("Injury".equals(org))
             {
-                //             
+                typeOfIncident = "Injury";
             }
             else if ("Sexual Assault".equals(org))
             {
-                //                go to the next page
+                typeOfIncident = "Sexual Assault";
             }
             else if ("Firearm".equals(org))
             {
-                //               go to the next page
+                typeOfIncident = "Firearm";
             }
             else if ("Threats or Stalking".equals(org))
             {
-                //                go to the next page
+                typeOfIncident = "Threats or Stalking";
             }
         }
     }//GEN-LAST:event_cmbTypeOfIncident1ActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        String location = txtLocation.getText();
+        
+        complaint = complaintDirectory.createComplaint("Emergency", victim, null, location, typeOfIncident);
+        JOptionPane.showMessageDialog(null, " Complaint registered with ID" +complaint.getComplaintID());
+        
         
         
     }//GEN-LAST:event_btnSubmitActionPerformed

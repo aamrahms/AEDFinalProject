@@ -38,9 +38,7 @@ public class EcoSystem extends Organisation{
     private OUECInvestigatorDirectory investigatorDirectory;
     private DriverDirectory driverDirectory;
     
-//    public EcoSystem() {
-//        
-//    }
+
     
     public static EcoSystem getInstance(){
         if(business==null){

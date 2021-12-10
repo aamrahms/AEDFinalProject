@@ -34,7 +34,7 @@ public class DriverAssignJPanel extends javax.swing.JPanel {
         this.account=account;
         this.system=system;
         this.complaint=complaint;
-        driverList=system.getDriverDirectory();
+        driverList=system.getDriverDirectory().getDriverList();
     }
     
 
