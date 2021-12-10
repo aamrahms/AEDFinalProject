@@ -53,18 +53,42 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         
         md=(DefaultTableModel)tblComplaints.getModel();
         md.setRowCount(0);
-        Object row[]= new Object[5];
+        Object row[]= new Object[7];
         
         for(Complaint c : complaintDirectory)
         {
+            if(c.getTypeOfComplaint().equalsIgnoreCase("Emergency"))
+            {
+                row[0]=c.getComplaintID();
+                row[1]=c.getTypeOfComplaint();
+                row[2]=c.getTypeOfIncident();
+                row[3]=c.getVictimStudent().getName();
+                if(c.getAccusedStudent()==null)
+                {
+                    row[4]=" ";
+                }
+                else
+                {
+                    row[4]=c.getAccusedStudent().getName();
+                }
+                
+                row[5]=c.getLocation();
+                row[6]=c.getVictimStudent().getPhone();
+                
+//                row[7]=c.getNatureOfIncident();
+                md.addRow(row);
+            }
+            else
+            {
+                row[0]=c.getComplaintID();
+                row[1]=c.getTypeOfComplaint();
+                row[2]=c.getVictimStudent().getName();
+                row[3]=c.getAccusedStudent().getName();
+                row[4]=c.getLocation();
+                row[5]=c.getVictimStudent().getPhone();
+                md.addRow(row);
+            }
             
-            row[0]=c.getComplaintID();
-            row[1]=c.getTypeOfComplaint();
-            row[2]=c.getVictimStudent().getName();
-            row[3]=c.getAccusedStudent().getName();
-            //row[4]=c.getLocation();
-            row[5]=c.getVictimStudent().getPhone();
-            md.addRow(row);
                    
         }
     }
@@ -90,20 +114,10 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Type", "Victim", "Accused", "Priority", "Location", "Contact"
+                "Complaint ID", "Type", "Type of Incident", "Victim", "Accused", "Location", "Contact"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblComplaints.setColumnSelectionAllowed(true);
+        ));
         jScrollPane1.setViewportView(tblComplaints);
-        tblComplaints.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         lblHeading.setText("All Complaints");
@@ -118,6 +132,11 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnUhcs.setText("University Health & Counselling Services");
 
         btnRedeye.setText("RedEye Support");
+        btnRedeye.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRedeyeActionPerformed(evt);
+            }
+        });
 
         btnOUEC.setText("Office of Equity and Compliance");
 
@@ -181,22 +200,73 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         }
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
+            String receiver=complaint.getReceiver();
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
             {
                 PoliceOfficerAssignJPanel policePanel= new PoliceOfficerAssignJPanel(userProcessContainer, account, system, complaint);
                 userProcessContainer.add("AssignPoliceOfficer",policePanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            else if (receiver.equalsIgnoreCase("PoliceOfficer")){
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a Police Officer, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
        
+            }
+            else if(receiver.equalsIgnoreCase("Receptionist") || receiver.equalsIgnoreCase("Doctor") || receiver.equalsIgnoreCase("Advisor"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a UHCS, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else if(receiver.equalsIgnoreCase("President") || receiver.equalsIgnoreCase("OUECCoordinator") || receiver.equalsIgnoreCase("OUECInvestigator"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a OUEC, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else if(receiver.equalsIgnoreCase("Driver"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
             
             
         }
          
     }//GEN-LAST:event_btnPoliceOfficerActionPerformed
+
+    private void btnRedeyeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedeyeActionPerformed
+        // TODO add your handling code here:
+        int selectedRow =tblComplaints.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Redeye support!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Complaint complaint= this.complaintDirectory.get(selectedRow);
+            String receiver=complaint.getReceiver();
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
+            {
+                DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
+                userProcessContainer.add("AssignDriver",driverPanel);
+                CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+                cardlayout.next(userProcessContainer);
+            }
+            else if (receiver.equalsIgnoreCase("PoliceOfficer")){
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a Police Officer, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+       
+            }
+            else if(receiver.equalsIgnoreCase("Receptionist") || receiver.equalsIgnoreCase("Doctor") || receiver.equalsIgnoreCase("Advisor"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a UHCS, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else if(receiver.equalsIgnoreCase("President") || receiver.equalsIgnoreCase("OUECCoordinator") || receiver.equalsIgnoreCase("OUECInvestigator"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a OUEC, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else if(receiver.equalsIgnoreCase("Driver"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            
+            
+            
+        }
+    }//GEN-LAST:event_btnRedeyeActionPerformed
     
     
 

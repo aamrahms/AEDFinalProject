@@ -129,7 +129,7 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         {
             PoliceOfficer police= policeList.get(selectedRow);
             complaint.setStatus("AssignedToPoliceOfficer");
-            police.getComplaintList().add(complaint);
+//            police.getComplaintList().add(complaint);
         }
         
 

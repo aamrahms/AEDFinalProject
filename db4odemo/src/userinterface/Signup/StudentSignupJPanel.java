@@ -365,7 +365,7 @@ public class StudentSignupJPanel extends javax.swing.JPanel {
         }else{
 
             UserAccount ua1 =system.getUserAccountDirectory().createUserAccount(name,uname,password, null, new StudentRole());
-            Student stud= system.getStudentDirectory().createStudent(name, uname, password, address, phone, email, neuid);
+            Student stud= system.getStudentDirectory().createStudent(name, uname, password, address, phone, email, neuid, ua1);
 
             JOptionPane.showMessageDialog(null,"You may now proceed to login!");
 

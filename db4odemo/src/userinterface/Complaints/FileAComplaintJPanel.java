@@ -5,13 +5,17 @@
  */
 package userinterface.Complaints;
 
+import Business.Complaint.Complaint;
+import Business.Complaint.ComplaintDirectory;
 import Business.EcoSystem;
 import Business.Student.Student;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -26,16 +30,36 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
      */
     
     JPanel userProcessContainer;
+    UserAccount account;
     EcoSystem system;
     String reasons="";
+    ComplaintDirectory complaintDirectory;
+    Complaint complaint;
+    String typeOfIncident;
+    Student victim, accused;
+    int victimIndex, accusedIndex;
     
-    public FileAComplaintJPanel(JPanel userProcessContainer, EcoSystem system) 
+    public FileAComplaintJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Student victimStudent) 
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.account=account;
         this.system = system;
-        system.getStudentDirectory().createStudent("fifi", "fifi", "fifi", "2 Wiggles", "9819802928", "fifi29@gmail.com", "001991872");
-        system.getStudentDirectory().createStudent("john", "john", "john", "5 Wiggles", "9819902928", "john11@gmail.com", "201991872");
+        this.victim=victimStudent;
+        complaintDirectory =system.getComplaintDirectory();
+        
+        ArrayList<Student> studentList = system.getStudentDirectory().getStudentDir();
+        
+        DefaultComboBoxModel model= new DefaultComboBoxModel(studentList.toArray());
+        DefaultComboBoxModel model2= new DefaultComboBoxModel(studentList.toArray());
+        cmbVictimName.setModel( model );
+        cmbAccusedName.setModel( model2 );
+        //to set default values
+        victimIndex = 0;
+        victim=system.getStudentDirectory().getStudentDir().get(victimIndex);
+        accusedIndex = 0;
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
+        
     }
 
     /**
@@ -51,14 +75,13 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         txtLocation = new javax.swing.JTextField();
         lbTypeOfIncident = new javax.swing.JLabel();
         cmbTypeOfIncident1 = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lblDescription = new javax.swing.JLabel();
         lblTitle3 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblVictimStudent = new javax.swing.JLabel();
         cmbVictimName = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
+        lblAccusedVictim = new javax.swing.JLabel();
         cmbAccusedName = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
+        lblNatureOfDiscrimination = new javax.swing.JLabel();
         chckRace = new javax.swing.JCheckBox();
         chckGender = new javax.swing.JCheckBox();
         chckNationality = new javax.swing.JCheckBox();
@@ -75,6 +98,8 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         lblTitle2 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         chckAge = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescription = new javax.swing.JTextArea();
 
         lbLocation.setText("Location:");
 
@@ -87,12 +112,12 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
-        jLabel2.setText("Describe the Incident:");
+        lblDescription.setText("Describe the Incident:");
 
         lblTitle3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle3.setText("Details of the Involved Parties");
 
-        jLabel3.setText("Name of the Victim:");
+        lblVictimStudent.setText("Name of the Victim:");
 
         cmbVictimName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "  ", "   ", "   " }));
         cmbVictimName.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +126,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
-        jLabel11.setText("Name of the Accused:");
+        lblAccusedVictim.setText("Name of the Accused:");
 
         cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
         cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +135,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
-        jLabel14.setText("What was the nature of the discrimination?");
+        lblNatureOfDiscrimination.setText("What was the nature of the discrimination?");
 
         chckRace.setText("Race");
         chckRace.addActionListener(new java.awt.event.ActionListener() {
@@ -199,30 +224,39 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
+        txtDescription.setColumns(20);
+        txtDescription.setRows(5);
+        jScrollPane1.setViewportView(txtDescription);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(chckAge)
-                        .addGap(18, 18, 18)
-                        .addComponent(chckParentalStatus)
-                        .addGap(18, 18, 18)
-                        .addComponent(chckRace)
-                        .addGap(18, 18, 18)
-                        .addComponent(chckGender))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNatureOfDiscrimination)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chckAge)
+                                .addGap(18, 18, 18)
+                                .addComponent(chckParentalStatus)
+                                .addGap(18, 18, 18)
+                                .addComponent(chckRace)
+                                .addGap(18, 18, 18)
+                                .addComponent(chckGender))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(chckPoliticalAffiliation)
+                                .addGap(18, 18, 18)
+                                .addComponent(chckOrientation)
+                                .addGap(18, 18, 18)
+                                .addComponent(chckDisability))
+                            .addComponent(chckNationality)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(chckPoliticalAffiliation)
-                        .addGap(18, 18, 18)
-                        .addComponent(chckOrientation)
-                        .addGap(18, 18, 18)
-                        .addComponent(chckDisability))
-                    .addComponent(chckNationality))
-                .addContainerGap(507, Short.MAX_VALUE))
+                        .addGap(219, 219, 219)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(479, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -242,14 +276,14 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                                     .addComponent(lbTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(lbLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblDescription, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lbTypeOfIncident, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGap(18, 18, 18)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(txtTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblAccusedVictim, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
                                     .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
@@ -257,12 +291,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                                         .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
                                             .addComponent(txtDateOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(lblVictimStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(30, 30, 30)
                                     .addComponent(cmbVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(15, 15, 15))
@@ -276,8 +307,10 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(419, Short.MAX_VALUE)
-                .addComponent(jLabel14)
+                .addContainerGap(317, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblNatureOfDiscrimination)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chckParentalStatus)
@@ -304,13 +337,13 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbDateOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtDateOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
+                        .addComponent(lblVictimStudent)
                         .addComponent(cmbVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lbTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTimeOfIncident, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11)
+                        .addComponent(lblAccusedVictim)
                         .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -321,10 +354,8 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                         .addComponent(lbTypeOfIncident)
                         .addComponent(cmbTypeOfIncident1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                    .addComponent(lblDescription)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSubmit)
                         .addComponent(btnBack))
@@ -422,9 +453,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
     private void cmbVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVictimNameActionPerformed
         // TODO add your handling code here:
-        ArrayList<Student> victimStudentList = system.getStudentDirectory().getStudentDir();
-        DefaultComboBoxModel model= new DefaultComboBoxModel(victimStudentList.toArray());
-        cmbVictimName.setModel( model );
+         
+        victimIndex = cmbVictimName.getSelectedIndex();
+        victim=system.getStudentDirectory().getStudentDir().get(victimIndex);
         
     }//GEN-LAST:event_cmbVictimNameActionPerformed
 
@@ -437,36 +468,47 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
 
             if ("Alleged Accusation".equals(org)) 
             {
-//              go to the next page
+              typeOfIncident="Alleged Accusation";
+                
             } 
             else if ("Assault".equals(org))
             {
-//                go to the next page
+                typeOfIncident="Assault";
             }
             else if ("Discrimination".equals(org)) 
             {
-//               go to the next page
+                typeOfIncident="Discrimination";
             }
             else if ("Plaigiarism".equals(org))
             {
-//                go to the next page
+                typeOfIncident="Plaigiarism";
             }
         }
     }//GEN-LAST:event_cmbTypeOfIncident1ActionPerformed
 
     private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
         // TODO add your handling code here:
+      
+        accusedIndex = cmbAccusedName.getSelectedIndex();
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
         
-        ArrayList<Student> accusedStudentList = system.getStudentDirectory().getStudentDir();
-        DefaultComboBoxModel model= new DefaultComboBoxModel(accusedStudentList.toArray());
-        cmbAccusedName.setModel( model );
         
     }//GEN-LAST:event_cmbAccusedNameActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        
-        
+//        String typeOfIncident;
+//    Student victim, accused;
+//    reasons
+        String date = txtDateOfIncident.getText();
+        String time = txtTimeOfIncident.getText();
+        //String type = cmbTypeOfIncident1.getName();
+        String location = txtLocation.getText();
+        String description = txtDescription.getText();
+        //String typeOfComplaint, Student student, String dateOfIncident , String location, String typeOfIncident
+        complaint=complaintDirectory.createComplaint("Normal", victim,date, location, typeOfIncident);
+        complaintDirectory.appendNormalComplaint(complaint, location, date, accused, description, reasons);
+        JOptionPane.showMessageDialog(null, " Complaint registered with ID" +complaint.getComplaintID());
     }//GEN-LAST:event_btnSubmitActionPerformed
 
 
@@ -484,20 +526,23 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JComboBox<String> cmbTypeOfIncident1;
     private javax.swing.JComboBox<String> cmbVictimName;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbDateOfIncident;
     private javax.swing.JLabel lbLocation;
     private javax.swing.JLabel lbTimeOfIncident;
     private javax.swing.JLabel lbTypeOfIncident;
+    private javax.swing.JLabel lblAccusedVictim;
+    private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblNatureOfDiscrimination;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle2;
     private javax.swing.JLabel lblTitle3;
+    private javax.swing.JLabel lblVictimStudent;
     private javax.swing.JTextField txtDateOfIncident;
+    private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtTimeOfIncident;
     // End of variables declaration//GEN-END:variables
+
+    
 }

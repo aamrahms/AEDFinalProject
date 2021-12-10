@@ -6,6 +6,7 @@
 package Business.Student;
 
 import Business.Complaint.Complaint;
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 
 /**
@@ -21,9 +22,10 @@ import java.util.ArrayList;
     private String phone;
     private String email;
     private String neuid;
+    UserAccount userAccount;
     private ArrayList <Complaint> myComplaints;
 
-    public Student(String name, String username, String password, String address, String phone, String email, String neuid) {
+    public Student(String name, String username, String password, String address, String phone, String email, String neuid, UserAccount userAccount) {
         this.name = name;
         this.username = username;
         this.password = password;
@@ -31,6 +33,7 @@ import java.util.ArrayList;
         this.phone = phone;
         this.email = email;
         this.neuid = neuid;
+        this.userAccount=userAccount;
     }
 
     public String getName() {
@@ -79,6 +82,30 @@ import java.util.ArrayList;
 
     public void setMyComplaints(ArrayList<Complaint> myComplaints) {
         this.myComplaints = myComplaints;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNeuid() {
+        return neuid;
+    }
+
+    public void setNeuid(String neuid) {
+        this.neuid = neuid;
+    }
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
     }
        
     

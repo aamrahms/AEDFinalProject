@@ -12,6 +12,7 @@ import Business.Logic.UHCS.DoctorDirectory;
 import Business.Logic.OUEC.OUECInvestigatorDirectory;
 import Business.Logic.OUEC.OUECCoordinatorDirectory;
 import Business.Logic.NUPD.PoliceOfficerDirectory;
+import Business.Logic.Redeye.DriverDirectory;
 import Business.Network.Network;
 import Business.Organisations.Organisation;
 import Business.Role.Role;
@@ -35,10 +36,9 @@ public class EcoSystem extends Organisation{
     private DoctorDirectory doctorDirectory;
     private AdvisorDirectory advisorDirectory;
     private OUECInvestigatorDirectory investigatorDirectory;
+    private DriverDirectory driverDirectory;
     
-//    public EcoSystem() {
-//        
-//    }
+
     
     public static EcoSystem getInstance(){
         if(business==null){
@@ -145,6 +145,17 @@ public class EcoSystem extends Organisation{
 
     public void setInvestigatorDirectory(OUECInvestigatorDirectory investigatorDirectory) {
         this.investigatorDirectory = investigatorDirectory;
-    }   
+    } 
+
+    public DriverDirectory getDriverDirectory() {
+        if (driverDirectory==null)
+            this.driverDirectory= new DriverDirectory();
+        return driverDirectory;
+    }
+
+    public void setDriverDirectory(DriverDirectory driverDirectory) {
+        this.driverDirectory = driverDirectory;
+    }
+    
     
 }
