@@ -12,14 +12,15 @@ import java.util.ArrayList;
  * @author aamrah
  */
 public class PoliceOfficer {
-    ArrayList<Complaint> complaintList;
+    ArrayList<Complaint> solvedComplaintList;
+    
 
     public ArrayList<Complaint> getComplaintList() {
-        return complaintList;
+        return solvedComplaintList;
     }
 
-    public void setComplaintList(ArrayList<Complaint> complaintList) {
-        this.complaintList = complaintList;
+    public void setComplaintList(ArrayList<Complaint> solvedComplaintList) {
+        this.solvedComplaintList = solvedComplaintList;
     }
     
     

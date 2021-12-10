@@ -5,10 +5,21 @@
  */
 package Business.Logic.Redeye;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
 public class DriverDirectory {
+    ArrayList<Driver> driverList;
+
+    public ArrayList<Driver>  getDriverList() {
+        return driverList;
+    }
+
+    public void setDriverList(ArrayList<Driver>  driverList) {
+        this.driverList = driverList;
+    }
     
 }

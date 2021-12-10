@@ -20,6 +20,8 @@ public class Complaint {
     private Student victimStudent;
     private String typeOfComplaint;
     private String dateOfIncident;
+    private String sender;
+    private String receiver;
     
     //in case of Emergency complaint : location + date
     //add once location feature added
@@ -31,17 +33,23 @@ public class Complaint {
 
     public Complaint(String typeOfComplaint, Student student, String dateOfIncident/*,String location*/) {
         this.ComplaintID = String.valueOf(count++);
-        this.status = "New";
+        this.status = "FreshCase";
         this.victimStudent=student;
         this.typeOfComplaint=typeOfComplaint;
+        this.sender=null;
+        this.receiver="ChiefOfficer";
+        
         //this.location = location;
         if(typeOfComplaint.equals("Emergency"))
         {
             this.dateOfIncident=String.valueOf(new Date());
+//            this.receiver="ChiefOfficer";
+            
         }
         else if (typeOfComplaint.equals("Normal"))
         {
             this.dateOfIncident=dateOfIncident;
+//            this.receiver="OUEC";
         }
         
     }
@@ -99,6 +107,22 @@ public class Complaint {
 
     public void setAccusedStudent(Student accusedStudent) {
         this.accusedStudent = accusedStudent;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
     
     
