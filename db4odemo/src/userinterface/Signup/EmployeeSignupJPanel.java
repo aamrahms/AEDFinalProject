@@ -21,6 +21,9 @@ import javax.swing.JPanel;
 import Business.Role.PoliceOfficerRole;
 import Business.Role.PresidentRole;
 import Business.Role.ReceptionistRole;
+import Business.Role.StudentRole;
+import Business.UserAccount.UserAccount;
+import Business.UserAccount.UserAccountDirectory;
 import java.util.regex.Pattern;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -103,6 +106,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         jLabel4.setText("Password");
 
@@ -191,11 +195,11 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
 
         jLabel11.setText("minimum length 5");
 
-        jLabel12.setText("1 alphabet, 1 number, ! or *");
+        jLabel12.setText("1 alphabet, 1 number, 1 !.*?");
 
         jLabel13.setText("exact 9 digits");
 
-        jLabel14.setText("exact 10 digits");
+        jLabel14.setText("exact 10 digits eg: 123.456.7890");
 
         jLabel15.setText("Address");
 
@@ -204,6 +208,8 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                 txtAddressActionPerformed(evt);
             }
         });
+
+        jLabel16.setText("*All fields are mandatory");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,35 +220,39 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(3, 3, 3)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel15)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(3, 3, 3)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel7)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel6)
-                                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3))
-                        .addGap(118, 118, 118)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtneuid, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
+                                                    .addComponent(jLabel6)
+                                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3))
+                                .addGap(118, 118, 118)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(uNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtneuid, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addGap(118, 118, 118)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -256,8 +266,13 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addComponent(closeJButton))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(submitJButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(submitJButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(251, 251, 251)
+                        .addComponent(jLabel16)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -304,7 +319,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -316,7 +331,9 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
                 .addComponent(submitJButton)
                 .addGap(22, 22, 22))
         );
@@ -327,14 +344,11 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -369,107 +383,83 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
         String phone = txtPhone.getText();
         String neuid = txtneuid.getText();
         String address = txtAddress.getText();
+        String org = ("--Select--".equals(String.valueOf(comboOrg.getSelectedItem())))? null : String.valueOf(comboOrg.getSelectedItem());
+        String role = ("--Select--".equals(String.valueOf(comboRole.getSelectedItem())))? null : String.valueOf(comboRole.getSelectedItem());
 
         try {
-            if(name==null || name.isEmpty()){
-                throw new NullPointerException(" Name field is Empty");
-
-            }else if(name.length()<5 || Pattern.matches("^[A-Za-z]+$", name)==false){
-                throw new Exception("Please enter valid  Name");
-
+            if(name==null || name.length()<2 || Pattern.matches("^[A-Za-z]+(\\s[A-Za-z]+)*$", name)==false){
+                throw new Exception("Name is mandatory and should be of pattern alphabets followed by space with alphabets");
             }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, " Name is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, "  Name is invalid");
-
-            return;
-        }
-
-        try {
-            if(uname==null || uname.isEmpty()){
-                throw new NullPointerException("User Name field is Empty");
-
-            }else if(uname.length()<5){
-                throw new Exception("Please enter valid User Name");
-
+            if(uname==null || uname.length()<5){
+                throw new Exception("Username is mandatory and is alphanumeric of minimum 5 lengths");
             }
-        } catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "User Name is Empty");
-
-            return;
-
-        }catch (Exception e){
-            JOptionPane.showMessageDialog(null, " User Name is invalid");
-
-            return;
-        }
-
-        try {
-
-            if(password==null || password.isEmpty()){
-                throw new NullPointerException("Pwd field is Empty");
-            }else if(Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
-                throw new Exception("Invalid Password");
+            if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
+                throw new Exception("User Name already exists");
             }
-
-        }  catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, "Password is Empty");
-
-            return;
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Password is of invalid pattern");
-
-            return;
-        }
-
-        if (system.getUserAccountDirectory().checkIfUsernameIsUnique(uname)==false) {
-            JOptionPane.showMessageDialog(null,"  User Name already exists ");
-        }else{
-
-            String org = ("--Select--".equals(String.valueOf(comboOrg.getSelectedItem())))? null : String.valueOf(comboOrg.getSelectedItem());
+            if(password==null || Pattern.matches("^(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{5,30}$", password)==false){
+                throw new Exception("Password is mandatory and of minimum 5 length with  atleast 1 alphabet, 1 number, 1 from ?!.*");
+            }
+            if(email==null || Pattern.matches("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$", email)==false){
+                throw new Exception("Email is mandatory and of minimum 5 length with  atleast 1 alphabet, 1 number, 1 from ?!.*");
+            }
+            if(phone==null || Pattern.matches("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$", phone)==false){
+                throw new Exception("Phone is mandatory and of numbers with sample pattern 123.456.7890");
+            }
+            if(neuid==null || Pattern.matches("^\\d{9}$", neuid)==false){
+                throw new Exception("Neuid is mandatory and of exact 9 numbers");
+            }
+            if(address==null || Pattern.matches("^[A-Za-z]+(\\s[A-Za-z]+)*$", address)==false){
+                throw new Exception("Address is mandatory");
+            }
             if (org==null) {
                 JOptionPane.showMessageDialog(null,"Org is mandatory");
-                return;
             }
-            String role = ("--Select--".equals(String.valueOf(comboRole.getSelectedItem())))? null : String.valueOf(comboRole.getSelectedItem());
             if (role==null) {
                 JOptionPane.showMessageDialog(null,"Role is mandatory");
-                return;
             }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
 
+            return;
+        } 
             //"PoliceOfficer","ChiefOfficer","OUECCoordinator","OUECInvestigator", "President","Driver","Doctor","Receptionist", "Advisor"
-              if ("PoliceOfficer".equals(role) )
-              {
-                  if(NUPDEnterprise!=null)
-                    {
-                        NUPDEnterprise.getOrganisationDirectory().getOrganisationList();
-                    }
-              }
-//            Employee e = system.getEmployeeDirectory().createEmployee(name, uname, password, address, phone, email, neuid);
-//            if ("PoliceOfficer".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PoliceOfficerRole());
-//                
-//            } else if ("ChiefOfficer".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ChiefOfficerRole());
-//            } else if ("OUECCoordinator".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECCoordinatorRole());
-//            } else if ("OUECInvestigator".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECInvestigatorRole());
-//            } else if ("President".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PresidentRole());
-//            }  else if ("Driver".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DriverRole());
-//            } else if ("Doctor".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DoctorRole());
-//            } else if ("Receptionist".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ReceptionistRole());
-//            } else if ("Advisor".equals(role)) {
-//                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new AdvisorRole());
-//            }
+//              if ("PoliceOfficer".equals(role) )
+//              {
+//                  if(NUPDEnterprise!=null)
+//                    {
+//                        NUPDEnterprise.getOrganisationDirectory().getOrganisationList();
+//                    }
+//              }
+           Employee e = system.getEmployeeDirectory().createEmployee(name, uname, password, address, phone, email, neuid);
+           
+           if ("PoliceOfficer".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PoliceOfficerRole());
+                system.getPoliceDirectory().createPoliceOfficer(name, uname, password, address, phone, email, neuid);
+            } else if ("ChiefOfficer".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ChiefOfficerRole());
+                
+            } else if ("OUECCoordinator".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECCoordinatorRole());
+                
+            } else if ("OUECInvestigator".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECInvestigatorRole());
+                
+            } else if ("President".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PresidentRole());
+                
+            }  else if ("Driver".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DriverRole());
+                
+            } else if ("Doctor".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DoctorRole());
+                
+            } else if ("Receptionist".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ReceptionistRole());
+                
+            } else if ("Advisor".equals(role)) {
+                system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new AdvisorRole());
+                
+            }
 
             JOptionPane.showMessageDialog(null,"You may now proceed to login!");
 
@@ -541,6 +531,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
