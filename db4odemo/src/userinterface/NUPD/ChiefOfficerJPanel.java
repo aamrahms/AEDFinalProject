@@ -104,7 +104,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnRedeye = new javax.swing.JButton();
         btnOUEC = new javax.swing.JButton();
         lblAssign = new javax.swing.JLabel();
-        btnInvestigator = new javax.swing.JButton();
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,7 +113,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Type", "Type of Incident", "Victim", "Accused", "Location", "Contact", "Status"
+                "Complaint ID", "Priority", "Type of Incident", "Victim", "Accused", "Location", "Contact", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblComplaints);
@@ -130,6 +129,11 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         });
 
         btnUhcs.setText("University Health & Counselling Services");
+        btnUhcs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUhcsActionPerformed(evt);
+            }
+        });
 
         btnRedeye.setText("RedEye Support");
         btnRedeye.addActionListener(new java.awt.event.ActionListener() {
@@ -141,8 +145,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnOUEC.setText("Office of Equity and Compliance");
 
         lblAssign.setText("Assign to :");
-
-        btnInvestigator.setText("Investigator");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -156,19 +158,17 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblAssign)
-                                .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblAssign)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(btnPoliceOfficer)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRedeye)
-                                    .addGap(151, 151, 151)
-                                    .addComponent(btnInvestigator))
-                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnRedeye))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(btnUhcs)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                                    .addComponent(btnOUEC)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(150, 150, 150)
+                                    .addComponent(btnOUEC))))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,8 +183,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPoliceOfficer)
-                    .addComponent(btnRedeye)
-                    .addComponent(btnInvestigator))
+                    .addComponent(btnRedeye))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUhcs)
@@ -202,28 +201,36 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
             String receiver=complaint.getReceiver();
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(""))
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase")/* && complaint.getSender().equals("")*/)
             {
                 PoliceOfficerAssignJPanel policePanel= new PoliceOfficerAssignJPanel(userProcessContainer, account, system, complaint);
                 userProcessContainer.add("AssignPoliceOfficer",policePanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
-            else if (receiver.equalsIgnoreCase("PoliceOfficer")){
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a Police Officer, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
-       
-            }
-            else if(receiver.equalsIgnoreCase("Receptionist") || receiver.equalsIgnoreCase("Doctor") || receiver.equalsIgnoreCase("Advisor"))
+//            else if (receiver.equalsIgnoreCase("PoliceOfficer")){
+//                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a Police Officer, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+//       
+//            }
+//            else if(receiver.equalsIgnoreCase("Receptionist") || receiver.equalsIgnoreCase("Doctor") || receiver.equalsIgnoreCase("Advisor"))
+//            {
+//                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a UHCS, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+//            }
+//            else if(receiver.equalsIgnoreCase("President") || receiver.equalsIgnoreCase("OUECCoordinator") || receiver.equalsIgnoreCase("OUECInvestigator"))
+//            {
+//                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a OUEC, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+//            }
+//            else if(receiver.equalsIgnoreCase("Driver"))
+//            {
+//                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+//            }
+            else if (complaint.getStatus().equalsIgnoreCase("AssignedToPoliceOfficer") || complaint.getStatus().equalsIgnoreCase("AssignedToUHCS")|| complaint.getStatus().equalsIgnoreCase("AssignedToRedeye") || complaint.getStatus().equalsIgnoreCase("AssignedToOUEC"))
             {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a UHCS, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned, check Status! select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-            else if(receiver.equalsIgnoreCase("President") || receiver.equalsIgnoreCase("OUECCoordinator") || receiver.equalsIgnoreCase("OUECInvestigator"))
+            else 
             {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a OUEC, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            else if(receiver.equalsIgnoreCase("Driver"))
-            {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Case already closed, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
             
             
@@ -239,7 +246,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         }
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
-            String receiver=complaint.getReceiver();
+            //String receiver=complaint.getReceiver();
             if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
             {
                 DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
@@ -247,30 +254,49 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
-            else if (receiver.equalsIgnoreCase("PoliceOfficer")){
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a Police Officer, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
-       
-            }
-            else if(receiver.equalsIgnoreCase("Receptionist") || receiver.equalsIgnoreCase("Doctor") || receiver.equalsIgnoreCase("Advisor"))
+            else if (complaint.getStatus().equalsIgnoreCase("AssignedToPoliceOfficer") || complaint.getStatus().equalsIgnoreCase("AssignedToUHCS")|| complaint.getStatus().equalsIgnoreCase("AssignedToRedeye") || complaint.getStatus().equalsIgnoreCase("AssignedToOUEC"))
             {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a UHCS, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned, check Status! select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-            else if(receiver.equalsIgnoreCase("President") || receiver.equalsIgnoreCase("OUECCoordinator") || receiver.equalsIgnoreCase("OUECInvestigator"))
+            else 
             {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a OUEC, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Case already closed, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-            else if(receiver.equalsIgnoreCase("Driver"))
-            {
-                JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
-            }
-            
+         
         }
     }//GEN-LAST:event_btnRedeyeActionPerformed
+
+    private void btnUhcsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUhcsActionPerformed
+        // TODO add your handling code here:
+        int selectedRow =tblComplaints.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to UHCS!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Complaint complaint= this.complaintDirectory.get(selectedRow);
+            //String receiver=complaint.getReceiver();
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
+            {
+//                DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
+//                userProcessContainer.add("AssignDriver",driverPanel);
+//                CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
+//                cardlayout.next(userProcessContainer);
+            }
+            else if (complaint.getStatus().equalsIgnoreCase("AssignedToPoliceOfficer") || complaint.getStatus().equalsIgnoreCase("AssignedToUHCS")|| complaint.getStatus().equalsIgnoreCase("AssignedToRedeye") || complaint.getStatus().equalsIgnoreCase("AssignedToOUEC"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned, check Status! select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "Case already closed, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+         
+        }
+    }//GEN-LAST:event_btnUhcsActionPerformed
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInvestigator;
     private javax.swing.JButton btnOUEC;
     private javax.swing.JButton btnPoliceOfficer;
     private javax.swing.JButton btnRedeye;
