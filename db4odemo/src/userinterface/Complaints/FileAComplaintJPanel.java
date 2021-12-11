@@ -11,7 +11,10 @@ import Business.EcoSystem;
 import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -61,7 +64,20 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
         
     }
-
+//  
+//    public static void valDate(String date)
+//    {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        try
+//        {
+//            formatter.parse(date);
+//            lblErrorMessage.setText(" ");
+//        }
+//        catch (Exception e)
+//       {
+//            lblErrorMessage.setText(" ");
+//       }
+//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -100,8 +116,15 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         chckAge = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
+        lblErrorMessage = new javax.swing.JLabel();
 
         lbLocation.setText("Location:");
+
+        txtLocation.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLocationKeyPressed(evt);
+            }
+        });
 
         lbTypeOfIncident.setText("Type of Incident:");
 
@@ -178,6 +201,15 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
 
+        txtDateOfIncident.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDateOfIncidentKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDateOfIncidentKeyReleased(evt);
+            }
+        });
+
         chckDisability.setText("Disability");
         chckDisability.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,6 +260,10 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         txtDescription.setRows(5);
         jScrollPane1.setViewportView(txtDescription);
 
+        lblErrorMessage.setFont(new java.awt.Font("Lucida Grande", 3, 13)); // NOI18N
+        lblErrorMessage.setForeground(new java.awt.Color(255, 0, 0));
+        lblErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -255,8 +291,10 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
                             .addComponent(chckNationality)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(479, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(lblErrorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(183, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -308,7 +346,9 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(317, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorMessage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(lblNatureOfDiscrimination)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -511,6 +551,54 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         JOptionPane.showMessageDialog(null, " Complaint registered with ID" +complaint.getComplaintID());
     }//GEN-LAST:event_btnSubmitActionPerformed
 
+    private void txtDateOfIncidentKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDateOfIncidentKeyPressed
+        // TODO add your handling code here:
+        
+//        String date = txtDateOfIncident.getText();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+//        try
+//        {
+//            formatter.parse(date);
+//            lblErrorMessage.setText(" ");
+//        }
+//        catch (Exception e)
+//       {
+//            lblErrorMessage.setText("Invalid Date Input! ");
+//       }
+    }//GEN-LAST:event_txtDateOfIncidentKeyPressed
+
+    private void txtLocationKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLocationKeyPressed
+        // TODO add your handling code here:
+        
+        String add = "[A-Za-z0-9\\s,\\.#]+";
+        Pattern geod = Pattern.compile(add);
+        Matcher matcher = geod.matcher(txtLocation.getText());
+        if(!matcher.matches())
+        {
+        lblErrorMessage.setText("Input invalid!");
+        }
+        else
+        {
+            lblErrorMessage.setText(" ");
+        }
+      
+    }//GEN-LAST:event_txtLocationKeyPressed
+
+    private void txtDateOfIncidentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDateOfIncidentKeyReleased
+        // TODO add your handling code here:
+        String date = txtDateOfIncident.getText();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        try
+        {
+            formatter.parse(date);
+            lblErrorMessage.setText(" ");
+        }
+        catch (Exception e)
+       {
+            lblErrorMessage.setText("Invalid Date Input! ");
+       }
+    }//GEN-LAST:event_txtDateOfIncidentKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -533,6 +621,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private javax.swing.JLabel lbTypeOfIncident;
     private javax.swing.JLabel lblAccusedVictim;
     private javax.swing.JLabel lblDescription;
+    private javax.swing.JLabel lblErrorMessage;
     private javax.swing.JLabel lblNatureOfDiscrimination;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTitle2;
