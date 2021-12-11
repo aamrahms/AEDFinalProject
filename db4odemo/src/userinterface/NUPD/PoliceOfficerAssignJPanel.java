@@ -27,7 +27,7 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint , newComplaint;
     ArrayList<PoliceOfficer> policeList;
     DefaultTableModel md;
     public PoliceOfficerAssignJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Complaint complaint) {
@@ -141,10 +141,10 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         {
             PoliceOfficer police= policeList.get(selectedRow);
             complaint.setStatus("AssignedToPoliceOfficer");
-            complaint.setPoliceOfficer(police);
-            police.setComplaint(complaint);
+            newComplaint= new Complaint(complaint);
+            newComplaint.setStatus("New");
+            police.getPoliceComplaints().add(newComplaint);
             JOptionPane.showMessageDialog(this, "Complaint assigned to Officer "+police.getName());
-//            police.getComplaintList().add(complaint);
         }
         
 

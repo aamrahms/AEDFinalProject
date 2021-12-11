@@ -508,6 +508,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         //String typeOfComplaint, Student student, String dateOfIncident , String location, String typeOfIncident
         complaint=complaintDirectory.createComplaint("Normal", victim,date, location, typeOfIncident);
         complaintDirectory.appendNormalComplaint(complaint, location, date, accused, description, reasons);
+        victim.getMyComplaints().add(complaint);
         JOptionPane.showMessageDialog(null, " Complaint registered with ID" +complaint.getComplaintID());
     }//GEN-LAST:event_btnSubmitActionPerformed
 

@@ -34,6 +34,7 @@ import java.util.ArrayList;
         this.email = email;
         this.neuid = neuid;
         this.userAccount=userAccount;
+        this.myComplaints= new ArrayList<Complaint>();
     }
 
     public String getName() {
@@ -77,6 +78,8 @@ import java.util.ArrayList;
     }
 
     public ArrayList<Complaint> getMyComplaints() {
+        if(this.myComplaints==null)
+            return this.myComplaints= new ArrayList<Complaint>();
         return myComplaints;
     }
 

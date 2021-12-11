@@ -60,14 +60,14 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         md.setRowCount(0);
         Object row[]= new Object[8];
         
-        for(Complaint c : complaintDirectory)
+        for(Complaint c : police.getPoliceComplaints())
         {
-            if(c.getPoliceOfficer()==null)
-            {
-                continue;
-            }
-            else if(c.getPoliceOfficer()==police)
-            {
+//            if(c.getPoliceOfficer()==null)
+//            {
+//                continue;
+//            }
+//            else if(c.getPoliceOfficer()==police)
+//            {
                 i=1;
             
                 if(c.getTypeOfComplaint().equalsIgnoreCase("Emergency"))
@@ -87,13 +87,13 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 
                     row[5]=c.getLocation();
                     row[6]=c.getVictimStudent().getPhone();
-                    row[7]=c.getStatus();
+                    row[7]=police.getComplaint().getStatus();
+
     //              row[7]=c.getNatureOfIncident();
                     md.addRow(row);
                 }
-//            
-//                    
-            }          
+                    
+            //}          
         }
         if(i==0)
         {
@@ -120,17 +120,17 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Priority", "Type of Incident", "Victim", "Accused", "Priority", "Location", "Contact", "Status"
+                "Complaint ID", "Priority", "Type of Incident", "Victim", "Accused", "Location", "Contact", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -190,7 +190,7 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 
     private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
         // TODO add your handling code here:
-        
+        populateTable();
         tblComplaints.repaint();
         
     }//GEN-LAST:event_btnRefreshStatusActionPerformed
@@ -208,28 +208,28 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
             
             if (complaint.getTypeOfIncident().equalsIgnoreCase("Injury") )
             {
-                InjuryStatusJPanel injuryPanel= new InjuryStatusJPanel(userProcessContainer, account, system, complaint);
+                InjuryStatusJPanel injuryPanel= new InjuryStatusJPanel(userProcessContainer, account, system, police, complaint);
                 userProcessContainer.add("CheckComplaintJPanel",injuryPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
             else if (complaint.getTypeOfIncident().equalsIgnoreCase("Firearms") )
             {
-                FirearmsStatusJPanel firearmsPanel= new FirearmsStatusJPanel(userProcessContainer, account, system, complaint);
+                FirearmsStatusJPanel firearmsPanel= new FirearmsStatusJPanel(userProcessContainer, account, system,police, complaint);
                 userProcessContainer.add("CheckComplaintJPanel",firearmsPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
             else if (complaint.getTypeOfIncident().equalsIgnoreCase("Threat/Stalking") )
             {
-                ThreatsOrStalkingStatusJPanel threatsPanel= new ThreatsOrStalkingStatusJPanel(userProcessContainer, account, system, complaint);
+                ThreatsOrStalkingStatusJPanel threatsPanel= new ThreatsOrStalkingStatusJPanel(userProcessContainer, account, system,police, complaint);
                 userProcessContainer.add("CheckComplaintJPanel",threatsPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
             else if (complaint.getTypeOfIncident().equalsIgnoreCase("Sexual Assault") )
             {
-                SexualAssaultStatusJPanel assaultPanel= new SexualAssaultStatusJPanel(userProcessContainer, account, system, complaint);
+                SexualAssaultStatusJPanel assaultPanel= new SexualAssaultStatusJPanel(userProcessContainer, account, system, police,complaint);
                 userProcessContainer.add("CheckComplaintJPanel",assaultPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);

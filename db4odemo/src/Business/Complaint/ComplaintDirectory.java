@@ -32,13 +32,13 @@ public class ComplaintDirectory {
                     
         if(typeOfComplaint.equals("Emergency"))
         {
-            //complaint = new EmergencyComplaint(typeOfComplaint, student);
+           
             complaint= new Complaint(typeOfComplaint, student,null, location, typeOfIncident);
             complaintList.add(complaint);
         } 
         else if(typeOfComplaint.equals("Normal"))
         {
-            //complaint = new NormalComplaint(typeOfComplaint, student);
+            
             complaint = new Complaint(typeOfComplaint, student, dateOfIncident, location, typeOfIncident);
             complaintList.add(complaint);
         }
@@ -48,10 +48,12 @@ public class ComplaintDirectory {
         
         return complaint;
     }
-//     public void appendEmergencyComplaint(EmergencyComplaint complaint/*,String location*/)
-//     {
-//         //complaint.setLocation(location);
-//     }
+     public Complaint createComplaint (Complaint newComplaint)
+     {
+         Complaint complaint = new Complaint (newComplaint);
+         return complaint;
+     }
+
      public void appendNormalComplaint(Complaint complaint ,String location ,String dateOfIncident, Student accusedStudent, String description,String natureOfIncident){
          //complaint.setLocation(location);
         

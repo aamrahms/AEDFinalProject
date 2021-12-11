@@ -20,44 +20,32 @@ import java.util.Date;
  */
 public class Complaint {
     
-    
+    private static int count =0;
     private String ComplaintID;
     private String status;
     private Student victimStudent;
     private String typeOfComplaint;
     private String dateOfIncident;
-    private String sender;
-    private String receiver;
     private String location;
     private String typeOfIncident;
-    //usernames :
+
+    private boolean NUPD;
+    private boolean UHCS;
+    private boolean OUEC;
+    private boolean Redeye;
+    
     //firearm, threats/stalking, plagarism
-    private PoliceOfficer policeOfficer;
     private String policeOfficerFeedback;
-    //firearm, threats/stalking, plagarism
-    private OUECCoordinator OUECCoordinator;
     private String OUECCoordinatorFeedback;
-    //firearm , threats/stalking , plagarism
-    private OUECInvestigator OUECInvestigator;
     private String OUECInvestigatorFeedback;
-    //assault , injury
-    private Doctor doctor;
-    private String DoctorFeedback;
-    //assault , injury
-    private Advisor advisor;
-    private String AdvisorFeedback;
-//    threats/stalking
-    private Driver driver;
+    //    threats/stalking
     private String DriverFeedback;
-    
-    
-    //private 
-   
-    
+    //assault , injury
+    private String DoctorFeedback;
+    private String AdvisorFeedback;
+
     //in case of Emergency complaint : location + date
-    //add once location feature added
     
-    private static int count =0;
     //in case of normal complaint : accused student + date(manual)
     private Student accusedStudent;
     private String natureOfIncident;
@@ -69,26 +57,58 @@ public class Complaint {
         this.status = "FreshCase";
         this.victimStudent=student;
         this.typeOfComplaint=typeOfComplaint;
-        this.sender="";
-        this.receiver="ChiefOfficer";
         this.typeOfIncident = typeOfIncident;
-        
         this.location = location;
+        this.policeOfficerFeedback="";
+        this.DoctorFeedback="";
+        this.DriverFeedback="";
+        this.OUECCoordinatorFeedback="";
+        this.OUECInvestigatorFeedback="";
+        this.AdvisorFeedback="";
         if(typeOfComplaint.equals("Emergency"))
         {
             this.dateOfIncident=String.valueOf(new Date());
-//            this.receiver="ChiefOfficer";
             this.accusedStudent=null;
-            this.natureOfIncident=" ";
-            this.description=" ";
+            this.natureOfIncident="";
+            this.description="";
+            this.NUPD=true;
+            this.OUEC=false;
+            this.Redeye=false;
+            this.UHCS=false;
             
         }
         else if (typeOfComplaint.equals("Normal"))
         {
             this.dateOfIncident=dateOfIncident;
-//            this.receiver="OUEC";
+            this.NUPD=true;
+            this.OUEC= true;
+            this.Redeye=false;
+            this.UHCS=false;
         }
         
+    }
+    public Complaint(Complaint newComplaint)
+    {
+        this.ComplaintID=newComplaint.ComplaintID;
+        this.status=newComplaint.status;
+        this.victimStudent=newComplaint.victimStudent;
+        this.typeOfComplaint=newComplaint.typeOfComplaint;
+        this.dateOfIncident=newComplaint.dateOfIncident;
+        this.location=newComplaint.location;
+        this.typeOfIncident=newComplaint.typeOfIncident;
+        this.NUPD=newComplaint.NUPD;
+        this.UHCS=newComplaint.UHCS;
+        this.OUEC=newComplaint.OUEC;
+        this.Redeye=newComplaint.Redeye;
+        this.policeOfficerFeedback=newComplaint.policeOfficerFeedback;
+        this.OUECCoordinatorFeedback=newComplaint.OUECCoordinatorFeedback;
+        this.OUECInvestigatorFeedback=newComplaint.OUECInvestigatorFeedback;
+        this.DriverFeedback=newComplaint.DriverFeedback;
+        this.DoctorFeedback=newComplaint.DoctorFeedback;
+        this.AdvisorFeedback=newComplaint.AdvisorFeedback;
+        this.accusedStudent=newComplaint.accusedStudent;
+        this.natureOfIncident=newComplaint.natureOfIncident;
+        this.description=newComplaint.description;
     }
  
 
@@ -147,22 +167,6 @@ public class Complaint {
         this.accusedStudent = accusedStudent;
     }
 
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String sender) {
-        this.sender = sender;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -186,17 +190,88 @@ public class Complaint {
     public void setNatureOfIncident(String natureOfIncident) {
         this.natureOfIncident = natureOfIncident;
     }
-
-    public PoliceOfficer getPoliceOfficer() {
-        return policeOfficer;
-    }
-
-    public void setPoliceOfficer(PoliceOfficer policeOfficer) {
-        this.policeOfficer = policeOfficer;
-    }
     
+    public boolean isNUPD(){
+        return NUPD;
+    }
+
+    public void setNUPD(boolean NUPD) {
+        this.NUPD = NUPD;
+    }
+
+    public boolean isUHCS() {
+        return UHCS;
+    }
+
+    public void setUHCS(boolean UHCS) {
+        this.UHCS = UHCS;
+    }
+
+    public String getPoliceOfficerFeedback() {
+        return policeOfficerFeedback;
+    }
+
+    public void setPoliceOfficerFeedback(String policeOfficerFeedback) {
+        this.policeOfficerFeedback = policeOfficerFeedback;
+    }
+
+    public boolean isOUEC() {
+        return OUEC;
+    }
+
+    public void setOUEC(boolean OUEC) {
+        this.OUEC = OUEC;
+    }
+
+    public String getOUECCoordinatorFeedback() {
+        return OUECCoordinatorFeedback;
+    }
+
+    public void setOUECCoordinatorFeedback(String OUECCoordinatorFeedback) {
+        this.OUECCoordinatorFeedback = OUECCoordinatorFeedback;
+    }
+
+    public String getOUECInvestigatorFeedback() {
+        return OUECInvestigatorFeedback;
+    }
+
+    public void setOUECInvestigatorFeedback(String OUECInvestigatorFeedback) {
+        this.OUECInvestigatorFeedback = OUECInvestigatorFeedback;
+    }
+
+    public String getDoctorFeedback() {
+        return DoctorFeedback;
+    }
+
+    public void setDoctorFeedback(String DoctorFeedback) {
+        this.DoctorFeedback = DoctorFeedback;
+    }
+
+    public String getAdvisorFeedback() {
+        return AdvisorFeedback;
+    }
+
+    public void setAdvisorFeedback(String AdvisorFeedback) {
+        this.AdvisorFeedback = AdvisorFeedback;
+    }
+
+    public boolean isRedeye() {
+        return Redeye;
+    }
+
+    public void setRedeye(boolean Redeye) {
+        this.Redeye = Redeye;
+    }
+
+    public String getDriverFeedback() {
+        return DriverFeedback;
+    }
+    public void setDriverFeedback(String DriverFeedback) {    
+        this.DriverFeedback = DriverFeedback;
+    }
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.ComplaintID;
     }
 }  
