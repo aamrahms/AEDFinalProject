@@ -5,6 +5,7 @@
  */
 package Business.Logic.Redeye;
 
+import Business.Employee.Employee;
 import java.util.ArrayList;
 
 /**
@@ -20,6 +21,34 @@ public class DriverDirectory {
 
     public void setDriverList(ArrayList<Driver> driverList) {
         this.driverList = driverList;
+    }
+    
+    public void createDriver(Employee e){
+        Driver d = new Driver(e);
+        driverList.add(d);
+    }
+    
+    //first update in Employee Directory it returns Employee object and call below one
+    public void updateDriver(Driver d, Employee e){
+        for (Driver driver : driverList) {
+            if (d.getEmployee().getUsername().equals(e.getUsername())) {
+                d.getEmployee().setName(e.getName());
+                d.getEmployee().setPassword(e.getPassword());
+                d.getEmployee().setAddress(e.getAddress());
+                d.getEmployee().setEmail(e.getEmail());
+                d.getEmployee().setNeuid(e.getNeuid());
+                d.getEmployee().setPhone(e.getPhone());
+            }
+        }
+    }
+    
+    public void deleteDriver (Driver driver, Employee e) {
+        for (Driver d : driverList) {
+            if (d.getEmployee().getUsername().equals(e.getName())) {
+                driverList.remove(d);
+                return;
+            }
+        }        
     }
     
 }

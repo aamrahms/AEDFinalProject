@@ -5,10 +5,46 @@
  */
 package Business.Logic.UHCS;
 
+import Business.Complaint.Complaint;
+import Business.Employee.Employee;
+import java.util.ArrayList;
+
 /**
  *
  * @author aamrah
  */
 public class Doctor {
+    Employee employee;
+    Complaint complaint;
+    ArrayList<Complaint> completedComplaintsList;
+
+    public Doctor(Employee employee) {
+        this.employee = employee;
+    }
+    
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Complaint getComplaint() {
+        return complaint;
+    }
+
+    public void setComplaint(Complaint complaint) {
+        this.complaint = complaint;
+    }
+
+    public ArrayList<Complaint> getCompletedComplaintsList() {
+        return completedComplaintsList;
+    }
+
+    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
+        this.completedComplaintsList = completedComplaintsList;
+    }
+    
     
 }
