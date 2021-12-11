@@ -470,7 +470,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
             txtPhone.setText("");
             txtEmail.setText("");
             txtneuid.setText("");
-        }
+        
     }//GEN-LAST:event_submitJButtonActionPerformed
 
     private void comboOrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOrgActionPerformed
