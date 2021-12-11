@@ -6,6 +6,11 @@
 package Business.Complaint;
 
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Logic.OUEC.OUECCoordinator;
+import Business.Logic.OUEC.OUECInvestigator;
+import Business.Logic.Redeye.Driver;
+import Business.Logic.UHCS.Advisor;
+import Business.Logic.UHCS.Doctor;
 import Business.Student.Student;
 import java.util.Date;
 
@@ -26,9 +31,26 @@ public class Complaint {
     private String location;
     private String typeOfIncident;
     //usernames :
+    //firearm, threats/stalking, plagarism
     private PoliceOfficer policeOfficer;
-    //private Receptionist receptionist;
-    //private Driver driver;
+    private String policeOfficerFeedback;
+    //firearm, threats/stalking, plagarism
+    private OUECCoordinator OUECCoordinator;
+    private String OUECCoordinatorFeedback;
+    //firearm , threats/stalking , plagarism
+    private OUECInvestigator OUECInvestigator;
+    private String OUECInvestigatorFeedback;
+    //assault , injury
+    private Doctor doctor;
+    private String DoctorFeedback;
+    //assault , injury
+    private Advisor advisor;
+    private String AdvisorFeedback;
+//    threats/stalking
+    private Driver driver;
+    private String DriverFeedback;
+    
+    
     //private 
    
     
@@ -173,5 +195,8 @@ public class Complaint {
         this.policeOfficer = policeOfficer;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.ComplaintID;
+    }
 }  

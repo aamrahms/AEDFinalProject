@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class OUECInvestigator {
     Employee employee;
     Complaint complaint;
-    ArrayList<Complaint> completedComplaintsList;
+//    ArrayList<Complaint> completedComplaintsList;
 
-    OUECInvestigator(Employee e) {
+    public OUECInvestigator(Employee e) {
        this.employee=e;
     }
 
@@ -37,13 +37,13 @@ public class OUECInvestigator {
         this.complaint = complaint;
     }
 
-    public ArrayList<Complaint> getCompletedComplaintsList() {
-        return completedComplaintsList;
-    }
-
-    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
-        this.completedComplaintsList = completedComplaintsList;
-    }
+//    public ArrayList<Complaint> getCompletedComplaintsList() {
+//        return completedComplaintsList;
+//    }
+//
+//    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
+//        this.completedComplaintsList = completedComplaintsList;
+//    }
 
 
 }

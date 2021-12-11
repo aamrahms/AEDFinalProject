@@ -143,6 +143,11 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         });
 
         btnOUEC.setText("Office of Equity and Compliance");
+        btnOUEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOUECActionPerformed(evt);
+            }
+        });
 
         lblAssign.setText("Assign to :");
 
@@ -194,13 +199,13 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     
     private void btnPoliceOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoliceOfficerActionPerformed
         // TODO add your handling code here:
-        int selectedRow =tblComplaints.getSelectedRow();
-        if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Police Officer!", "Warning", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Complaint complaint= this.complaintDirectory.get(selectedRow);
-            String receiver=complaint.getReceiver();
+            int selectedRow =tblComplaints.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Police Officer!", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+                Complaint complaint= this.complaintDirectory.get(selectedRow);
+                //String receiver=complaint.getReceiver();
             if(complaint.getStatus().equalsIgnoreCase("FreshCase")/* && complaint.getSender().equals("")*/)
             {
                 PoliceOfficerAssignJPanel policePanel= new PoliceOfficerAssignJPanel(userProcessContainer, account, system, complaint);
@@ -247,7 +252,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
             //String receiver=complaint.getReceiver();
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
             {
                 DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
                 userProcessContainer.add("AssignDriver",driverPanel);
@@ -274,13 +279,13 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         }
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
-            //String receiver=complaint.getReceiver();
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
+            
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
             {
-//                DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
-//                userProcessContainer.add("AssignDriver",driverPanel);
-//                CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
-//                cardlayout.next(userProcessContainer);
+                
+                complaint.setStatus("AssignedToUHCS");
+                JOptionPane.showMessageDialog(this, "Complaint assigned to Officer University of Health and Counselling Services");
+               
             }
             else if (complaint.getStatus().equalsIgnoreCase("AssignedToPoliceOfficer") || complaint.getStatus().equalsIgnoreCase("AssignedToUHCS")|| complaint.getStatus().equalsIgnoreCase("AssignedToRedeye") || complaint.getStatus().equalsIgnoreCase("AssignedToOUEC"))
             {
@@ -293,6 +298,32 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
          
         }
     }//GEN-LAST:event_btnUhcsActionPerformed
+
+    private void btnOUECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOUECActionPerformed
+        // TODO add your handling code here:
+        int selectedRow =tblComplaints.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Office of User Equity and Compliance !", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Complaint complaint= this.complaintDirectory.get(selectedRow);
+            //String receiver=complaint.getReceiver();
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
+            {
+               complaint.setStatus("AssignedToOUEC");
+               JOptionPane.showMessageDialog(this, "Complaint assigned to Office of User Equity and Compliance");
+            }
+            else if (complaint.getStatus().equalsIgnoreCase("AssignedToPoliceOfficer") || complaint.getStatus().equalsIgnoreCase("AssignedToUHCS")|| complaint.getStatus().equalsIgnoreCase("AssignedToRedeye") || complaint.getStatus().equalsIgnoreCase("AssignedToOUEC"))
+            {
+                JOptionPane.showMessageDialog(null, "Complaint is already assigned, check Status! select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(null, "Case already closed, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
+            }
+         
+        }
+    }//GEN-LAST:event_btnOUECActionPerformed
     
     
 

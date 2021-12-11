@@ -5,6 +5,7 @@
  */
 package userinterface.NUPD;
 
+import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
@@ -23,14 +24,17 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    
-    public InjuryStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    Complaint complaint;
+    public InjuryStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Complaint complaint)
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
+        this.complaint=complaint;
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

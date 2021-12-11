@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class OUECCoordinator {
     Employee employee;
     Complaint complaint;
-    ArrayList<Complaint> completedComplaintsList;
+    String designation;
+//    ArrayList<Complaint> completedComplaintsList;
 
     public OUECCoordinator(Employee employee) {
         this.employee = employee;
@@ -37,11 +38,19 @@ public class OUECCoordinator {
         this.complaint = complaint;
     }
 
-    public ArrayList<Complaint> getCompletedComplaintsList() {
-        return completedComplaintsList;
+//    public ArrayList<Complaint> getCompletedComplaintsList() {
+//        return completedComplaintsList;
+//    }
+//
+//    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
+//        this.completedComplaintsList = completedComplaintsList;
+//    }
+
+    public String getDesignation() {
+        return designation;
     }
 
-    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
-        this.completedComplaintsList = completedComplaintsList;
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 }
