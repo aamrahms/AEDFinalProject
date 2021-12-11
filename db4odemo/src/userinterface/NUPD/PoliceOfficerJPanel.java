@@ -87,7 +87,14 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 
                     row[5]=c.getLocation();
                     row[6]=c.getVictimStudent().getPhone();
-                    row[7]=police.getComplaint().getStatus();
+                    try{
+                        row[7]=police.getComplaint().getStatus();
+                    }
+                    catch(NullPointerException e)
+                    {
+                        row[7]="New Case";
+                    }
+                    
 
     //              row[7]=c.getNatureOfIncident();
                     md.addRow(row);
