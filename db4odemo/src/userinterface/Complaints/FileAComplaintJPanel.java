@@ -273,7 +273,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
         add(btnSubmit);
-        btnSubmit.setBounds(325, 588, 88, 29);
+        btnSubmit.setBounds(450, 580, 88, 29);
 
         lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle2.setText("Details of the Incident");
@@ -287,7 +287,7 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
             }
         });
         add(btnBack);
-        btnBack.setBounds(465, 588, 94, 29);
+        btnBack.setBounds(0, 10, 94, 29);
 
         chckAge.setText("Age");
         chckAge.addActionListener(new java.awt.event.ActionListener() {
