@@ -1,9 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.Logic.NUPD;
+package Business.Logic.OUEC;
 
 import Business.Complaint.Complaint;
 import Business.Employee.Employee;
@@ -11,14 +10,14 @@ import java.util.ArrayList;
 
 /**
  *
- * @author aamrah
+ * @author Vignesh Gunasekaran <gunasekaran.v@northeastern.edu>
  */
-public class ChiefOfficer {
+public class OUECCoordinator {
     Employee employee;
     Complaint complaint;
     ArrayList<Complaint> completedComplaintsList;
 
-    public ChiefOfficer(Employee employee) {
+    public OUECCoordinator(Employee employee) {
         this.employee = employee;
     }
 
