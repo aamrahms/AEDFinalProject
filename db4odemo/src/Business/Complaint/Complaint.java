@@ -24,6 +24,11 @@ public class Complaint {
     private String receiver;
     private String location;
     private String typeOfIncident;
+    //usernames :
+    //private String policeOfficer;
+    //private String receptionist;
+    //private String driver;
+    //private String
    
     
     //in case of Emergency complaint : location + date

@@ -9,6 +9,7 @@ import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -36,6 +37,7 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         this.system=system;
         this.complaint=complaint;
         policeList=system.getPoliceDirectory().getPoliceOfficerList();
+        populateTable();
     }
 
     /**
@@ -51,20 +53,21 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         tblPolice = new javax.swing.JTable();
         lblHeading = new javax.swing.JLabel();
         btnAssign = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         tblPolice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Police Officer"
+                "Police Officer", "Working on"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -85,6 +88,13 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setText("< Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,7 +105,9 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
                 .addGap(233, 233, 233))
             .addGroup(layout.createSequentialGroup()
                 .addGap(295, 295, 295)
-                .addComponent(btnAssign)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addComponent(btnAssign))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -110,7 +122,9 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
                 .addComponent(lblHeading)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                 .addComponent(btnAssign)
-                .addGap(79, 79, 79))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnBack)
+                .addGap(38, 38, 38))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(62, 62, 62)
@@ -135,9 +149,35 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnAssignActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+    public void populateTable()
+    {
+        
+        md=(DefaultTableModel)tblPolice.getModel();
+        md.setRowCount(0);
+        Object row[]= new Object[2];
+        
+        for(PoliceOfficer p : policeList)
+        {          
+                row[0]=p.getName();
+                try{
+                    row[1]="Complaint ID :" +p.getComplaint().getComplaintID();
+                }
+                catch(NullPointerException e){
+                    row[1]="Available";
+                }
+                md.addRow(row);         
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
+    private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JTable tblPolice;
