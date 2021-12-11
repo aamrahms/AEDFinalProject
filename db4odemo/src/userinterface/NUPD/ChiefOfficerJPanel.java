@@ -53,7 +53,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         
         md=(DefaultTableModel)tblComplaints.getModel();
         md.setRowCount(0);
-        Object row[]= new Object[7];
+        Object row[]= new Object[8];
         
         for(Complaint c : complaintDirectory)
         {
@@ -74,7 +74,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 
                 row[5]=c.getLocation();
                 row[6]=c.getVictimStudent().getPhone();
-                
+                row[7]=c.getStatus();
 //                row[7]=c.getNatureOfIncident();
                 md.addRow(row);
             }
@@ -108,13 +108,13 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Type", "Type of Incident", "Victim", "Accused", "Location", "Contact"
+                "Complaint ID", "Type", "Type of Incident", "Victim", "Accused", "Location", "Contact", "Status"
             }
         ));
         jScrollPane1.setViewportView(tblComplaints);
@@ -155,20 +155,21 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                         .addComponent(lblHeading))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblAssign)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnPoliceOfficer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnRedeye)
-                                .addGap(151, 151, 151)
-                                .addComponent(btnInvestigator))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnUhcs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnOUEC)))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(lblAssign)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnPoliceOfficer)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRedeye)
+                                    .addGap(151, 151, 151)
+                                    .addComponent(btnInvestigator))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnUhcs)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                                    .addComponent(btnOUEC)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 993, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +202,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         else{
             Complaint complaint= this.complaintDirectory.get(selectedRow);
             String receiver=complaint.getReceiver();
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(null))
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase") && complaint.getSender().equals(""))
             {
                 PoliceOfficerAssignJPanel policePanel= new PoliceOfficerAssignJPanel(userProcessContainer, account, system, complaint);
                 userProcessContainer.add("AssignPoliceOfficer",policePanel);
@@ -262,8 +263,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             {
                 JOptionPane.showMessageDialog(null, "Complaint is already assigned to a RedEye support, select another complaint to assign", "Warning", JOptionPane.WARNING_MESSAGE);
             }
-            
-            
             
         }
     }//GEN-LAST:event_btnRedeyeActionPerformed

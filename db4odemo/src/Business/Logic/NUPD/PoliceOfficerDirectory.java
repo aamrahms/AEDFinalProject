@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class PoliceOfficerDirectory {
     PoliceOfficer policeOfficer;
     ArrayList<PoliceOfficer> policeOfficerList;
+
+    public PoliceOfficerDirectory() {
+        this.policeOfficerList = new ArrayList<PoliceOfficer>();
+    }
     
     public ArrayList<PoliceOfficer> getPoliceOfficerList() {
         return policeOfficerList;
