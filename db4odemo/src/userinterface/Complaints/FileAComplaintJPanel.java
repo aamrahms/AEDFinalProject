@@ -103,7 +103,6 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
         lblErrorMessage = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -311,8 +310,6 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
         lblErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         add(lblErrorMessage);
         lblErrorMessage.setBounds(525, 377, 234, 24);
-        add(jLabel1);
-        jLabel1.setBounds(0, 0, 940, 660);
     }// </editor-fold>//GEN-END:initComponents
 
     private void chckRaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckRaceActionPerformed
@@ -524,7 +521,6 @@ public class FileAComplaintJPanel extends javax.swing.JPanel
     private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JComboBox<String> cmbTypeOfIncident1;
     private javax.swing.JComboBox<String> cmbVictimName;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbDateOfIncident;
     private javax.swing.JLabel lbLocation;
