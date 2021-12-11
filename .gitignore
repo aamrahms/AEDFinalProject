@@ -1,1 +1,21 @@
+***/nbproject/private/**
+***/nbproject/Makefile-*.mk
+***/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+/db4odemo/nbproject/private/
+<<<<<<< HEAD
+=======
 
+db4odemo/nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+>>>>>>> 23169992677a186ff582b75f0de667bc5066837a
+.DS_Store

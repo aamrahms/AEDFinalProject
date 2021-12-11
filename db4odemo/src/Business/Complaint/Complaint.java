@@ -5,6 +5,7 @@
  */
 package Business.Complaint;
 
+import Business.Logic.NUPD.PoliceOfficer;
 import Business.Student.Student;
 import java.util.Date;
 
@@ -25,10 +26,10 @@ public class Complaint {
     private String location;
     private String typeOfIncident;
     //usernames :
-    //private String policeOfficer;
-    //private String receptionist;
-    //private String driver;
-    //private String
+    private PoliceOfficer policeOfficer;
+    //private Receptionist receptionist;
+    //private Driver driver;
+    //private 
    
     
     //in case of Emergency complaint : location + date
@@ -162,6 +163,14 @@ public class Complaint {
 
     public void setNatureOfIncident(String natureOfIncident) {
         this.natureOfIncident = natureOfIncident;
+    }
+
+    public PoliceOfficer getPoliceOfficer() {
+        return policeOfficer;
+    }
+
+    public void setPoliceOfficer(PoliceOfficer policeOfficer) {
+        this.policeOfficer = policeOfficer;
     }
     
     

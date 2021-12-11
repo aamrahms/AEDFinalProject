@@ -74,9 +74,7 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblPolice.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tblPolice);
-        tblPolice.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         lblHeading.setText("Police Officers Available");
@@ -143,6 +141,9 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         {
             PoliceOfficer police= policeList.get(selectedRow);
             complaint.setStatus("AssignedToPoliceOfficer");
+            complaint.setPoliceOfficer(police);
+            police.setComplaint(complaint);
+            JOptionPane.showMessageDialog(this, "Complaint assigned to Officer "+police.getName());
 //            police.getComplaintList().add(complaint);
         }
         

@@ -9,6 +9,7 @@ import Business.DB4OUtil.DB4OUtil;
 
 import Business.Organization;
 import Business.UserAccount.UserAccount;
+import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -170,6 +171,7 @@ public class MainJFrame extends javax.swing.JFrame {
         {
             String username=userNameJTextField.getText();
             String password=passwordField.getText();
+            UserAccountDirectory dir=system.getUserAccountDirectory();
             UserAccount user = system.getUserAccountDirectory().authenticateUser(username,password);
             
             if(user==null){

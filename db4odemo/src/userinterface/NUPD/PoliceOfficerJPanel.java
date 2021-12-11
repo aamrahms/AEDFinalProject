@@ -7,8 +7,10 @@ package userinterface.NUPD;
 
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -27,6 +29,8 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
     UserAccount account;
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
+    ArrayList<PoliceOfficer> policeList;
+    PoliceOfficer police;
     DefaultTableModel md;
     
     public PoliceOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
@@ -36,31 +40,65 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         this.account = account;
         this.system = system;
         complaintDirectory = this.system.getComplaintDirectory().getComplaintList();
-        
+        policeList=this.system.getPoliceDirectory().getPoliceOfficerList();
+        for(PoliceOfficer p : policeList)
+        {
+            if(p.getUsername().equals(account.getUsername()))
+            {
+                police=p;
+            }
+        }
         populateTable();
         
     }
     
     public void populateTable()
     {
-        
+        int i=0;
         md=(DefaultTableModel)tblComplaintsWithStatus.getModel();
         md.setRowCount(0);
-        Object row[]= new Object[7];
+        Object row[]= new Object[8];
         
         for(Complaint c : complaintDirectory)
         {
+            if(c.getPoliceOfficer()==null)
+            {
+                continue;
+            }
+            else if(c.getPoliceOfficer()==police)
+            {
+                i=1;
             
-            row[0] = c.getComplaintID();
-            row[1] = c.getTypeOfComplaint();
-            row[2] = c.getVictimStudent().getName();
-            row[3] = c.getAccusedStudent().getName();
-            //row[4] = c.getPriority();
-            //row[5] = c.getLocation();
-            row[6] = c.getVictimStudent().getPhone();
-            //row[7] = c.getStatus();
-            md.addRow(row);
-                   
+                if(c.getTypeOfComplaint().equalsIgnoreCase("Emergency"))
+                {
+                    row[0]=c.getComplaintID();
+                    row[1]=c.getTypeOfComplaint();
+                    row[2]=c.getTypeOfIncident();
+                    row[3]=c.getVictimStudent().getName();
+                    if(c.getAccusedStudent()==null)
+                    {
+                        row[4]=" ";
+                    }
+                    else
+                    {
+                        row[4]=c.getAccusedStudent().getName();
+                    }
+
+                    row[5]=c.getLocation();
+                    row[6]=c.getVictimStudent().getPhone();
+                    row[7]=c.getStatus();
+    //              row[7]=c.getNatureOfIncident();
+                    md.addRow(row);
+                }
+//            
+//                    
+            }          
+        }
+        if(i==0)
+        {
+            
+            JOptionPane.showMessageDialog(this,"You dont have any complaints assigned to you");
+       
         }
     }
 
@@ -81,26 +119,24 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
 
         tblComplaintsWithStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Type", "Victim", "Accused", "Priority", "Location", "Contact", "Status"
+                "Complaint ID", "Priority", "Type of Incident", "Victim", "Accused", "Priority", "Location", "Contact", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tblComplaintsWithStatus.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tblComplaintsWithStatus);
-        tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,16 +161,16 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(191, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(169, 169, 169))
             .addGroup(layout.createSequentialGroup()
                 .addGap(242, 242, 242)
                 .addComponent(btnProcessComplaints, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
                 .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,38 +187,37 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnProcessComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessComplaintsActionPerformed
-        // TODO add your handling code here:
-        
-//        if (emergencyType == "Injury" )
-//        {
-//            go to Injury Status Selection Page
-//        }
-//        else if (emergencyType == "Firearms" )
-//        {
-//            go to Firearms Status Selection Page
-//        }
-//        else if (emergencyType == "Threat/Stalking" )
-//        {
-//            go to Threat/Stalking Status Selection Page
-//        }
-//        else if (emergencyType == "Sexual Assault" )
-//        {
-//            go to Sexual Assault Status Selection Page
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog("Type of Emergency not selected");  
-//        }
-
-    }//GEN-LAST:event_btnProcessComplaintsActionPerformed
-
     private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
         // TODO add your handling code here:
         
         tblComplaintsWithStatus.repaint();
         
     }//GEN-LAST:event_btnRefreshStatusActionPerformed
+
+    private void btnProcessComplaintsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessComplaintsActionPerformed
+        // TODO add your handling code here:
+
+        //        if (emergencyType == "Injury" )
+        //        {
+            //            go to Injury Status Selection Page
+            //        }
+        //        else if (emergencyType == "Firearms" )
+        //        {
+            //            go to Firearms Status Selection Page
+            //        }
+        //        else if (emergencyType == "Threat/Stalking" )
+        //        {
+            //            go to Threat/Stalking Status Selection Page
+            //        }
+        //        else if (emergencyType == "Sexual Assault" )
+        //        {
+            //            go to Sexual Assault Status Selection Page
+            //        }
+        //        else
+        //        {
+            //            JOptionPane.showMessageDialog("Type of Emergency not selected");
+            //        }
+    }//GEN-LAST:event_btnProcessComplaintsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
