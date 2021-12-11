@@ -7,15 +7,19 @@ package Business.Logic.Redeye;
 
 import Business.Complaint.Complaint;
 import java.util.ArrayList;
-
+import Business.Employee.Employee;
 /**
  *
  * @author aamrah
  */
 public class Driver {
+    Employee employee;
     ArrayList<Complaint> completedRidesList;
     Complaint complaint;
     
+    public Driver(Employee employee) {
+        this.employee = employee;
+    }
 
     public ArrayList<Complaint> getCompletedRidesList() {
         return completedRidesList;
@@ -32,4 +36,13 @@ public class Driver {
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }
+    
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 }
+

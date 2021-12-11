@@ -27,4 +27,24 @@ public class EmployeeDirectory {
         employeeList.add(employee);
         return employee;
     }
+    
+    //returns Employee object to update in respective classes as well
+    public Employee updateEmployee(String name, String username, String password, String address, String phone, String email, String neuid){
+        for (Employee employee : employeeList) {
+            if (employee.getUsername().equals(username)) {
+                employee.setName(name);
+                employee.setEmail(email);
+                employee.setAddress(address);
+                employee.setNeuid(neuid);
+                employee.setPhone(phone);
+                employee.setPassword(password);
+            }
+        }
+        return new Employee(name, username, password,address, phone, email, neuid);
+    }
+
+    public void deleteEmployee(Employee e) {
+                employeeList.remove(e);                
+    }
+    
 }

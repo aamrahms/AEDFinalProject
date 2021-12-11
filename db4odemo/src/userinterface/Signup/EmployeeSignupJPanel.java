@@ -199,7 +199,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
 
         jLabel13.setText("exact 9 digits");
 
-        jLabel14.setText("exact 10 digits eg: 123.456.7890");
+        jLabel14.setText("exact 10 digits");
 
         jLabel15.setText("Address");
 
@@ -344,7 +344,7 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 58, Short.MAX_VALUE))
+                .addGap(0, 94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -402,8 +402,8 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
             if(email==null || Pattern.matches("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$", email)==false){
                 throw new Exception("Email is mandatory and of minimum 5 length with  atleast 1 alphabet, 1 number, 1 from ?!.*");
             }
-            if(phone==null || Pattern.matches("^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$", phone)==false){
-                throw new Exception("Phone is mandatory and of numbers with sample pattern 123.456.7890");
+            if(phone==null || Pattern.matches("^\\d{10}$", phone)==false){
+                throw new Exception("Phone is mandatory and of exact 10 numbers");
             }
             if(neuid==null || Pattern.matches("^\\d{9}$", neuid)==false){
                 throw new Exception("Neuid is mandatory and of exact 9 numbers");
@@ -437,28 +437,28 @@ public class EmployeeSignupJPanel extends javax.swing.JPanel {
                 system.getPoliceDirectory().createPoliceOfficer(name, uname, password, address, phone, email, neuid);
             } else if ("ChiefOfficer".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ChiefOfficerRole());
-                
+                //no separate already in userAccount above line
             } else if ("OUECCoordinator".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECCoordinatorRole());
-                
+                system.getOuecCoordinators().createOUECCoordinator(e);
             } else if ("OUECInvestigator".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new OUECInvestigatorRole());
-                
+                system.getInvestigatorDirectory().createOUECInvestigator(e);
             } else if ("President".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new PresidentRole());
-                
+                //no separate already in userAccount above line
             }  else if ("Driver".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DriverRole());
-                
+                system.getDriverDirectory().createDriver(e);
             } else if ("Doctor".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new DoctorRole());
-                
+                system.getDoctorDirectory().createDoctor(e);
             } else if ("Receptionist".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new ReceptionistRole());
-                
+                //no separate already in userAccount above line
             } else if ("Advisor".equals(role)) {
                 system.getUserAccountDirectory().createUserAccount(name,uname,password, e, new AdvisorRole());
-                
+                system.getAdvisorDirectory().createAdvisor(e);
             }
 
             JOptionPane.showMessageDialog(null,"You may now proceed to login!");
