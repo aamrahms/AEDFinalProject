@@ -9,6 +9,7 @@ import Business.Complaint.Complaint;
 import Business.Complaint.ComplaintDirectory;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Logic.Redeye.Driver;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
     ArrayList<PoliceOfficer> policeList;
+    ArrayList<Driver> driverList;
     DefaultTableModel md;
     
     public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
@@ -375,20 +377,20 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                         }
                     }
                 }
-            
-//                else if(complaint.isDriver())
-//            {
-//                driverList=this.system.getDriverDirectory().getDriverList();
-//                for (PoliceOfficer p : policeList)
-//                {
-//                    for (Complaint c : p.getPoliceComplaints())
-//                    {
-//                        if(c.getComplaintID().equals(complaint.getComplaintID()))
-//                        {
-//                            lblCurrentStatus.setText(lblCurrentStatus.getText() + " Officer "+p.getName() + " is working on the case.\n Current Status="+c.getStatus());
-//                        }
-//                    }
-//                }
+            }
+            else if(complaint.isDriver())
+            {
+                driverList=this.system.getDriverDirectory().getDriverList();
+                for (Driver d : driverList)
+                {
+                    for (Complaint c : d.getRidesList())
+                    {
+                        if(c.getComplaintID().equals(complaint.getComplaintID()))
+                        {
+                            lblCurrentStatus.setText(lblCurrentStatus.getText() + " Driver "+d.getEmployee().getName() + " is assigned for pickup.\n Current Status="+c.getStatus());
+                        }
+                    }
+                }
             }
     }//GEN-LAST:event_btnStatusActionPerformed
     }   
