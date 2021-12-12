@@ -36,7 +36,7 @@ public class Complaint {
         return driver;
     }
 
-    public void setDriver(Driver driver) { // added to use in Driver Assign J Panel
+    public void setDriver(Driver driver) { // Added to use in Driver Assign J Panel
         this.driver = driver;
     }
    
