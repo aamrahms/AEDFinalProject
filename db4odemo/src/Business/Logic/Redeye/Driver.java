@@ -14,20 +14,23 @@ import Business.Employee.Employee;
  */
 public class Driver {
     Employee employee;
-//    ArrayList<Complaint> completedRidesList;
+    ArrayList<Complaint> ridesList;
     Complaint complaint;
     
     public Driver(Employee employee) {
         this.employee = employee;
+        this.ridesList= new ArrayList<Complaint>();
     }
 
-//    public ArrayList<Complaint> getCompletedRidesList() {
-//        return completedRidesList;
-//    }
-//
-//    public void setCompletedRidesList(ArrayList<Complaint> completedRidesList) {
-//        this.completedRidesList = completedRidesList;
-//    }
+    public ArrayList<Complaint> getRidesList() {
+        return ridesList;
+    }
+
+    public void setRidesList(ArrayList<Complaint> ridesList) {
+        this.ridesList = ridesList;
+    }
+
+
 
     public Complaint getComplaint() {
         return complaint;

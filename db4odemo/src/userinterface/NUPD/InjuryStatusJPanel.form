@@ -16,7 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblTitle" alignment="0" pref="1094" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="btnBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblTitle" pref="980" max="32767" attributes="0"/>
+          </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -31,7 +35,7 @@
                       <EmptySpace pref="113" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btnSceneReached1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnVictimPicked" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                               <Component id="btnDroppedOffAtUHCS" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
@@ -83,7 +87,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              <Component id="lblTitle" min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTitle" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="lblComplaintID" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -123,7 +130,7 @@
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDroppedOffAtUHCS" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnSceneReached1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnVictimPicked" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="80" max="32767" attributes="0"/>
               <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
@@ -182,12 +189,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTaskCompletedActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnSceneReached1">
+    <Component class="javax.swing.JButton" name="btnVictimPicked">
       <Properties>
         <Property name="text" type="java.lang.String" value="Picked Up The Victim"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSceneReached1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVictimPickedActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblVictimStudent">
@@ -243,6 +250,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Complaint ID:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt; Go Back"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

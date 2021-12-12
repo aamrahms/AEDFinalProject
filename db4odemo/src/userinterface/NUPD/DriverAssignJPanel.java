@@ -9,15 +9,18 @@ import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.Redeye.Driver;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author aamrah
+ * @author fianrodrigues
  */
-public class DriverAssignJPanel extends javax.swing.JPanel {
+public class DriverAssignJPanel extends javax.swing.JPanel 
+{
 
     /**
      * Creates new form DriverAssignJPanel
@@ -25,18 +28,20 @@ public class DriverAssignJPanel extends javax.swing.JPanel {
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, newComplaint;
     ArrayList<Driver> driverList;
     DefaultTableModel md;
-    public DriverAssignJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Complaint complaint) {
-        initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.account=account;
-        this.system=system;
-        this.complaint=complaint;
-        driverList=system.getDriverDirectory().getDriverList();
-    }
     
+    public DriverAssignJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Complaint complaint) 
+    {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = system;
+        this.complaint=complaint;
+        driverList = system.getDriverDirectory().getDriverList();
+        populateTable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,19 +52,164 @@ public class DriverAssignJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnBack = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblDriver = new javax.swing.JTable();
+        lblHeading = new javax.swing.JLabel();
+        btnAssign = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+
+        btnBack.setText("< Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        tblDriver.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Drivers", "Working on"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblDriver);
+
+        lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeading.setText("DRIVERS AVAILABLE");
+
+        btnAssign.setText("Assign");
+        btnAssign.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignActionPerformed(evt);
+            }
+        });
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(lblHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(129, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnRefresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAssign))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addGap(26, 26, 26)
+                .addComponent(lblHeading)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(btnAssign))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(btnRefresh)))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
+        // TODO add your handling code here:
+       
+        int selectedRow =tblDriver.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Red Eye Driver!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            
+            Driver driver= driverList.get(selectedRow);
+            if(driver.getComplaint()==null)
+            {
+                complaint.setStatus("AssignedToDriver");
+                complaint.setDriver(true);  
+                newComplaint= new Complaint(complaint);
+                newComplaint.setStatus("NewRide");
+                driver.getRidesList().add(newComplaint);
+                JOptionPane.showMessageDialog(this, "Complaint assigned to Driver "+driver.getEmployee().getName());
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(this, "Driver already assigned to pickup victim");
+            }
+            
+        }
+        populateTable();
+
+    }//GEN-LAST:event_btnAssignActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
+     public void populateTable()
+    {
+        
+        md=(DefaultTableModel)tblDriver.getModel();
+        md.setRowCount(0);
+        Object row[]= new Object[2];
+        
+        for(Driver d : driverList)
+        {          
+                row[0]=d.getEmployee().getName();
+                try{
+                    row[1]=" Complaint ID :" + d.getComplaint().getComplaintID();
+                }
+                catch(NullPointerException e){
+                    row[1]=" Available ";
+                }
+                md.addRow(row);         
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssign;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnRefresh;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblHeading;
+    private javax.swing.JTable tblDriver;
     // End of variables declaration//GEN-END:variables
 }

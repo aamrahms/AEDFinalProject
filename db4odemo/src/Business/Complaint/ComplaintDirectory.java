@@ -65,6 +65,16 @@ public class ComplaintDirectory {
    
         
      }
+     public Complaint getComplaint(String id){
+         for (Complaint c: complaintList)
+         {
+             if(c.getComplaintID().equals(id))
+             {
+                 return c;
+             }
+         }
+         return null;   
+     }
     public ArrayList<Complaint> getComplaintList() {
         return complaintList;
     }

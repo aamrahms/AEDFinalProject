@@ -139,13 +139,28 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         }
         else
         {
+            
             PoliceOfficer police= policeList.get(selectedRow);
-            complaint.setStatus("AssignedToPoliceOfficer");
-            newComplaint= new Complaint(complaint);
-            newComplaint.setStatus("New");
-            police.getPoliceComplaints().add(newComplaint);
-            JOptionPane.showMessageDialog(this, "Complaint assigned to Officer "+police.getName());
+            if(police.getComplaint()==null)
+            {
+//                if(complaint.isPolice() && )
+//                {
+//                    
+//                }
+                complaint.setStatus("AssignedToPoliceOfficer");
+                complaint.setPolice(true);
+                newComplaint= new Complaint(complaint);
+                newComplaint.setStatus("New");
+                police.getPoliceComplaints().add(newComplaint);
+                JOptionPane.showMessageDialog(this, "Complaint assigned to Officer "+police.getName());
+            }
+            else 
+            {
+                JOptionPane.showMessageDialog(this, "Officer already assigned to a case");
+            }
+            
         }
+        populateTable();
         
 
     }//GEN-LAST:event_btnAssignActionPerformed
@@ -167,7 +182,7 @@ public class PoliceOfficerAssignJPanel extends javax.swing.JPanel {
         {          
                 row[0]=p.getName();
                 try{
-                    row[1]="Complaint ID :" +p.getComplaint().getComplaintID();
+                    row[1]="Complaint ID " +p.getComplaint().getComplaintID();
                 }
                 catch(NullPointerException e){
                     row[1]="Available";

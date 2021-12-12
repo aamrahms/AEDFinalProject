@@ -9,6 +9,8 @@ import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -25,7 +27,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     PoliceOfficer police;
     public InjuryStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, PoliceOfficer police,Complaint complaint)
     {
@@ -35,7 +37,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         this.system = system;
         this.complaint=complaint;
         this.police=police;
-        
+        police.setComplaint(complaint);
         populateFields();
     }
 
@@ -56,7 +58,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         btnSceneReached = new javax.swing.JButton();
         btnDroppedOffAtUHCS = new javax.swing.JButton();
         btnTaskCompleted = new javax.swing.JButton();
-        btnSceneReached1 = new javax.swing.JButton();
+        btnVictimPicked = new javax.swing.JButton();
         lblVictimStudent = new javax.swing.JLabel();
         lblAccusedStudent = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
@@ -69,6 +71,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         txtType = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
         lblComplaintID = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
@@ -109,10 +112,10 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
             }
         });
 
-        btnSceneReached1.setText("Picked Up The Victim");
-        btnSceneReached1.addActionListener(new java.awt.event.ActionListener() {
+        btnVictimPicked.setText("Picked Up The Victim");
+        btnVictimPicked.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSceneReached1ActionPerformed(evt);
+                btnVictimPickedActionPerformed(evt);
             }
         });
 
@@ -152,11 +155,21 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
 
         lblComplaintID.setText("Complaint ID:");
 
+        btnBack.setText("< Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1094, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,7 +183,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnSceneReached1)
+                                .addComponent(btnVictimPicked)
                                 .addGap(124, 124, 124)
                                 .addComponent(btnDroppedOffAtUHCS)
                                 .addGap(122, 122, 122))
@@ -207,7 +220,9 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack))
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblComplaintID)
@@ -240,7 +255,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDroppedOffAtUHCS)
-                    .addComponent(btnSceneReached1))
+                    .addComponent(btnVictimPicked))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
                 .addGap(95, 95, 95))
@@ -249,6 +264,18 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("SceneReached");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSceneReachedActionPerformed
 
     private void btnDroppedOffAtUHCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDroppedOffAtUHCSActionPerformed
@@ -256,20 +283,57 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         
         // a pop up for the Police to write a description/feedback
         // change Status to new at Dropped off at UHCS
+        if(police.getComplaint().getStatus().equalsIgnoreCase("VictimPicked"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("DroppedToUHCS");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
         
     }//GEN-LAST:event_btnDroppedOffAtUHCSActionPerformed
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("OnTheWay");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
-    private void btnSceneReached1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReached1ActionPerformed
+    private void btnVictimPickedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVictimPickedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSceneReached1ActionPerformed
+        if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("VictimPicked");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+    }//GEN-LAST:event_btnVictimPickedActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
         // TODO add your handling code here:
@@ -289,17 +353,40 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
 
     private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+          
+           // JOptionPane.showMessageDialog(null, "You are already working on Complaint :"+police.getComplaint().getComplaintID() +"\n Current Status :" + police.getComplaint().getStatus()+"\nPlease finish task to proceed", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
         
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDroppedOffAtUHCS;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnSceneReached;
-    private javax.swing.JButton btnSceneReached1;
     private javax.swing.JButton btnTaskCompleted;
+    private javax.swing.JButton btnVictimPicked;
     private javax.swing.JLabel lblAccusedStudent;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblLocation;
