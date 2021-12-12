@@ -6,6 +6,7 @@
 package Business.Complaint;
 
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Logic.Redeye.Driver;
 import Business.Student.Student;
 import java.util.Date;
 
@@ -28,8 +29,16 @@ public class Complaint {
     //usernames :
     private PoliceOfficer policeOfficer;
     //private Receptionist receptionist;
-    //private Driver driver;
+    private Driver driver;
     //private 
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) { // added to use in Driver Assign J Panel
+        this.driver = driver;
+    }
    
     
     //in case of Emergency complaint : location + date
