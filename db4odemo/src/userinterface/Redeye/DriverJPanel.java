@@ -7,8 +7,10 @@ package userinterface.Redeye;
 
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Logic.Redeye.Driver;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,6 +28,8 @@ public class DriverJPanel extends javax.swing.JPanel
     UserAccount account;
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
+    ArrayList<Driver> driverList;
+    Driver driver;
     DefaultTableModel md;
     
     public DriverJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
@@ -35,30 +39,63 @@ public class DriverJPanel extends javax.swing.JPanel
         this.account=account;
         this.system=system;
         complaintDirectory= this.system.getComplaintDirectory().getComplaintList();
-        
+        driverList=this.system.getDriverDirectory().getDriverList();
+        for(Driver d : driverList)
+        {
+            if(d.getEmployee().getUsername().equals(account.getUsername()))
+            {
+                driver=d;
+            }
+        }
         populateTable();
     }
 
     public void populateTable()
     {
         
-        md=(DefaultTableModel)tblComplaintsWithStatus.getModel();
+        int i=0;
+        md=(DefaultTableModel)tblComplaints.getModel();
         md.setRowCount(0);
-        Object row[]= new Object[5];
+        Object row[]= new Object[7];
         
-        for(Complaint c : complaintDirectory)
+        for(Complaint c : driver.getRidesList())
+        {
+//            if(c.getPoliceOfficer()==null)
+//            {
+//                continue;
+//            }
+//            else if(c.getPoliceOfficer()==police)
+//            {
+                i=1;
+            
+                if(c.getTypeOfComplaint().equalsIgnoreCase("Emergency"))
+                {
+                    row[0]=c;
+                    row[1]=c.getTypeOfComplaint();
+                    row[2]=c.getTypeOfIncident();
+                    row[3]=c.getVictimStudent().getName();
+                    row[4]=c.getLocation();
+                    row[5]=c.getVictimStudent().getPhone();
+                    try{
+                        row[6]=driver.getComplaint().getStatus();
+                    }
+                    catch(NullPointerException e)
+                    {
+                        row[6]="New Case";
+                    }
+
+                    md.addRow(row);
+                }
+                    
+            //}          
+        }
+        if(i==0)
         {
             
-            row[0]=c.getComplaintID();
-            row[1]=c.getTypeOfComplaint();
-            row[2]=c.getVictimStudent().getName();
-            //row[3] = c.getPriority();
-            //row[4] = c.getLocation();
-            row[5]=c.getVictimStudent().getPhone();
-            //row[6] = c.Status();
-            md.addRow(row);
-                   
+            JOptionPane.showMessageDialog(this,"You dont have any complaints assigned to you");
+       
         }
+    
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,12 +107,12 @@ public class DriverJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblComplaintsWithStatus = new javax.swing.JTable();
+        tblComplaints = new javax.swing.JTable();
         lblTitle = new javax.swing.JLabel();
         btnProcessComplaints = new javax.swing.JButton();
         btnRefreshStatus = new javax.swing.JButton();
 
-        tblComplaintsWithStatus.setModel(new javax.swing.table.DefaultTableModel(
+        tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -83,7 +120,7 @@ public class DriverJPanel extends javax.swing.JPanel
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Complaint ID", "Type", "Victim", "Priority", "Location", "Contact", "Status"
+                "Complaint ID", "Priority", "Type of Incident", "Victim", "Location", "Contact", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -94,9 +131,7 @@ public class DriverJPanel extends javax.swing.JPanel
                 return canEdit [columnIndex];
             }
         });
-        tblComplaintsWithStatus.setColumnSelectionAllowed(true);
-        jScrollPane1.setViewportView(tblComplaintsWithStatus);
-        tblComplaintsWithStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jScrollPane1.setViewportView(tblComplaints);
 
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("COMPLAINT STATUS");
@@ -153,6 +188,6 @@ public class DriverJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnRefreshStatus;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblComplaintsWithStatus;
+    private javax.swing.JTable tblComplaints;
     // End of variables declaration//GEN-END:variables
 }
