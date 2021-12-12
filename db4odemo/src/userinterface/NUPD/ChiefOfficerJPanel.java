@@ -8,6 +8,7 @@ package userinterface.NUPD;
 import Business.Complaint.Complaint;
 import Business.Complaint.ComplaintDirectory;
 import Business.EcoSystem;
+import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     UserAccount account;
     EcoSystem system;
     ArrayList<Complaint> complaintDirectory;
+    ArrayList<PoliceOfficer> policeList;
     DefaultTableModel md;
     
     public ChiefOfficerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system) 
@@ -84,10 +86,12 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 {
                     row[0]=c;
                     row[1]=c.getTypeOfComplaint();
-                    row[2]=c.getVictimStudent().getName();
-                    row[3]=c.getAccusedStudent().getName();
-                    row[4]=c.getLocation();
-                    row[5]=c.getVictimStudent().getPhone();
+                    row[2]=c.getTypeOfIncident();
+                    row[3]=c.getVictimStudent().getName();
+                    row[4]=c.getAccusedStudent().getName();
+                    row[5]=c.getLocation();
+                    row[6]=c.getVictimStudent().getPhone();
+                    row[7]=c.getStatus();
                     md.addRow(row);
                 }
             }
@@ -109,6 +113,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnOUEC = new javax.swing.JButton();
         lblAssign = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
+        btnStatus = new javax.swing.JButton();
+        lblCurrentStatus = new javax.swing.JLabel();
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -163,34 +169,46 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             }
         });
 
+        btnStatus.setText("See current Status");
+        btnStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStatusActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(333, 333, 333)
-                        .addComponent(lblHeading))
+                .addGap(333, 333, 333)
+                .addComponent(lblHeading)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblAssign)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(btnPoliceOfficer)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnRedeye))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(btnUhcs)
-                                    .addGap(150, 150, 150)
-                                    .addComponent(btnOUEC))))))
-                .addContainerGap(312, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnRefresh)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btnPoliceOfficer)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnRedeye))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btnUhcs)
+                                        .addGap(150, 150, 150)
+                                        .addComponent(btnOUEC)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblCurrentStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnRefresh)))
                 .addGap(46, 46, 46))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +224,13 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPoliceOfficer)
-                    .addComponent(btnRedeye))
+                    .addComponent(btnRedeye)
+                    .addComponent(btnStatus))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUhcs)
-                    .addComponent(btnOUEC))
+                    .addComponent(btnOUEC)
+                    .addComponent(lblCurrentStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -254,7 +274,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Redeye support!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            Complaint complaint= this.complaintDirectory.get(selectedRow);
+           Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
             //String receiver=complaint.getReceiver();
             if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
             {
@@ -282,7 +302,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to UHCS!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            Complaint complaint= this.complaintDirectory.get(selectedRow);
+           Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
             
             if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
             {
@@ -310,7 +330,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Office of User Equity and Compliance !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            Complaint complaint= this.complaintDirectory.get(selectedRow);
+            Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
             //String receiver=complaint.getReceiver();
             if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
             {
@@ -331,9 +351,47 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
-        populateTable();
+        populateTable(); 
     }//GEN-LAST:event_btnRefreshActionPerformed
-    
+
+    private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
+        // TODO add your handling code here:
+        int selectedRow =tblComplaints.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to check status!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
+            if(complaint.isPolice())
+            {
+                policeList=this.system.getPoliceDirectory().getPoliceOfficerList();
+                for (PoliceOfficer p : policeList)
+                {
+                    for (Complaint c : p.getPoliceComplaints())
+                    {
+                        if(c.getComplaintID().equals(complaint.getComplaintID()))
+                        {
+                            lblCurrentStatus.setText(lblCurrentStatus.getText() + " Officer "+p.getName() + " is working on the case.\n Current Status="+c.getStatus());
+                        }
+                    }
+                }
+            
+//                else if(complaint.isDriver())
+//            {
+//                driverList=this.system.getDriverDirectory().getDriverList();
+//                for (PoliceOfficer p : policeList)
+//                {
+//                    for (Complaint c : p.getPoliceComplaints())
+//                    {
+//                        if(c.getComplaintID().equals(complaint.getComplaintID()))
+//                        {
+//                            lblCurrentStatus.setText(lblCurrentStatus.getText() + " Officer "+p.getName() + " is working on the case.\n Current Status="+c.getStatus());
+//                        }
+//                    }
+//                }
+            }
+    }//GEN-LAST:event_btnStatusActionPerformed
+    }   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -341,9 +399,11 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnPoliceOfficer;
     private javax.swing.JButton btnRedeye;
     private javax.swing.JButton btnRefresh;
+    private javax.swing.JButton btnStatus;
     private javax.swing.JButton btnUhcs;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAssign;
+    private javax.swing.JLabel lblCurrentStatus;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JTable tblComplaints;
     // End of variables declaration//GEN-END:variables

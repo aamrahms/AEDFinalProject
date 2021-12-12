@@ -30,9 +30,11 @@ public class Complaint {
     private String typeOfIncident;
 
     private boolean NUPD;
+    private boolean Police;
     private boolean UHCS;
     private boolean OUEC;
     private boolean Redeye;
+    private boolean Driver;
     
     //firearm, threats/stalking, plagarism
     private String policeOfficerFeedback;
@@ -58,6 +60,8 @@ public class Complaint {
         this.victimStudent=student;
         this.typeOfComplaint=typeOfComplaint;
         this.typeOfIncident = typeOfIncident;
+        this.Police=false;
+        this.Driver=false;
         this.location = location;
         this.policeOfficerFeedback="";
         this.DoctorFeedback="";
@@ -87,6 +91,7 @@ public class Complaint {
         }
         
     }
+    //to add complaint to a persons queue
     public Complaint(Complaint newComplaint)
     {
         this.ComplaintID=newComplaint.ComplaintID;
@@ -270,8 +275,26 @@ public class Complaint {
         this.DriverFeedback = DriverFeedback;
     }
 
+    public boolean isPolice() {
+        return Police;
+    }
+
+    public void setPolice(boolean Police) {
+        this.Police = Police;
+    }
+    
     @Override
     public String toString() {
         return this.ComplaintID;
     }
+
+    public boolean isDriver() {
+        return Driver;
+    }
+
+    public void setDriver(boolean Driver) {
+        this.Driver = Driver;
+    }
+
+   
 }  
