@@ -5,7 +5,9 @@
  */
 package userinterface.NUPD;
 
+import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -23,14 +25,21 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    
-    public InjuryStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    Complaint complaint;
+    PoliceOfficer police;
+    public InjuryStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, PoliceOfficer police,Complaint complaint)
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
+        this.complaint=complaint;
+        this.police=police;
+        
+        populateFields();
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,6 +71,11 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         lblComplaintID = new javax.swing.JLabel();
 
         btnAcceptCase.setText("Accept Case");
+        btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptCaseActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -273,6 +287,11 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTypeActionPerformed
 
+    private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
@@ -295,4 +314,23 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
     private javax.swing.JTextField txtType;
     private javax.swing.JTextField txtVictimName;
     // End of variables declaration//GEN-END:variables
+
+     private void populateFields() 
+        {
+        
+             txtComplaintID.setText(complaint.getComplaintID());
+             txtVictimName.setText(complaint.getVictimStudent().getName());
+             txtType.setText(complaint.getTypeOfIncident());
+             txtLocation.setText(complaint.getLocation());
+             txtStatus.setText(complaint.getStatus());
+        
+             try
+             {
+                     txtAccused.setText(complaint.getAccusedStudent().getName());
+             }
+             catch (NullPointerException e)
+             {
+                 txtAccused.setText(" ");
+             }
+         }
 }

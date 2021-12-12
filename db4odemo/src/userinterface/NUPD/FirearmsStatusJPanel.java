@@ -5,7 +5,9 @@
  */
 package userinterface.NUPD;
 
+import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Logic.NUPD.PoliceOfficer;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -22,14 +24,20 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    
-    public FirearmsStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
+    Complaint complaint;
+    PoliceOfficer police;
+    public FirearmsStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, PoliceOfficer police, Complaint complaint)
     {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
+        this.complaint=complaint;
+        this.police= police;
+        
+        populateFields();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -298,4 +306,24 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
+
+    private void populateFields() 
+    {
+        
+        txtComplaintID.setText(complaint.getComplaintID());
+        txtReportedBy.setText(complaint.getVictimStudent().getName());
+        try
+             {
+                     txtAccused.setText(complaint.getAccusedStudent().getName());
+             }
+             catch (NullPointerException e)
+             {
+                 txtAccused.setText(" ");
+             }
+        txtType.setText(complaint.getTypeOfIncident());
+        txtLocation.setText(complaint.getLocation());
+        txtStatus.setText(complaint.getStatus());
+        
+    }
 }
+

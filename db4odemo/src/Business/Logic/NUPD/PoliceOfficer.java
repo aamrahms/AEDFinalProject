@@ -19,7 +19,8 @@ public class PoliceOfficer {
     private String phone;
     private String email;
     private String neuid;
-    Complaint complaint;
+    private Complaint complaint;
+    private ArrayList<Complaint> policeComplaints;
 
     public PoliceOfficer(String name, String username, String password, String address, String phone, String email, String neuid) {
         this.name = name;
@@ -29,6 +30,7 @@ public class PoliceOfficer {
         this.phone = phone;
         this.email = email;
         this.neuid = neuid;
+        this.policeComplaints= new ArrayList<Complaint>();
     }
 
     public String getName() {
@@ -86,8 +88,15 @@ public class PoliceOfficer {
     public void setNeuid(String neuid) {
         this.neuid = neuid;
     }
-    
-    
+
+    public ArrayList<Complaint> getPoliceComplaints() {
+        return policeComplaints;
+    }
+
+    public void setPoliceComplaints(ArrayList<Complaint> policeComplaints) {
+        this.policeComplaints = policeComplaints;
+    }
+
     public Complaint getComplaint() {
         return complaint;
     }
@@ -95,6 +104,8 @@ public class PoliceOfficer {
     public void setComplaint(Complaint complaint) {
         this.complaint = complaint;
     }
+    
+    
     
     
 }

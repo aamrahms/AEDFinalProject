@@ -168,6 +168,7 @@ public class EmergencyJPanel extends javax.swing.JPanel
         String location = txtLocation.getText();
         
         complaint = complaintDirectory.createComplaint("Emergency", victim, null, location, typeOfIncident);
+        victim.getMyComplaints().add(complaint);
         JOptionPane.showMessageDialog(null, " Complaint registered with ID" +complaint.getComplaintID());
         
         

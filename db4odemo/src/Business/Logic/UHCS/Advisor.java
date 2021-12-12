@@ -17,7 +17,7 @@ public class Advisor {
     
     Employee employee;
     Complaint complaint;
-    ArrayList<Complaint> completedComplaintsList;
+//    ArrayList<Complaint> completedComplaintsList;
 
     public Advisor(Employee employee) {
         this.employee = employee;
@@ -39,11 +39,11 @@ public class Advisor {
         this.complaint = complaint;
     }
 
-    public ArrayList<Complaint> getCompletedComplaintsList() {
-        return completedComplaintsList;
-    }
-
-    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
-        this.completedComplaintsList = completedComplaintsList;
-    }
+//    public ArrayList<Complaint> getCompletedComplaintsList() {
+//        return completedComplaintsList;
+//    }
+//
+//    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
+//        this.completedComplaintsList = completedComplaintsList;
+//    }
 }
