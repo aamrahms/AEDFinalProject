@@ -51,6 +51,17 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
         }
         populateTable();
         
+        //notifications
+        for (Complaint complaint : complaintDirectory) {
+            if (complaint.isNotifyFromDoctor()) {
+                JOptionPane.showMessageDialog(null,"Notification: Doctor scheduled appointment, visit your doctor","Warning",JOptionPane.WARNING_MESSAGE);
+                complaint.setNotifyFromDoctor(false);
+            }
+            if (complaint.isNotifyFromAdvisor()) {
+                JOptionPane.showMessageDialog(null,"Notification: Advisor scheduled appointment, visit your advisor","Warning",JOptionPane.WARNING_MESSAGE);
+                complaint.setNotifyFromAdvisor(false);
+            }
+        }
     }
 
      public void populateTable()

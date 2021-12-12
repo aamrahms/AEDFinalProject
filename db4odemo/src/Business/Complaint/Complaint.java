@@ -52,6 +52,9 @@ public class Complaint {
     private Student accusedStudent;
     private String natureOfIncident;
     private String description;
+    
+    private boolean notifyFromDoctor;
+    private boolean notifyFromAdvisor;
    
 
     public Complaint(String typeOfComplaint, Student student, String dateOfIncident,String location, String typeOfIncident) {
@@ -296,5 +299,29 @@ public class Complaint {
         this.Driver = Driver;
     }
 
-   
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Complaint.count = count;
+    }
+
+    public boolean isNotifyFromDoctor() {
+        return notifyFromDoctor;
+    }
+
+    public void setNotifyFromDoctor(boolean notifyFromDoctor) {
+        this.notifyFromDoctor = notifyFromDoctor;
+    }
+
+    public boolean isNotifyFromAdvisor() {
+        return notifyFromAdvisor;
+    }
+
+    public void setNotifyFromAdvisor(boolean notifyFromAdvisor) {
+        this.notifyFromAdvisor = notifyFromAdvisor;
+    }
+
+    
 }  

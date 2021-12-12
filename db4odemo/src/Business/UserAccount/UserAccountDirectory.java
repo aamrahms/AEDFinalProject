@@ -5,6 +5,9 @@
 package Business.UserAccount;
 
 import Business.Employee.Employee;
+import Business.Role.AdvisorRole;
+import Business.Role.DoctorRole;
+import Business.Role.ReceptionistRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -64,5 +67,44 @@ public class UserAccountDirectory {
         }
         return true;
     }
+    
+    //Only 1 receptionist
+    public UserAccount fetchReceptionistFromUa () {
+        for (UserAccount ua : userAccountList){
+            if ( ua.getRole() instanceof ReceptionistRole) {
+                return ua;
+            }
+        }
+        return null;     //UHCS has no receptionist; UHCS is not open to accept complaints
+    }
+    
+    public UserAccount fetchUaWithUserName(String userName) {
+        for (UserAccount ua : userAccountList){
+            if ( userName.equals(ua.getEmployee().getUsername())) {
+                return ua;
+            }
+        }
+        return null;
+    }
+    
+    /*public ArrayList<UserAccount> fetchDoctorFromUa () {
+        ArrayList<UserAccount> tempList = new ArrayList<UserAccount>();
+        for (UserAccount ua : userAccountList){
+            if ( ua.getRole() instanceof DoctorRole) {
+                tempList.add(ua);
+            }
+        }
+        return tempList;
+    }
+    
+    public ArrayList<UserAccount> fetchAdvisorFromUa () {
+        ArrayList<UserAccount> tempList = new ArrayList<UserAccount>();
+        for (UserAccount ua : userAccountList){
+            if ( ua.getRole() instanceof AdvisorRole) {
+                tempList.add(ua);
+            }
+        }
+        return tempList;
+    }*/
     
 }

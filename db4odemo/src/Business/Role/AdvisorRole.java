@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.UHCS.AdvisorJPanel;
+import userinterface.UHCS.ManageAdvisorJPanel;
 
 /**
  *
@@ -21,6 +21,6 @@ public class AdvisorRole extends Role {
     }
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new AdvisorJPanel(userProcessContainer, account, system);
+         return new ManageAdvisorJPanel(userProcessContainer, account, system);
     }
 }

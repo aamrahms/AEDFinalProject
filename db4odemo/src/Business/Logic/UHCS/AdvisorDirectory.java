@@ -57,4 +57,14 @@ public class AdvisorDirectory {
         }        
     }
     
+    public Advisor fetchAdvisorWithUserName (String userName) {
+        for (Advisor advisor : advisorList) {
+            if (advisor.getEmployee().getUsername().equals(userName)) {
+                return advisor;
+            }
+        }
+        return null;
+    }
+    
+    
 }

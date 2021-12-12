@@ -8,7 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.UHCS.ReceptionistJPanel;
+import userinterface.UHCS.ManageReceptionistJPanel;
 
 /**
  *
@@ -21,6 +21,6 @@ public class ReceptionistRole extends Role{
     }
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem system) {
-         return new ReceptionistJPanel(userProcessContainer, account, system);
+         return new ManageReceptionistJPanel(userProcessContainer, account, system);
     }
 }
