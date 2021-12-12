@@ -470,10 +470,12 @@ public class DoctorJPanel extends javax.swing.JPanel
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Doctor Scheduled Treatment");
         
-        system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID()).setNotifyFromDoctor(true);
+        //notify student
+        Complaint originalComplaint = system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
+        Complaint originialStudentComplaint = originalComplaint.getVictimStudent().getMyComplaint(complaintWorkRequest.getComplaintID());
+        originialStudentComplaint.setNotifyFromDoctor(true);
         
-        refresh();
-        
+        refresh();        
     }//GEN-LAST:event_btnScheduleTreatmentActionPerformed
 
     private void btnTreatmentCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTreatmentCompleteActionPerformed

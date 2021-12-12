@@ -418,7 +418,10 @@ public class AdvisorJPanel extends javax.swing.JPanel
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Advisor Scheduled Advice");
         
-        system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID()).setNotifyFromAdvisor(true);
+        //notify student
+        Complaint originalComplaint = system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
+        Complaint originialStudentComplaint = originalComplaint.getVictimStudent().getMyComplaint(complaintWorkRequest.getComplaintID());
+        originialStudentComplaint.setNotifyFromAdvisor(true);
         
         refresh();
     }//GEN-LAST:event_btnScheduleTreatmentActionPerformed

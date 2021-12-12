@@ -110,6 +110,18 @@ import java.util.ArrayList;
     public void setUserAccount(UserAccount userAccount) {
         this.userAccount = userAccount;
     }
+    
+    
+    public Complaint getMyComplaint(String id){
+         for (Complaint c: myComplaints)
+         {
+             if(c.getComplaintID().equals(id))
+             {
+                 return c;
+             }
+         }
+         return null;   
+     }
        
     
     @Override
