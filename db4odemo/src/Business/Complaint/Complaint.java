@@ -35,6 +35,7 @@ public class Complaint {
     private boolean OUEC;
     private boolean Redeye;
     private boolean Driver;
+    private boolean receptionistAccepted;
     
     //firearm, threats/stalking, plagarism
     private String policeOfficerFeedback;
@@ -67,6 +68,7 @@ public class Complaint {
         this.typeOfIncident = typeOfIncident;
         this.Police=false;
         this.Driver=false;
+        this.receptionistAccepted=false;
         this.location = location;
         this.policeOfficerFeedback="";
         this.DoctorFeedback="";
@@ -339,6 +341,14 @@ public class Complaint {
 
     public void setAdvisorName(String AdvisorName) {
         this.AdvisorName = AdvisorName;
+    }
+
+    public boolean isReceptionistAccepted() {
+        return receptionistAccepted;
+    }
+
+    public void setReceptionistAccepted(boolean receptionistAccepted) {
+        this.receptionistAccepted = receptionistAccepted;
     }
 
     

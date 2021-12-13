@@ -324,6 +324,27 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
+        if(mainComplaint.isUHCS() && mainComplaint.isReceptionistAccepted())
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("TaskCompleted");
+            
+            //set complaint status in police complaint list as completed
+            int i=police.getPoliceComplaints().indexOf(currentComplaint);
+            police.getPoliceComplaints().get(i).setStatus("TaskCompleted");
+            //set main complaint fields
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
+            mainComplaint.setPolice(false);
+            mainComplaint.setStatus("AssignedToUHCS");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Please make sure you have suspect in custody and chief is notified", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
     private void btnVictimPickedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVictimPickedActionPerformed

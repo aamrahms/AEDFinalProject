@@ -207,12 +207,12 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
         int selectedRow =tblComplaints.getSelectedRow();
         
         if (selectedRow < 0) {
-            JOptionPane.showMessageDialog(null, "Please pick a complaint to assign to Police Officer!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please pick a complaint to process!", "Warning", JOptionPane.WARNING_MESSAGE);
         }
         else{
             
             Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
-            
+//            JOptionPane.showMessageDialog(null, complaint.getTypeOfIncident(), "Warning", JOptionPane.WARNING_MESSAGE);
             if (complaint.getTypeOfIncident().equalsIgnoreCase("Injury") )
             {
                 InjuryStatusJPanel injuryPanel= new InjuryStatusJPanel(userProcessContainer, account, system, police, complaint);
@@ -220,14 +220,14 @@ public class PoliceOfficerJPanel extends javax.swing.JPanel
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
-            else if (complaint.getTypeOfIncident().equalsIgnoreCase("Firearms") )
+            else if (complaint.getTypeOfIncident().equalsIgnoreCase("Firearm") )
             {
                 FirearmsStatusJPanel firearmsPanel= new FirearmsStatusJPanel(userProcessContainer, account, system,police, complaint);
                 userProcessContainer.add("CheckComplaintJPanel",firearmsPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);
             }
-            else if (complaint.getTypeOfIncident().equalsIgnoreCase("Threat/Stalking") )
+            else if (complaint.getTypeOfIncident().equalsIgnoreCase("Threats or Stalking") )
             {
                 ThreatsOrStalkingStatusJPanel threatsPanel= new ThreatsOrStalkingStatusJPanel(userProcessContainer, account, system,police, complaint);
                 userProcessContainer.add("CheckComplaintJPanel",threatsPanel);

@@ -8,7 +8,11 @@ package userinterface.NUPD;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -24,8 +28,10 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     PoliceOfficer police;
+    Student accused;
+    int accusedIndex;
     public FirearmsStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, PoliceOfficer police, Complaint complaint)
     {
         initComponents();
@@ -34,7 +40,14 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
         this.system = system;
         this.complaint=complaint;
         this.police= police;
+        ArrayList<Student> studentList = system.getStudentDirectory().getStudentDir();
+        police.setComplaint(complaint);
+        DefaultComboBoxModel model2= new DefaultComboBoxModel(studentList.toArray());
+        cmbAccusedName.setModel( model2);
+        accusedIndex = 0;
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
         
+//        cmbAccusedName.setEnabled(false);
         populateFields();
     }
 
@@ -66,6 +79,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
         txtType = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
         lblComplaintID = new javax.swing.JLabel();
+        cmbAccusedName = new javax.swing.JComboBox<>();
 
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +162,13 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
 
         lblComplaintID.setText("Complaint ID:");
 
+        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
+        cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAccusedNameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -155,20 +176,6 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAcceptCase)
-                                .addGap(145, 145, 145)
-                                .addComponent(btnOnTheWay)
-                                .addGap(129, 129, 129)
-                                .addComponent(btnSceneReached))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(252, 252, 252)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSuspectInCustody)
-                                    .addComponent(btnTaskCompleted)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(357, 357, 357)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -191,8 +198,21 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
                                     .addComponent(txtComplaintID)
                                     .addComponent(txtReportedBy)
                                     .addComponent(txtAccused)
-                                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(229, Short.MAX_VALUE))
+                                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAcceptCase)
+                            .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnOnTheWay)
+                            .addComponent(btnSuspectInCustody))
+                        .addGap(82, 82, 82)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTaskCompleted)
+                            .addComponent(btnSceneReached))))
+                .addContainerGap(219, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,28 +248,86 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
                     .addComponent(btnAcceptCase)
                     .addComponent(btnOnTheWay)
                     .addComponent(btnSceneReached))
-                .addGap(48, 48, 48)
-                .addComponent(btnSuspectInCustody)
-                .addGap(58, 58, 58)
-                .addComponent(btnTaskCompleted)
-                .addGap(127, 127, 127))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSuspectInCustody)
+                    .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTaskCompleted))
+                .addGap(223, 223, 223))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("OnTheWay");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
         // TODO add your handling code here:
+         if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached") /*&& cmbAccusedName.isEnabled()*/)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Suspect Apprehended");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Select suspect! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
+
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Suspect Apprehended") /*&& cmbAccusedName.isEnabled()*/)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("TaskCompleted");
+            int i=police.getPoliceComplaints().indexOf(currentComplaint);
+            police.getPoliceComplaints().get(i).setStatus("TaskCompleted");
+            cmbAccusedName.setEnabled(false);
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
+            mainComplaint.setPolice(false);
+            mainComplaint.setStatus("CaseClosed");
+            mainComplaint.setAccusedStudent(accused);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Select suspect! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("SceneReached");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSceneReachedActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
@@ -271,19 +349,45 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
         // TODO add your handling code here:
         
-//        txtComplaintID.setText();
-//        txtLocation;
-//        txtAccused;
-//        txtReportedBy;
-//        txtStatus;
-//        txtType;
+        if(police.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
 
-        txtStatus.setText("Accepted Case");
+          
+           // JOptionPane.showMessageDialog(null, "You are already working on Complaint :"+police.getComplaint().getComplaintID() +"\n Current Status :" + police.getComplaint().getStatus()+"\nPlease finish task to proceed", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
 
     private void txtComplaintIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplaintIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtComplaintIDActionPerformed
+
+    private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+            {
+                
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_cmbAccusedNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -292,6 +396,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnSceneReached;
     private javax.swing.JButton btnSuspectInCustody;
     private javax.swing.JButton btnTaskCompleted;
+    private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JLabel lblAccusedStudent;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblLocation;

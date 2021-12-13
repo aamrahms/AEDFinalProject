@@ -17,72 +17,66 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lblTitle" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="174" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblStatus" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLocation" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtLocation" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtStatus" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblType" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAccusedStudent" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblVictimStudent" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblComplaintID" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtComplaintID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtVictimName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtAccused" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtType" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="cmbAccusedName" min="-2" pref="183" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btnSuspectInCustody" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="375" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="327" max="32767" attributes="0"/>
-                      <Component id="btnSuspectInCustody" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnRedEyeNotified" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnSceneReached" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRedEyeNotified" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                   </Group>
               </Group>
-          </Group>
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="495" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnOnTheWay" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="357" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblStatus" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblLocation" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtLocation" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtStatus" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblType" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblAccusedStudent" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblVictimStudent" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblComplaintID" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtComplaintID" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtVictimName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtAccused" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtType" alignment="0" min="-2" pref="205" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,8 +125,9 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnRedEyeNotified" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnSuspectInCustody" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbAccusedName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="80" max="32767" attributes="0"/>
+              <EmptySpace pref="72" max="32767" attributes="0"/>
               <Component id="btnTaskCompleted" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
           </Group>
@@ -144,6 +139,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Accept Case"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcceptCaseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
@@ -247,6 +245,24 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Complaint ID:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cmbAccusedName">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="    "/>
+            <StringItem index="1" value="   "/>
+            <StringItem index="2" value="  "/>
+            <StringItem index="3" value=" "/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbAccusedNameActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

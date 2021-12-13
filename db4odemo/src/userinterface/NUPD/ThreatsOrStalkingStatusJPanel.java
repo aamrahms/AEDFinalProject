@@ -9,7 +9,11 @@ package userinterface.NUPD;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -23,8 +27,12 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint,currentComplaint, mainComplaint;
     PoliceOfficer police;
+    Student accused;
+    int accusedIndex;
+    boolean notifiedChief=false;
+    boolean suspectApprehended=false;
     public ThreatsOrStalkingStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system,PoliceOfficer police, Complaint complaint)
     {
         initComponents();
@@ -35,6 +43,12 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         this.complaint=complaint;
         this.police=police;
         
+        ArrayList<Student> studentList = system.getStudentDirectory().getStudentDir();
+        police.setComplaint(complaint);
+        DefaultComboBoxModel model2= new DefaultComboBoxModel(studentList.toArray());
+        cmbAccusedName.setModel( model2);
+        accusedIndex = 0;
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
         populateFields();
     }
 
@@ -68,8 +82,14 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         txtType = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
         lblComplaintID = new javax.swing.JLabel();
+        cmbAccusedName = new javax.swing.JComboBox<>();
 
         btnAcceptCase.setText("Accept Case");
+        btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptCaseActionPerformed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -146,59 +166,62 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
 
         lblComplaintID.setText("Complaint ID:");
 
+        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
+        cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAccusedNameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(183, 183, 183)
-                        .addComponent(btnAcceptCase)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(327, Short.MAX_VALUE)
-                        .addComponent(btnSuspectInCustody)
-                        .addGap(152, 152, 152)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRedEyeNotified)
-                        .addGap(303, 303, 303))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSceneReached)
-                        .addGap(176, 176, 176))))
             .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(495, 495, 495)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTaskCompleted)
-                            .addComponent(btnOnTheWay)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(174, 174, 174)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblStatus)
+                                            .addComponent(lblLocation))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtLocation)
+                                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblType)
+                                            .addComponent(lblAccusedStudent)
+                                            .addComponent(lblVictimStudent)
+                                            .addComponent(lblComplaintID))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtComplaintID)
+                                            .addComponent(txtVictimName)
+                                            .addComponent(txtAccused)
+                                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(110, 110, 110)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSuspectInCustody)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnTaskCompleted)
+                                        .addComponent(btnOnTheWay)))))
+                        .addGap(0, 375, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(357, 357, 357)
+                        .addComponent(btnAcceptCase)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblStatus)
-                                    .addComponent(lblLocation))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtLocation)
-                                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblType)
-                                    .addComponent(lblAccusedStudent)
-                                    .addComponent(lblVictimStudent)
-                                    .addComponent(lblComplaintID))
-                                .addGap(70, 70, 70)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtComplaintID)
-                                    .addComponent(txtVictimName)
-                                    .addComponent(txtAccused)
-                                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btnSceneReached)
+                            .addComponent(btnRedEyeNotified))
+                        .addGap(176, 176, 176))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,8 +260,9 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRedEyeNotified)
-                    .addComponent(btnSuspectInCustody))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                    .addComponent(btnSuspectInCustody)
+                    .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
                 .addGap(146, 146, 146))
         );
@@ -246,22 +270,93 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("OnTheWay");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnRedEyeNotifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedEyeNotifiedActionPerformed
         // TODO add your handling code here:
+         if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached") || suspectApprehended)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Chief Notified to arrange pickup");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setStatus("Arrange Pickup");
+            this.notifiedChief=true;
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " You have not reached the scene! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnRedEyeNotifiedActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
+        if(notifiedChief && suspectApprehended)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("TaskCompleted");
+            cmbAccusedName.setEnabled(false);
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
+            mainComplaint.setPolice(false);
+            mainComplaint.setAccusedStudent(accused);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Please make sure you have suspect in custody and chief is notified", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
     private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
         // TODO add your handling code here:
+         if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached") || notifiedChief)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Suspect Apprehended");
+            currentComplaint.setAccusedStudent(accused);
+            this.suspectApprehended=true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Select suspect! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("SceneReached");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSceneReachedActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
@@ -280,6 +375,43 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTypeActionPerformed
 
+    private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+            {
+
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_cmbAccusedNameActionPerformed
+
+    private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
+        // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+          
+           // JOptionPane.showMessageDialog(null, "You are already working on Complaint :"+police.getComplaint().getComplaintID() +"\n Current Status :" + police.getComplaint().getStatus()+"\nPlease finish task to proceed", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+    }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
@@ -288,6 +420,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnSceneReached;
     private javax.swing.JButton btnSuspectInCustody;
     private javax.swing.JButton btnTaskCompleted;
+    private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JLabel lblAccusedStudent;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblLocation;

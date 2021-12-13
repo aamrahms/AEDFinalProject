@@ -34,6 +34,7 @@ public class StudentJPanel extends javax.swing.JPanel
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
+        
     }
 
     /**

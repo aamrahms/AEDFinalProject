@@ -61,7 +61,7 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
         try{
             for(Complaint c : victimStudent.getMyComplaints())
             {
-
+                
                 row[0]=c.getComplaintID();
                 row[1]=c.getTypeOfComplaint();
                 row[2]=c.getVictimStudent().getName();
