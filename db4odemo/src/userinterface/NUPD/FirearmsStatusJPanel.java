@@ -305,6 +305,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             mainComplaint.setPolice(false);
             mainComplaint.setStatus("CaseClosed");
             mainComplaint.setAccusedStudent(accused);
+            police.setComplaint(null);
         }
         else
         {

@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
 import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -83,6 +84,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         lblLocation = new javax.swing.JLabel();
         lblComplaintID = new javax.swing.JLabel();
         cmbAccusedName = new javax.swing.JComboBox<>();
+        btnBack = new javax.swing.JButton();
 
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +175,13 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
             }
         });
 
+        btnBack.setText("< Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,11 +231,17 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
                             .addComponent(btnSceneReached)
                             .addComponent(btnRedEyeNotified))
                         .addGap(176, 176, 176))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -262,7 +277,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
                     .addComponent(btnRedEyeNotified)
                     .addComponent(btnSuspectInCustody)
                     .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
                 .addGap(146, 146, 146))
         );
@@ -316,6 +331,10 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
             mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
             mainComplaint.setPolice(false);
             mainComplaint.setAccusedStudent(accused);
+            userProcessContainer.remove(this);
+            CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+            cardlayout.previous(userProcessContainer);
+            police.setComplaint(null);
         }
         else
         {
@@ -412,9 +431,17 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         populateFields();
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnRedEyeNotified;
     private javax.swing.JButton btnSceneReached;

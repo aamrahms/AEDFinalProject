@@ -8,7 +8,11 @@ package userinterface.NUPD;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -24,8 +28,12 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     PoliceOfficer police;
+    Student accused;
+    int accusedIndex;
+    boolean notifiedChief=false;
+    boolean suspectApprehended=false;
     public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system,PoliceOfficer police, Complaint complaint)
     {
         initComponents();
@@ -34,6 +42,13 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         this.system = system;
         this.complaint=complaint;
         this.police=police;
+        ArrayList<Student> studentList = system.getStudentDirectory().getStudentDir();
+        police.setComplaint(complaint);
+        DefaultComboBoxModel model2= new DefaultComboBoxModel(studentList.toArray());
+        cmbAccusedName.setModel( model2);
+        accusedIndex = 0;
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
+        populateFields();
         
         populateFields();
     }
@@ -68,6 +83,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         txtLocation = new javax.swing.JTextField();
         txtStatus = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
+        cmbAccusedName = new javax.swing.JComboBox<>();
+        btnSendToOUEC = new javax.swing.JButton();
 
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +168,20 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
 
         lblLocation.setText("Location:");
 
+        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
+        cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbAccusedNameActionPerformed(evt);
+            }
+        });
+
+        btnSendToOUEC.setText("Send Report to OUEC");
+        btnSendToOUEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSendToOUECActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,46 +189,57 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
             .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnSuspectInCustody)
-                        .addGap(148, 148, 148)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(btnSuspectInCustody)
+                                .addGap(117, 117, 117)
+                                .addComponent(btnSendToOUEC))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(btnTaskCompleted)
+                                .addGap(297, 297, 297)))
+                        .addGap(161, 161, 161))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnAcceptCase)
+                                .addGap(466, 466, 466))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(171, 171, 171)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lblType)
+                                            .addComponent(lblAccused)
+                                            .addComponent(lblVIctimStudent)
+                                            .addComponent(lblComplaintID))
+                                        .addGap(70, 70, 70)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtComplaintID)
+                                            .addComponent(txtVictimName)
+                                            .addComponent(txtAccused)
+                                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnOnTheWay)
+                                            .addGap(94, 94, 94)
+                                            .addComponent(btnSceneReached))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(lblStatus)
+                                                .addComponent(lblLocation))
+                                            .addGap(70, 70, 70)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txtLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                                .addComponent(txtStatus)))))
+                                .addGap(54, 54, 54)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRedEyeNotified)
-                        .addGap(142, 142, 142))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnAcceptCase)
-                        .addGap(170, 170, 170)
-                        .addComponent(btnOnTheWay)
-                        .addGap(187, 187, 187)
-                        .addComponent(btnSceneReached))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnTaskCompleted)
-                        .addGap(297, 297, 297)))
-                .addGap(161, 161, 161))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(348, 348, 348)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblStatus)
-                            .addComponent(lblLocation))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                            .addComponent(txtStatus)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblType)
-                            .addComponent(lblAccused)
-                            .addComponent(lblVIctimStudent)
-                            .addComponent(lblComplaintID))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtComplaintID)
-                            .addComponent(txtVictimName)
-                            .addComponent(txtAccused)
-                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(159, 159, 159))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,12 +274,14 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAcceptCase)
                     .addComponent(btnSceneReached)
-                    .addComponent(btnOnTheWay))
+                    .addComponent(btnOnTheWay)
+                    .addComponent(btnRedEyeNotified))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRedEyeNotified)
-                    .addComponent(btnSuspectInCustody))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                    .addComponent(btnSuspectInCustody)
+                    .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSendToOUEC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(btnTaskCompleted)
                 .addGap(67, 67, 67))
         );
@@ -245,22 +289,77 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
 
     private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
         // TODO add your handling code here:
+         if(notifiedChief)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Suspect Apprehended");
+            currentComplaint.setAccusedStudent(accused);
+            this.suspectApprehended=true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Notify Redeye first! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
+        police.setComplaint(null);
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
     private void btnRedEyeNotifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedEyeNotifiedActionPerformed
         // TODO add your handling code here:
+         if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Chief Notified to arrange pickup");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setStatus("Arrange Pickup");
+            this.notifiedChief=true;
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " You have not reached the scene! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnRedEyeNotifiedActionPerformed
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("OnTheWay");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("SceneReached");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSceneReachedActionPerformed
 
     private void txtVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVictimNameActionPerformed
@@ -280,10 +379,55 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     }//GEN-LAST:event_txtStatusActionPerformed
 
     private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
-        
-        
-        // change status to "Accepted Case" 
+    if(police.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
+    private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+            {
+
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_cmbAccusedNameActionPerformed
+
+    private void btnSendToOUECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendToOUECActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(suspectApprehended)
+            {
+
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+                mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+                mainComplaint.setAccusedStudent(accused);
+                mainComplaint.setOUEC(true);
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Find suspect first!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSendToOUECActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -291,8 +435,10 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnRedEyeNotified;
     private javax.swing.JButton btnSceneReached;
+    private javax.swing.JButton btnSendToOUEC;
     private javax.swing.JButton btnSuspectInCustody;
     private javax.swing.JButton btnTaskCompleted;
+    private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JLabel lblAccused;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblLocation;

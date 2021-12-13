@@ -16,7 +16,7 @@ public class OUECCoordinator {
     Employee employee;
     Complaint complaint;
     String designation;
-//    ArrayList<Complaint> completedComplaintsList;
+    ArrayList<Complaint> complaintsList;
 
     public OUECCoordinator(Employee employee) {
         this.employee = employee;
@@ -38,13 +38,15 @@ public class OUECCoordinator {
         this.complaint = complaint;
     }
 
-//    public ArrayList<Complaint> getCompletedComplaintsList() {
-//        return completedComplaintsList;
-//    }
-//
-//    public void setCompletedComplaintsList(ArrayList<Complaint> completedComplaintsList) {
-//        this.completedComplaintsList = completedComplaintsList;
-//    }
+    public ArrayList<Complaint> getComplaintsList() {
+        return complaintsList;
+    }
+
+    public void setComplaintsList(ArrayList<Complaint> complaintsList) {
+        this.complaintsList = complaintsList;
+    }
+
+
 
     public String getDesignation() {
         return designation;

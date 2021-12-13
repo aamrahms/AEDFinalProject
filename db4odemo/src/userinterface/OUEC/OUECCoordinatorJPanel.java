@@ -5,8 +5,12 @@
  */
 package userinterface.OUEC;
 
+import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Logic.OUEC.OUECCoordinator;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -22,6 +26,9 @@ public class OUECCoordinatorJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
+    Complaint complaint, currentComplaint, mainComplaint;
+    OUECCoordinator coord;
+    ArrayList<OUECCoordinator> coordList;
     
     public OUECCoordinatorJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system)
     {
@@ -29,6 +36,15 @@ public class OUECCoordinatorJPanel extends javax.swing.JPanel
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         this.system=system;
+        coordList=this.system.getOuecCoordinators().getOuecCoordinatorList();
+        for(OUECCoordinator c : coordList)
+        {
+            if(c.getEmployee().getUsername().equals(account.getUsername()))
+            {
+                coord=c;
+            }
+        }
+        populateFields();
     }
 
     /**
@@ -40,19 +56,260 @@ public class OUECCoordinatorJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtStatus = new javax.swing.JTextField();
+        lblType = new javax.swing.JLabel();
+        lblLocation = new javax.swing.JLabel();
+        txtComplaintID = new javax.swing.JTextField();
+        txtVictimName = new javax.swing.JTextField();
+        txtAccused = new javax.swing.JTextField();
+        btnAcceptCase = new javax.swing.JButton();
+        txtType = new javax.swing.JTextField();
+        lblTitle = new javax.swing.JLabel();
+        lblComplaintID = new javax.swing.JLabel();
+        lblVIctimStudent = new javax.swing.JLabel();
+        btnCaseClosed = new javax.swing.JButton();
+        lblAccused = new javax.swing.JLabel();
+        lblStatus = new javax.swing.JLabel();
+        btnAddFeedback = new javax.swing.JButton();
+        txtLocation = new javax.swing.JTextField();
+
+        txtStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStatusActionPerformed(evt);
+            }
+        });
+
+        lblType.setText("Type of Incident");
+
+        lblLocation.setText("Location:");
+
+        txtVictimName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVictimNameActionPerformed(evt);
+            }
+        });
+
+        txtAccused.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAccusedActionPerformed(evt);
+            }
+        });
+
+        btnAcceptCase.setText("Accept Case");
+        btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptCaseActionPerformed(evt);
+            }
+        });
+
+        txtType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTypeActionPerformed(evt);
+            }
+        });
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("STATUS CHANGES FOR COMPLAINTS");
+
+        lblComplaintID.setText("Complaint ID:");
+
+        lblVIctimStudent.setText("Victim Name:");
+
+        btnCaseClosed.setText("Case Closed");
+        btnCaseClosed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCaseClosedActionPerformed(evt);
+            }
+        });
+
+        lblAccused.setText("Accused:");
+
+        lblStatus.setText("Status:");
+
+        btnAddFeedback.setText("Add Feedback");
+        btnAddFeedback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFeedbackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1104, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblStatus)
+                                    .addComponent(lblLocation))
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                    .addComponent(txtStatus)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblType)
+                                    .addComponent(lblAccused)
+                                    .addComponent(lblVIctimStudent)
+                                    .addComponent(lblComplaintID))
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtComplaintID)
+                                    .addComponent(txtVictimName)
+                                    .addComponent(txtAccused)
+                                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(40, 40, 40))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(245, 245, 245)
+                        .addComponent(btnAcceptCase)
+                        .addGap(100, 100, 100)
+                        .addComponent(btnAddFeedback)
+                        .addGap(122, 122, 122)
+                        .addComponent(btnCaseClosed)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblComplaintID)
+                    .addComponent(txtComplaintID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVIctimStudent)
+                    .addComponent(txtVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAccused)
+                    .addComponent(txtAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblType)
+                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblLocation)
+                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblStatus)
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAcceptCase)
+                    .addComponent(btnAddFeedback)
+                    .addComponent(btnCaseClosed))
+                .addContainerGap(169, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStatusActionPerformed
 
+    private void txtVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVictimNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtVictimNameActionPerformed
+
+    private void txtAccusedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAccusedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAccusedActionPerformed
+
+    private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
+
+        // change status to "Accepted Case"
+        if(coord.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=coord.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + coord.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+    }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
+    private void txtTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTypeActionPerformed
+
+    private void btnCaseClosedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaseClosedActionPerformed
+        // TODO add your handling code here:
+        if(coord.getComplaint().getStatus().equalsIgnoreCase("FeedbackAdded"))
+        {
+            
+            
+            currentComplaint.setStatus("TaskCompleted");
+            mainComplaint.setStatus("CaseClosed"); 
+            coord.setComplaint(null);
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " \n Current Status :" + coord.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+        
+    }//GEN-LAST:event_btnCaseClosedActionPerformed
+
+    private void btnAddFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeedbackActionPerformed
+        // TODO add your handling code here:
+        if(coord.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=coord.getComplaint();
+            currentComplaint.setStatus("FeedbackAdded");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setOUECCoordinatorFeedback(JOptionPane.showInputDialog("What were your findings? "));
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " \n Current Status :" + coord.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+    }//GEN-LAST:event_btnAddFeedbackActionPerformed
+
+    private void populateFields() 
+    {
+            complaint= coord.getComplaint();
+             txtComplaintID.setText(complaint.getComplaintID());
+             txtVictimName.setText(complaint.getVictimStudent().getName());
+             txtAccused.setText(complaint.getAccusedStudent().getName());
+             txtType.setText(complaint.getTypeOfIncident());
+             txtLocation.setText(complaint.getLocation());
+             txtStatus.setText(complaint.getStatus());       
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnAddFeedback;
+    private javax.swing.JButton btnCaseClosed;
+    private javax.swing.JLabel lblAccused;
+    private javax.swing.JLabel lblComplaintID;
+    private javax.swing.JLabel lblLocation;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblType;
+    private javax.swing.JLabel lblVIctimStudent;
+    private javax.swing.JTextField txtAccused;
+    private javax.swing.JTextField txtComplaintID;
+    private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtType;
+    private javax.swing.JTextField txtVictimName;
     // End of variables declaration//GEN-END:variables
 }
