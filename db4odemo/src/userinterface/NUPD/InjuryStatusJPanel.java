@@ -73,16 +73,23 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
         lblComplaintID = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptCaseActionPerformed(evt);
             }
         });
+        add(btnAcceptCase);
+        btnAcceptCase.setBounds(197, 438, 121, 29);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("STATUS UPDATE FOR INJURY COMPLAINTS");
+        add(lblTitle);
+        lblTitle.setBounds(114, 53, 980, 56);
 
         btnOnTheWay.setText("On The Way");
         btnOnTheWay.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +97,8 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnOnTheWayActionPerformed(evt);
             }
         });
+        add(btnOnTheWay);
+        btnOnTheWay.setBounds(485, 438, 118, 29);
 
         btnSceneReached.setText("Scene Reached");
         btnSceneReached.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +106,8 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnSceneReachedActionPerformed(evt);
             }
         });
+        add(btnSceneReached);
+        btnSceneReached.setBounds(776, 438, 136, 29);
 
         btnDroppedOffAtUHCS.setText("Dropped Off At UHCS");
         btnDroppedOffAtUHCS.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +115,8 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnDroppedOffAtUHCSActionPerformed(evt);
             }
         });
+        add(btnDroppedOffAtUHCS);
+        btnDroppedOffAtUHCS.setBounds(611, 505, 179, 29);
 
         btnTaskCompleted.setText("Task Completed");
         btnTaskCompleted.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +124,8 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnTaskCompletedActionPerformed(evt);
             }
         });
+        add(btnTaskCompleted);
+        btnTaskCompleted.setBounds(487, 614, 146, 29);
 
         btnVictimPicked.setText("Picked Up The Victim");
         btnVictimPicked.addActionListener(new java.awt.event.ActionListener() {
@@ -118,42 +133,68 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnVictimPickedActionPerformed(evt);
             }
         });
+        add(btnVictimPicked);
+        btnVictimPicked.setBounds(310, 505, 177, 29);
 
         lblVictimStudent.setText("Victim Name:");
+        add(lblVictimStudent);
+        lblVictimStudent.setBounds(364, 208, 84, 16);
 
         lblAccusedStudent.setText("Accused:");
+        add(lblAccusedStudent);
+        lblAccusedStudent.setBounds(391, 235, 57, 16);
 
         lblStatus.setText("Status:");
+        add(lblStatus);
+        lblStatus.setBounds(405, 336, 43, 16);
 
         lblType.setText("Type:");
+        add(lblType);
+        lblType.setBounds(414, 267, 34, 16);
+        add(txtLocation);
+        txtLocation.setBounds(518, 299, 205, 26);
+        add(txtComplaintID);
+        txtComplaintID.setBounds(518, 171, 205, 26);
 
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStatusActionPerformed(evt);
             }
         });
+        add(txtStatus);
+        txtStatus.setBounds(518, 331, 205, 26);
 
         txtVictimName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVictimNameActionPerformed(evt);
             }
         });
+        add(txtVictimName);
+        txtVictimName.setBounds(518, 203, 205, 26);
 
         txtAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAccusedActionPerformed(evt);
             }
         });
+        add(txtAccused);
+        txtAccused.setBounds(518, 235, 205, 26);
 
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTypeActionPerformed(evt);
             }
         });
+        add(txtType);
+        txtType.setBounds(518, 267, 205, 26);
 
         lblLocation.setText("Location:");
+        add(lblLocation);
+        lblLocation.setBounds(390, 309, 58, 16);
 
         lblComplaintID.setText("Complaint ID:");
+        add(lblComplaintID);
+        lblComplaintID.setBounds(361, 181, 87, 16);
 
         btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -161,105 +202,8 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 980, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAcceptCase)
-                        .addGap(167, 167, 167)
-                        .addComponent(btnOnTheWay)
-                        .addGap(173, 173, 173)
-                        .addComponent(btnSceneReached))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnVictimPicked)
-                                .addGap(124, 124, 124)
-                                .addComponent(btnDroppedOffAtUHCS)
-                                .addGap(122, 122, 122))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnTaskCompleted)
-                                .addGap(279, 279, 279)))))
-                .addGap(182, 182, 182))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(361, 361, 361)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblStatus)
-                            .addComponent(lblLocation))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLocation)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblType)
-                            .addComponent(lblAccusedStudent)
-                            .addComponent(lblVictimStudent)
-                            .addComponent(lblComplaintID))
-                        .addGap(70, 70, 70)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtComplaintID)
-                            .addComponent(txtVictimName)
-                            .addComponent(txtAccused)
-                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblComplaintID)
-                    .addComponent(txtComplaintID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVictimStudent)
-                    .addComponent(txtVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAccusedStudent)
-                    .addComponent(txtAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblType)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblLocation)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStatus)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSceneReached)
-                    .addComponent(btnAcceptCase)
-                    .addComponent(btnOnTheWay))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDroppedOffAtUHCS)
-                    .addComponent(btnVictimPicked))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(btnTaskCompleted)
-                .addGap(95, 95, 95))
-        );
+        add(btnBack);
+        btnBack.setBounds(0, 70, 108, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
