@@ -27,6 +27,7 @@ import java.util.ArrayList;
 public class EcoSystem extends Organisation{
     
     private static EcoSystem business;
+    private ArrayList<Network> networkList;
     private EnterpriseDirectory enterpriseDirectory;
     private ComplaintDirectory complaintDirectory;
     private StudentDirectory studentDirectory;
@@ -156,6 +157,19 @@ public class EcoSystem extends Organisation{
     public void setDriverDirectory(DriverDirectory driverDirectory) {
         this.driverDirectory = driverDirectory;
     }
+
+    public ArrayList<Network> getNetworkList() {
+        return networkList;
+    }
+
+    public void setNetworkList(ArrayList<Network> networkList) {
+        this.networkList = networkList;
+    }
     
     
+    public Network createAndAddNetwork(){
+        Network network=new Network();
+        networkList.add(network);
+        return network;
+    }
 }

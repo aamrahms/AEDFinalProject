@@ -4,6 +4,7 @@
  */
 package Business.WorkQueue;
 
+import Business.Complaint.Complaint;
 import java.util.ArrayList;
 
 /**
@@ -12,13 +13,13 @@ import java.util.ArrayList;
  */
 public class WorkQueue {
     
-    private ArrayList<WorkRequest> workRequestList;
+    private ArrayList<Complaint> complaintList;     //WorkRequest is ComplaintRequest
 
     public WorkQueue() {
-        workRequestList = new ArrayList();
+        complaintList = new ArrayList();
     }
 
-    public ArrayList<WorkRequest> getWorkRequestList() {
-        return workRequestList;
+    public ArrayList<Complaint> getComplaintList() {
+        return complaintList;
     }
 }

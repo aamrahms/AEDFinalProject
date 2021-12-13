@@ -73,4 +73,17 @@ public class StudentDirectory {
     public void setStudentDir(ArrayList<Student> studentDir) {
         this.studentDir = studentDir;
     }
+    
+    public Student getStudentWithUserName(String userName) {
+        for(Student student : studentDir)
+        {
+            if(student.getUsername().equals(userName))
+            {
+                return student;
+            }
+           
+        }
+        return null;
+    }
+    
 }
