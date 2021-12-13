@@ -111,6 +111,9 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         tblComplaintsWithOpenStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -134,16 +137,23 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         jScrollPane1.setViewportView(tblComplaintsWithOpenStatus);
         tblComplaintsWithOpenStatus.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(20, 173, 696, 107);
+
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Pending Compliant Status");
+        lblTitle.setText("PENDING COMPLAINTS LISTS");
+        add(lblTitle);
+        lblTitle.setBounds(0, 50, 960, 59);
 
-        btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.setText("Refresh");
         btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshStatusActionPerformed(evt);
             }
         });
+        add(btnRefreshStatus);
+        btnRefreshStatus.setBounds(610, 130, 100, 29);
 
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +161,8 @@ public class ReceptionistJPanel extends javax.swing.JPanel
                 btnAcceptCaseActionPerformed(evt);
             }
         });
+        add(btnAcceptCase);
+        btnAcceptCase.setBounds(57, 465, 121, 29);
 
         btnAssignDoctor.setText("Assign Doctor");
         btnAssignDoctor.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +170,8 @@ public class ReceptionistJPanel extends javax.swing.JPanel
                 btnAssignDoctorActionPerformed(evt);
             }
         });
+        add(btnAssignDoctor);
+        btnAssignDoctor.setBounds(190, 470, 134, 29);
 
         btnUhcsCompleted.setText("UHCS Completed & Notify Chief Officier");
         btnUhcsCompleted.addActionListener(new java.awt.event.ActionListener() {
@@ -165,8 +179,12 @@ public class ReceptionistJPanel extends javax.swing.JPanel
                 btnUhcsCompletedActionPerformed(evt);
             }
         });
+        add(btnUhcsCompleted);
+        btnUhcsCompleted.setBounds(350, 500, 295, 29);
 
         jLabel1.setText("Open Complaints under UHCS:");
+        add(jLabel1);
+        jLabel1.setBounds(20, 151, 192, 16);
 
         btnDecide.setText("Decide");
         btnDecide.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +192,12 @@ public class ReceptionistJPanel extends javax.swing.JPanel
                 btnDecideActionPerformed(evt);
             }
         });
+        add(btnDecide);
+        btnDecide.setBounds(734, 214, 87, 29);
 
         jLabel2.setText("Selected Complaint for Deciding:");
+        add(jLabel2);
+        jLabel2.setBounds(20, 345, 207, 16);
 
         tblSelectedTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -199,98 +221,30 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         jScrollPane3.setViewportView(tblSelectedTable);
         tblSelectedTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
+        add(jScrollPane3);
+        jScrollPane3.setBounds(20, 379, 696, 58);
+
         btnClearSelection.setText("Clear Selection");
         btnClearSelection.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearSelectionActionPerformed(evt);
             }
         });
+        add(btnClearSelection);
+        btnClearSelection.setBounds(734, 389, 137, 29);
 
-        btnBack.setText("<-- Back");
+        btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(0, 20, 103, 29);
 
         jLabel3.setText("Close the case from UHCS side:");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDecide))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(129, 129, 129)
-                                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnUhcsCompleted)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnClearSelection))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(btnAcceptCase))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(btnAssignDoctor)
-                        .addGap(156, 156, 156)
-                        .addComponent(jLabel3)))
-                .addContainerGap(90, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 655, Short.MAX_VALUE)
-                .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRefreshStatus)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnDecide))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(65, 65, 65)
-                .addComponent(jLabel2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(btnClearSelection)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnAcceptCase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAssignDoctor)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnUhcsCompleted)
-                .addGap(23, 23, 23))
-        );
+        add(jLabel3);
+        jLabel3.setBounds(360, 480, 198, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshStatusActionPerformed
