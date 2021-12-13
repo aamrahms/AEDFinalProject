@@ -113,7 +113,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnUhcs = new javax.swing.JButton();
         btnRedeye = new javax.swing.JButton();
         btnOUEC = new javax.swing.JButton();
-        lblAssign = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
         lblCurrentStatus = new javax.swing.JLabel();
@@ -179,10 +178,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         });
         add(btnOUEC);
         btnOUEC.setBounds(356, 347, 247, 29);
-
-        lblAssign.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/PoliceWorkRequestOpaque.png"))); // NOI18N
-        add(lblAssign);
-        lblAssign.setBounds(260, 250, 1270, 626);
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -376,7 +371,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnStatus;
     private javax.swing.JButton btnUhcs;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAssign;
     private javax.swing.JLabel lblAssign1;
     private javax.swing.JLabel lblCurrentStatus;
     private javax.swing.JLabel lblHeading;

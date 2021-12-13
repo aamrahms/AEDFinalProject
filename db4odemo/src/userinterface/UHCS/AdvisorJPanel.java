@@ -62,7 +62,6 @@ public class AdvisorJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         btnStartAdvice = new javax.swing.JButton();
         btnAdviceComplete = new javax.swing.JButton();
         btnScheduleAppointment = new javax.swing.JButton();
@@ -80,12 +79,17 @@ public class AdvisorJPanel extends javax.swing.JPanel
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         btnStartAdvice.setText("Start Advice");
         btnStartAdvice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartAdviceActionPerformed(evt);
             }
         });
+        add(btnStartAdvice);
+        btnStartAdvice.setBounds(90, 470, 119, 29);
 
         btnAdviceComplete.setText("Advice Complete");
         btnAdviceComplete.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +97,8 @@ public class AdvisorJPanel extends javax.swing.JPanel
                 btnAdviceCompleteActionPerformed(evt);
             }
         });
+        add(btnAdviceComplete);
+        btnAdviceComplete.setBounds(260, 470, 150, 29);
 
         btnScheduleAppointment.setText("Schedule Appointment");
         btnScheduleAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -100,15 +106,21 @@ public class AdvisorJPanel extends javax.swing.JPanel
                 btnScheduleAppointmentActionPerformed(evt);
             }
         });
+        add(btnScheduleAppointment);
+        btnScheduleAppointment.setBounds(240, 360, 186, 29);
 
-        btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.setText("Refresh ");
         btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshStatusActionPerformed(evt);
             }
         });
+        add(btnRefreshStatus);
+        btnRefreshStatus.setBounds(730, 140, 120, 29);
 
         jLabel2.setText("Open Complaints under you:");
+        add(jLabel2);
+        jLabel2.setBounds(70, 160, 180, 16);
 
         btnDecide.setText("Decide");
         btnDecide.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +128,8 @@ public class AdvisorJPanel extends javax.swing.JPanel
                 btnDecideActionPerformed(evt);
             }
         });
+        add(btnDecide);
+        btnDecide.setBounds(810, 230, 87, 29);
 
         tblComplaintsWithOpenStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,14 +153,21 @@ public class AdvisorJPanel extends javax.swing.JPanel
         tblComplaintsWithOpenStatus.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tblComplaintsWithOpenStatus);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(90, 190, 696, 107);
+
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptCaseActionPerformed(evt);
             }
         });
+        add(btnAcceptCase);
+        btnAcceptCase.setBounds(90, 360, 121, 29);
 
         jLabel5.setText("Once Student Accepts:");
+        add(jLabel5);
+        jLabel5.setBounds(100, 430, 142, 16);
 
         btnCloseComplaint.setText("Close Complaint");
         btnCloseComplaint.addActionListener(new java.awt.event.ActionListener() {
@@ -154,136 +175,33 @@ public class AdvisorJPanel extends javax.swing.JPanel
                 btnCloseComplaintActionPerformed(evt);
             }
         });
+        add(btnCloseComplaint);
+        btnCloseComplaint.setBounds(460, 570, 148, 29);
 
         jLabel6.setText("Close the case:");
+        add(jLabel6);
+        jLabel6.setBounds(460, 540, 95, 16);
+        add(txtAdvisorFeedBack);
+        txtAdvisorFeedBack.setBounds(460, 490, 231, 26);
 
         jLabel1.setText("Enter Doctor Feedback:");
+        add(jLabel1);
+        jLabel1.setBounds(460, 470, 146, 16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAcceptCase)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(318, 318, 318)
-                                .addComponent(btnAdviceComplete))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnScheduleAppointment)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(200, 200, 200)
-                                            .addComponent(jLabel5)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(192, 192, 192)
-                                        .addComponent(btnStartAdvice)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDecide)))
-                .addContainerGap(46, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(btnCloseComplaint)
-                    .addComponent(txtAdvisorFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(123, 123, 123))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(btnRefreshStatus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnDecide))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(btnAcceptCase)
-                .addGap(18, 18, 18)
-                .addComponent(btnScheduleAppointment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(btnStartAdvice)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdviceComplete)
-                        .addGap(24, 24, 24))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAdvisorFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCloseComplaint)
-                .addGap(196, 196, 196))
-        );
-
-        btnBack.setText("<-- Back");
+        btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(0, 30, 103, 29);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("In-Bucket Complaint");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(btnBack)
-                .addGap(117, 117, 117)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(46, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addContainerGap(751, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(81, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(96, Short.MAX_VALUE)))
-        );
+        lblTitle.setText("IN BUCKET COMPLAINTS");
+        add(lblTitle);
+        lblTitle.setBounds(0, 60, 1010, 59);
     }// </editor-fold>//GEN-END:initComponents
     
     public void disableAll() {
@@ -493,7 +411,6 @@ public class AdvisorJPanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblComplaintsWithOpenStatus;
