@@ -9,12 +9,7 @@ import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.Redeye.Driver;
 import Business.UserAccount.UserAccount;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -30,18 +25,19 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     Driver driver;
  
     public SexualAssaultRideStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Driver driver, Complaint complaint) 
     {
-        initComponents();
+        
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.system = system;
         this.complaint=complaint;
         this.driver = driver;
+        driver.setComplaint(complaint);
         populateFields();
       
     }
@@ -70,7 +66,7 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
         btnSafelyDropped = new javax.swing.JButton();
         txtStatus = new javax.swing.JTextField();
         lblStatus = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        btnOnPickupLocation = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -105,7 +101,7 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnAcceptBooking);
-        btnAcceptBooking.setBounds(264, 402, 142, 29);
+        btnAcceptBooking.setBounds(180, 400, 142, 29);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,7 +121,7 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnRideStarted);
-        btnRideStarted.setBounds(485, 402, 119, 29);
+        btnRideStarted.setBounds(530, 400, 119, 29);
 
         lblVIctimStudent.setText("Victim Name:");
         add(lblVIctimStudent);
@@ -147,7 +143,7 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnSafelyDropped);
-        btnSafelyDropped.setBounds(690, 400, 139, 29);
+        btnSafelyDropped.setBounds(720, 400, 139, 29);
 
         txtStatus.setEditable(false);
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -162,9 +158,14 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
         add(lblStatus);
         lblStatus.setBounds(380, 300, 43, 16);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/GeneralBackground.jpeg"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(-580, -110, 1810, 930);
+        btnOnPickupLocation.setText("At Pickup Location");
+        btnOnPickupLocation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOnPickupLocationActionPerformed(evt);
+            }
+        });
+        add(btnOnPickupLocation);
+        btnOnPickupLocation.setBounds(350, 400, 162, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
@@ -178,28 +179,72 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
     private void btnAcceptBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptBookingActionPerformed
 
         // change status to "Accepted Case"
+        if(driver.getComplaint().getStatus().equalsIgnoreCase("NewRide"))
+        {
+            
+            currentComplaint=driver.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the ride \n Current Status :" + driver.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnAcceptBookingActionPerformed
 
     private void btnRideStartedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRideStartedActionPerformed
         // TODO add your handling code here:
+        if(driver.getComplaint().getStatus().equalsIgnoreCase("At PickUp location"))
+        {
+            
+            currentComplaint=driver.getComplaint();
+            currentComplaint.setStatus("Ride Started");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + driver.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnRideStartedActionPerformed
 
     private void btnSafelyDroppedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSafelyDroppedActionPerformed
         // TODO add your handling code here:
-//         currentComplaint=police.getComplaint();
-//            currentComplaint.setStatus("DroppedToUHCS");
-//            currentComplaint.setUHCS(true);
-//            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
-//            mainComplaint.setUHCS(true);
-//            UserAccount receptionist = system.getUserAccountDirectory().fetchReceptionistFromUa();
-//            Complaint c = new Complaint(mainComplaint);
-//            c.setStatus("UHCS New");
-//            receptionist.getWorkQueue().getComplaintList().add(c); 
+            currentComplaint=driver.getComplaint();
+            currentComplaint.setStatus("DroppedToUHCS");
+            currentComplaint.setUHCS(true);
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setDriverFeedback(JOptionPane.showInputDialog("How was the passenger's condition? "));
+            mainComplaint.setUHCS(true);
+            driver.setComplaint(null);
+            UserAccount receptionist = system.getUserAccountDirectory().fetchReceptionistFromUa();
+            Complaint c = new Complaint(mainComplaint);
+            c.setStatus("UHCS New");
+            receptionist.getWorkQueue().getComplaintList().add(c); 
     }//GEN-LAST:event_btnSafelyDroppedActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStatusActionPerformed
+
+    private void btnOnPickupLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnPickupLocationActionPerformed
+
+        // change status to "Accepted Case"
+        if(driver.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+
+            currentComplaint=driver.getComplaint();
+            currentComplaint.setStatus("At PickUp location");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + driver.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
+
+    }//GEN-LAST:event_btnOnPickupLocationActionPerformed
     private void populateFields() 
     {
              txtComplaintID.setText(complaint.getComplaintID());
@@ -211,9 +256,9 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptBooking;
+    private javax.swing.JButton btnOnPickupLocation;
     private javax.swing.JButton btnRideStarted;
     private javax.swing.JButton btnSafelyDropped;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblLocation;
@@ -227,7 +272,5 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
     private javax.swing.JTextField txtVictimName;
     // End of variables declaration//GEN-END:variables
 
-    private BufferedImage getScaledImage() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
 }

@@ -282,6 +282,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
             mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
             mainComplaint.setPolice(false);
             mainComplaint.setStatus("AssignedToUHCS");
+            police.setComplaint(null);
         }
         else
         {

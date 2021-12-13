@@ -28,7 +28,7 @@ public class RideStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint, currentComplaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     Driver driver;
     
     public RideStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system, Driver driver, Complaint complaint)
@@ -223,12 +223,19 @@ public class RideStatusJPanel extends javax.swing.JPanel
 
     private void btnSafelyDroppedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSafelyDroppedActionPerformed
         // TODO add your handling code here:
-         if(driver.getComplaint().getStatus().equalsIgnoreCase("Ride Started"))
+        
+       
+        if(driver.getComplaint().getStatus().equalsIgnoreCase("Ride Started"))
         {
             
             currentComplaint=driver.getComplaint();
-            currentComplaint.setStatus("Dropped Victim Home");
-            
+            currentComplaint.setStatus("TaskCompleted");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setDriverFeedback(JOptionPane.showInputDialog("How was the passenger's condition? "));
+            mainComplaint.setPolice(false);
+            mainComplaint.setDriver(false);
+            mainComplaint.setStatus("CaseClosed"); 
+            driver.setComplaint(null);
         }
         else
         {

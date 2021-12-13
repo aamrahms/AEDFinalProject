@@ -190,7 +190,7 @@ public class DriverJPanel extends javax.swing.JPanel
             }
             else if (complaint.getTypeOfIncident().equalsIgnoreCase("Sexual Assault") )
             {
-                SexualAssaultRideStatusJPanel assaultPanel= new SexualAssaultRideStatusJPanel(userProcessContainer, account, system, driver,complaint);
+                 SexualAssaultRideStatusJPanel assaultPanel= new  SexualAssaultRideStatusJPanel(userProcessContainer, account, system, driver,complaint);
                 userProcessContainer.add("CheckRideJPanel",assaultPanel);
                 CardLayout cardlayout= (CardLayout) userProcessContainer.getLayout();
                 cardlayout.next(userProcessContainer);

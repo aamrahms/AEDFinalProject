@@ -8,7 +8,11 @@ package userinterface.NUPD;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -24,8 +28,12 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
-    Complaint complaint;
+    Complaint complaint, currentComplaint, mainComplaint;
     PoliceOfficer police;
+    Student accused;
+    int accusedIndex;
+    boolean notifiedChief=false;
+    boolean suspectApprehended=false;
     public SexualAssaultStatusJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem system,PoliceOfficer police, Complaint complaint)
     {
         initComponents();
@@ -34,6 +42,13 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         this.system = system;
         this.complaint=complaint;
         this.police=police;
+        ArrayList<Student> studentList = system.getStudentDirectory().getStudentDir();
+        police.setComplaint(complaint);
+        DefaultComboBoxModel model2= new DefaultComboBoxModel(studentList.toArray());
+        cmbAccusedName.setModel( model2);
+        accusedIndex = 0;
+        accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);
+        populateFields();
         
         populateFields();
     }
@@ -68,6 +83,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         txtLocation = new javax.swing.JTextField();
         txtStatus = new javax.swing.JTextField();
         lblLocation = new javax.swing.JLabel();
+        cmbAccusedName = new javax.swing.JComboBox<>();
+        btnSendToOUEC = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -195,22 +212,77 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
 
     private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed
         // TODO add your handling code here:
+         if(notifiedChief)
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Suspect Apprehended");
+            currentComplaint.setAccusedStudent(accused);
+            this.suspectApprehended=true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Notify Redeye first! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSuspectInCustodyActionPerformed
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
+        police.setComplaint(null);
     }//GEN-LAST:event_btnTaskCompletedActionPerformed
 
     private void btnRedEyeNotifiedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedEyeNotifiedActionPerformed
         // TODO add your handling code here:
+         if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Chief Notified to arrange pickup");
+            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setStatus("Arrange Pickup");
+            this.notifiedChief=true;
+            
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " You have not reached the scene! \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnRedEyeNotifiedActionPerformed
 
     private void btnOnTheWayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOnTheWayActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("Accepted"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("OnTheWay");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnOnTheWayActionPerformed
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("SceneReached");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, " Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnSceneReachedActionPerformed
 
     private void txtVictimNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVictimNameActionPerformed
@@ -230,10 +302,55 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     }//GEN-LAST:event_txtStatusActionPerformed
 
     private void btnAcceptCaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptCaseActionPerformed
-        
-        
-        // change status to "Accepted Case" 
+    if(police.getComplaint().getStatus().equalsIgnoreCase("New"))
+        {
+            
+            currentComplaint=police.getComplaint();
+            currentComplaint.setStatus("Accepted");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You already accepted the case \n Current Status :" + police.getComplaint().getStatus()+"\nPlease go to next step", "Warning", JOptionPane.WARNING_MESSAGE);
+
+        }
+        populateFields();
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
+
+    private void cmbAccusedNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccusedNameActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+            {
+
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_cmbAccusedNameActionPerformed
+
+    private void btnSendToOUECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendToOUECActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(suspectApprehended)
+            {
+
+                accusedIndex = cmbAccusedName.getSelectedIndex();
+                accused=system.getStudentDirectory().getStudentDir().get(accusedIndex);//getStudentDirectory().getStudentDir().get(accusedIndex);
+                mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+                mainComplaint.setAccusedStudent(accused);
+                mainComplaint.setOUEC(true);
+            }
+        }
+        catch(NullPointerException e)
+        {
+            JOptionPane.showMessageDialog(null, "Find suspect first!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSendToOUECActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -241,8 +358,10 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnRedEyeNotified;
     private javax.swing.JButton btnSceneReached;
+    private javax.swing.JButton btnSendToOUEC;
     private javax.swing.JButton btnSuspectInCustody;
     private javax.swing.JButton btnTaskCompleted;
+    private javax.swing.JComboBox<String> cmbAccusedName;
     private javax.swing.JLabel lblAccused;
     private javax.swing.JLabel lblComplaintID;
     private javax.swing.JLabel lblLocation;

@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Logic.NUPD.PoliceOfficer;
 import Business.Student.Student;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -83,6 +84,7 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         lblLocation = new javax.swing.JLabel();
         lblComplaintID = new javax.swing.JLabel();
         cmbAccusedName = new javax.swing.JComboBox<>();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -265,6 +267,10 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
             mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
             mainComplaint.setPolice(false);
             mainComplaint.setAccusedStudent(accused);
+            userProcessContainer.remove(this);
+            CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+            cardlayout.previous(userProcessContainer);
+            police.setComplaint(null);
         }
         else
         {
@@ -361,9 +367,17 @@ public class ThreatsOrStalkingStatusJPanel extends javax.swing.JPanel
         populateFields();
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardlayout = (CardLayout) userProcessContainer.getLayout();
+        cardlayout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOnTheWay;
     private javax.swing.JButton btnRedEyeNotified;
     private javax.swing.JButton btnSceneReached;
