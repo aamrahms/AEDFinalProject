@@ -50,12 +50,17 @@ public class StudentJPanel extends javax.swing.JPanel
         btnAllComplaints = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         btnRaiseComplaint.setText("Raise a Complaint");
         btnRaiseComplaint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRaiseComplaintActionPerformed(evt);
             }
         });
+        add(btnRaiseComplaint);
+        btnRaiseComplaint.setBounds(244, 196, 170, 29);
 
         btnAllComplaints.setText("View All Complaints");
         btnAllComplaints.addActionListener(new java.awt.event.ActionListener() {
@@ -63,37 +68,17 @@ public class StudentJPanel extends javax.swing.JPanel
                 btnAllComplaintsActionPerformed(evt);
             }
         });
+        add(btnAllComplaints);
+        btnAllComplaints.setBounds(244, 259, 170, 29);
 
-        btnBack.setText("Go Back");
+        btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(701, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnBack)
-                    .addComponent(btnRaiseComplaint, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAllComplaints, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(59, 59, 59))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(btnRaiseComplaint)
-                .addGap(34, 34, 34)
-                .addComponent(btnAllComplaints)
-                .addGap(38, 38, 38)
-                .addComponent(btnBack)
-                .addContainerGap(344, Short.MAX_VALUE))
-        );
+        add(btnBack);
+        btnBack.setBounds(6, 23, 108, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRaiseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRaiseComplaintActionPerformed

@@ -41,13 +41,16 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
         btnInBucketPage = new javax.swing.JButton();
         btnOldPage = new javax.swing.JButton();
         btnDashboard = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("Welcome ");
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+        add(lblName);
+        lblName.setBounds(801, 24, 127, 26);
 
         btnInBucketPage.setText("Manage In-Bucket Complaints");
         btnInBucketPage.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +58,8 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
                 btnInBucketPageActionPerformed(evt);
             }
         });
+        add(btnInBucketPage);
+        btnInBucketPage.setBounds(390, 180, 234, 29);
 
         btnOldPage.setText("Manage Completed Complaints");
         btnOldPage.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +67,8 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
                 btnOldPageActionPerformed(evt);
             }
         });
+        add(btnOldPage);
+        btnOldPage.setBounds(390, 260, 240, 29);
 
         btnDashboard.setText("Dashboard View");
         btnDashboard.addActionListener(new java.awt.event.ActionListener() {
@@ -69,44 +76,14 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
                 btnDashboardActionPerformed(evt);
             }
         });
+        add(btnDashboard);
+        btnDashboard.setBounds(430, 330, 145, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(329, 329, 329)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnOldPage)
-                            .addComponent(btnInBucketPage)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(374, 374, 374)
-                        .addComponent(btnDashboard)))
-                .addContainerGap(412, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(59, 59, 59)
-                .addComponent(btnInBucketPage)
-                .addGap(46, 46, 46)
-                .addComponent(btnOldPage)
-                .addGap(45, 45, 45)
-                .addComponent(btnDashboard)
-                .addContainerGap(252, Short.MAX_VALUE))
-        );
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("WELCOME");
+        add(jLabel1);
+        jLabel1.setBounds(0, 60, 980, 26);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed

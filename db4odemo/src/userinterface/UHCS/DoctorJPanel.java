@@ -80,6 +80,7 @@ public class DoctorJPanel extends javax.swing.JPanel
         txtDoctorFeedBack = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
 
         btnBack.setText("< Go Back");
