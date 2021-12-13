@@ -77,11 +77,11 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
                 
                 //notifications
                 if (c.isNotifyFromDoctor()) {
-                    JOptionPane.showMessageDialog(null,"Notification: Doctor scheduled appointment, visit your doctor","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Notification: For complaint: "+c.getComplaintID()+" Doctor scheduled appointment, visit your doctor- name: "+c.getDoctorName(),"Warning",JOptionPane.WARNING_MESSAGE);
                     c.setNotifyFromDoctor(false);
                 }
                 if (c.isNotifyFromAdvisor()) {
-                    JOptionPane.showMessageDialog(null,"Notification: Advisor scheduled appointment, visit your advisor","Warning",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Notification: For complaint: "+c.getComplaintID()+" Advisor scheduled appointment, visit your advisor- name: "+c.getAdvisorName(),"Warning",JOptionPane.WARNING_MESSAGE);
                     c.setNotifyFromAdvisor(false);
                 }
                 

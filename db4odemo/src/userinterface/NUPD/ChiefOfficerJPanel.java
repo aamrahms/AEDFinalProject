@@ -310,11 +310,6 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
             {
                 
                 complaint.setStatus("AssignedToUHCS");
-                UserAccount receptionist = system.getUserAccountDirectory().fetchReceptionistFromUa();
-                Complaint c = new Complaint(complaint);
-                c.setStatus("UHCS New");
-                receptionist.getWorkQueue().getComplaintList().add(c);
-                
                 JOptionPane.showMessageDialog(this, "Complaint assigned to Officer University of Health and Counselling Services");
                
             }

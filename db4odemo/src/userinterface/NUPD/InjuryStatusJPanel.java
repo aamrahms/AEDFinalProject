@@ -288,7 +288,14 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
             
             currentComplaint=police.getComplaint();
             currentComplaint.setStatus("DroppedToUHCS");
+            currentComplaint.setUHCS(true);
             mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+            mainComplaint.setUHCS(true);
+            UserAccount receptionist = system.getUserAccountDirectory().fetchReceptionistFromUa();
+            Complaint c = new Complaint(mainComplaint);
+            c.setStatus("UHCS New");
+            receptionist.getWorkQueue().getComplaintList().add(c);           
+            
         }
         else
         {

@@ -45,6 +45,8 @@ public class Complaint {
     //assault , injury
     private String DoctorFeedback;
     private String AdvisorFeedback;
+    private String DoctorName;
+    private String AdvisorName;
 
     //in case of Emergency complaint : location + date
     
@@ -323,5 +325,22 @@ public class Complaint {
         this.notifyFromAdvisor = notifyFromAdvisor;
     }
 
+    public String getDoctorName() {
+        return DoctorName;
+    }
+
+    public void setDoctorName(String DoctorName) {
+        this.DoctorName = DoctorName;
+    }
+
+    public String getAdvisorName() {
+        return AdvisorName;
+    }
+
+    public void setAdvisorName(String AdvisorName) {
+        this.AdvisorName = AdvisorName;
+    }
+
+    
     
 }  

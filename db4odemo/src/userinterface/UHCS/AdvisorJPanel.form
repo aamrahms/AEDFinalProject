@@ -66,13 +66,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
-                                  <Component id="btnTreatmentComplete" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAdviceComplete" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="btnScheduleTreatment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnScheduleAppointment" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
-                                          <Component id="btnStartTreatment" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnStartAdvice" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -136,15 +136,15 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="btnAcceptCase" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnScheduleTreatment" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnScheduleAppointment" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="btnStartTreatment" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnStartAdvice" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnTreatmentComplete" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAdviceComplete" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -164,28 +164,28 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnStartTreatment">
+        <Component class="javax.swing.JButton" name="btnStartAdvice">
           <Properties>
             <Property name="text" type="java.lang.String" value="Start Advice"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStartTreatmentActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStartAdviceActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTreatmentComplete">
+        <Component class="javax.swing.JButton" name="btnAdviceComplete">
           <Properties>
             <Property name="text" type="java.lang.String" value="Advice Complete"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTreatmentCompleteActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdviceCompleteActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnScheduleTreatment">
+        <Component class="javax.swing.JButton" name="btnScheduleAppointment">
           <Properties>
             <Property name="text" type="java.lang.String" value="Schedule Appointment"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScheduleTreatmentActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScheduleAppointmentActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRefreshStatus">

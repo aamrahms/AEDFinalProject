@@ -8,6 +8,7 @@ package userinterface.UHCS;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.UHCS.Advisor;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -62,9 +63,9 @@ public class AdvisorJPanel extends javax.swing.JPanel
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnStartTreatment = new javax.swing.JButton();
-        btnTreatmentComplete = new javax.swing.JButton();
-        btnScheduleTreatment = new javax.swing.JButton();
+        btnStartAdvice = new javax.swing.JButton();
+        btnAdviceComplete = new javax.swing.JButton();
+        btnScheduleAppointment = new javax.swing.JButton();
         btnRefreshStatus = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnDecide = new javax.swing.JButton();
@@ -79,24 +80,24 @@ public class AdvisorJPanel extends javax.swing.JPanel
         btnBack = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
 
-        btnStartTreatment.setText("Start Advice");
-        btnStartTreatment.addActionListener(new java.awt.event.ActionListener() {
+        btnStartAdvice.setText("Start Advice");
+        btnStartAdvice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStartTreatmentActionPerformed(evt);
+                btnStartAdviceActionPerformed(evt);
             }
         });
 
-        btnTreatmentComplete.setText("Advice Complete");
-        btnTreatmentComplete.addActionListener(new java.awt.event.ActionListener() {
+        btnAdviceComplete.setText("Advice Complete");
+        btnAdviceComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTreatmentCompleteActionPerformed(evt);
+                btnAdviceCompleteActionPerformed(evt);
             }
         });
 
-        btnScheduleTreatment.setText("Schedule Appointment");
-        btnScheduleTreatment.addActionListener(new java.awt.event.ActionListener() {
+        btnScheduleAppointment.setText("Schedule Appointment");
+        btnScheduleAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnScheduleTreatmentActionPerformed(evt);
+                btnScheduleAppointmentActionPerformed(evt);
             }
         });
 
@@ -170,18 +171,18 @@ public class AdvisorJPanel extends javax.swing.JPanel
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(318, 318, 318)
-                                .addComponent(btnTreatmentComplete))
+                                .addComponent(btnAdviceComplete))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnScheduleTreatment)
+                                        .addComponent(btnScheduleAppointment)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGap(200, 200, 200)
                                             .addComponent(jLabel5)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(192, 192, 192)
-                                        .addComponent(btnStartTreatment)))))
+                                        .addComponent(btnStartAdvice)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(106, 106, 106)
@@ -220,15 +221,15 @@ public class AdvisorJPanel extends javax.swing.JPanel
                 .addGap(34, 34, 34)
                 .addComponent(btnAcceptCase)
                 .addGap(18, 18, 18)
-                .addComponent(btnScheduleTreatment)
+                .addComponent(btnScheduleAppointment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
-                        .addComponent(btnStartTreatment)
+                        .addComponent(btnStartAdvice)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTreatmentComplete)
+                        .addComponent(btnAdviceComplete)
                         .addGap(24, 24, 24))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
@@ -289,10 +290,10 @@ public class AdvisorJPanel extends javax.swing.JPanel
         txtAdvisorFeedBack.setEnabled(false);
         btnDecide.setEnabled(false);
         btnAcceptCase.setEnabled(false);
-        btnStartTreatment.setEnabled(false);
-        btnScheduleTreatment.setEnabled(false);
-        btnStartTreatment.setEnabled(false);
-        btnTreatmentComplete.setEnabled(false);
+        btnStartAdvice.setEnabled(false);
+        btnScheduleAppointment.setEnabled(false);
+        btnStartAdvice.setEnabled(false);
+        btnAdviceComplete.setEnabled(false);
         btnCloseComplaint.setEnabled(false);
     }
     
@@ -371,18 +372,28 @@ public class AdvisorJPanel extends javax.swing.JPanel
         if (status.startsWith("UHCS Advisor Assigned")) {
             btnAcceptCase.setEnabled(true);
         } else if ("UHCS Advisor Accepted".equals(status)) {
-            btnScheduleTreatment.setEnabled(true);
+            btnScheduleAppointment.setEnabled(true);
             btnAcceptCase.setEnabled(false);
-        } else if ("UHCS Advisor Scheduled Treatment".equals(status) && system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID()).isNotifyFromAdvisor()==false) {
-            btnStartTreatment.setEnabled(true); 
-            btnScheduleTreatment.setEnabled(false);
+        } else if ("UHCS Advisor Scheduled Advice".equals(status)) {
+            //get notified or not student's my complaints
+            Student originalStudent = system.getStudentDirectory().getStudent(complaintWorkRequest.getVictimStudent().getUsername());
+            if (originalStudent !=null) {        
+                Complaint originalStudentComplaint = originalStudent.getMyComplaint(complaintWorkRequest.getComplaintID());
+                if (originalStudentComplaint!=null) {
+                    if(!originalStudentComplaint.isNotifyFromAdvisor()) {       //on false
+                        btnStartAdvice.setEnabled(true); 
+                        btnScheduleAppointment.setEnabled(false);
+                    }
+                }
+            }
+           
         } else if ("UHCS Advisor Advicing".equals(status)) { // button not to be enabled for all statuses from "UHCS Assigned Doctor" till before this
-            btnTreatmentComplete.setEnabled(true);
-            btnStartTreatment.setEnabled(false);
+            btnAdviceComplete.setEnabled(true);
+            btnStartAdvice.setEnabled(false);
         } else if ("UHCS Advisor Advice Done".equals(status)) {
             txtAdvisorFeedBack.setEnabled(true);
             btnCloseComplaint.setEnabled(true);
-            btnTreatmentComplete.setEnabled(false);
+            btnAdviceComplete.setEnabled(false);
         } 
         
 
@@ -403,31 +414,36 @@ public class AdvisorJPanel extends javax.swing.JPanel
         populateTable();*/
     }//GEN-LAST:event_btnAcceptCaseActionPerformed
 
-    private void btnStartTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartTreatmentActionPerformed
-        btnStartTreatment.setEnabled(false);
+    private void btnStartAdviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartAdviceActionPerformed
+        btnStartAdvice.setEnabled(false);
         
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Advisor Advicing");
         
         refresh();
-    }//GEN-LAST:event_btnStartTreatmentActionPerformed
+    }//GEN-LAST:event_btnStartAdviceActionPerformed
 
-    private void btnScheduleTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleTreatmentActionPerformed
-        btnScheduleTreatment.setEnabled(false);
+    private void btnScheduleAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleAppointmentActionPerformed
+        btnScheduleAppointment.setEnabled(false);
         
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Advisor Scheduled Advice");
         
-        //notify student
-        Complaint originalComplaint = system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
-        Complaint originialStudentComplaint = originalComplaint.getVictimStudent().getMyComplaint(complaintWorkRequest.getComplaintID());
-        originialStudentComplaint.setNotifyFromAdvisor(true);
+        //notify student in student's my complaints
+        Student originalStudent = system.getStudentDirectory().getStudent(complaintWorkRequest.getVictimStudent().getUsername());
+        if (originalStudent !=null) {        
+            Complaint originalStudentComplaint = originalStudent.getMyComplaint(complaintWorkRequest.getComplaintID());
+            if (originalStudentComplaint!=null) {
+                originalStudentComplaint.setAdvisorName(account.getName());
+                originalStudentComplaint.setNotifyFromAdvisor(true);
+            }
+        }
         
         refresh();
-    }//GEN-LAST:event_btnScheduleTreatmentActionPerformed
+    }//GEN-LAST:event_btnScheduleAppointmentActionPerformed
 
-    private void btnTreatmentCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTreatmentCompleteActionPerformed
-        btnTreatmentComplete.setEnabled(false);
+    private void btnAdviceCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdviceCompleteActionPerformed
+        btnAdviceComplete.setEnabled(false);
         
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Advisor Advice Done");
@@ -435,7 +451,7 @@ public class AdvisorJPanel extends javax.swing.JPanel
         
         
          refresh();
-    }//GEN-LAST:event_btnTreatmentCompleteActionPerformed
+    }//GEN-LAST:event_btnAdviceCompleteActionPerformed
 
     private void btnCloseComplaintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseComplaintActionPerformed
         
@@ -466,13 +482,13 @@ public class AdvisorJPanel extends javax.swing.JPanel
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceptCase;
+    private javax.swing.JButton btnAdviceComplete;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCloseComplaint;
     private javax.swing.JButton btnDecide;
     private javax.swing.JButton btnRefreshStatus;
-    private javax.swing.JButton btnScheduleTreatment;
-    private javax.swing.JButton btnStartTreatment;
-    private javax.swing.JButton btnTreatmentComplete;
+    private javax.swing.JButton btnScheduleAppointment;
+    private javax.swing.JButton btnStartAdvice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;

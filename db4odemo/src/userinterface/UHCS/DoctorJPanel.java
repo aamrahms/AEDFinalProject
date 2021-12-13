@@ -8,6 +8,7 @@ package userinterface.UHCS;
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
 import Business.Logic.UHCS.Doctor;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -383,9 +384,19 @@ public class DoctorJPanel extends javax.swing.JPanel
         } else if ("UHCS Doctor Accepted".equals(status)) {
             btnScheduleTreatment.setEnabled(true);
             btnAcceptCase.setEnabled(false);
-        } else if ("UHCS Doctor Scheduled Treatment".equals(status) && system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID()).isNotifyFromDoctor()==false) {
-            btnStartTreatment.setEnabled(true); 
-            btnScheduleTreatment.setEnabled(false);
+        } else if ("UHCS Doctor Scheduled Treatment".equals(status)) {
+            //get notified or not student's my complaints
+            Student originalStudent = system.getStudentDirectory().getStudent(complaintWorkRequest.getVictimStudent().getUsername());
+            if (originalStudent !=null) {        
+                Complaint originalStudentComplaint = originalStudent.getMyComplaint(complaintWorkRequest.getComplaintID());
+                if (originalStudentComplaint!=null) {
+                    if(!originalStudentComplaint.isNotifyFromDoctor()) {       //on false
+                        btnStartTreatment.setEnabled(true); 
+                        btnScheduleTreatment.setEnabled(false);
+                    }
+                }
+            }
+            
         } else if ("UHCS Doctor Treating".equals(status)) { // button not to be enabled for all statuses from "UHCS Assigned Doctor" till before this
             btnTreatmentComplete.setEnabled(true);
             btnStartTreatment.setEnabled(false);
@@ -470,10 +481,15 @@ public class DoctorJPanel extends javax.swing.JPanel
         Complaint complaintWorkRequest = (Complaint) tblComplaintsWithOpenStatus.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Doctor Scheduled Treatment");
         
-        //notify student
-        Complaint originalComplaint = system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
-        Complaint originialStudentComplaint = originalComplaint.getVictimStudent().getMyComplaint(complaintWorkRequest.getComplaintID());
-        originialStudentComplaint.setNotifyFromDoctor(true);
+        //notify student in student's my complaints
+        Student originalStudent = system.getStudentDirectory().getStudent(complaintWorkRequest.getVictimStudent().getUsername());
+        if (originalStudent !=null) {        
+            Complaint originalStudentComplaint = originalStudent.getMyComplaint(complaintWorkRequest.getComplaintID());
+            if (originalStudentComplaint!=null) {
+                originalStudentComplaint.setDoctorName(account.getName());
+                originalStudentComplaint.setNotifyFromDoctor(true);
+            }
+        }
         
         refresh();        
     }//GEN-LAST:event_btnScheduleTreatmentActionPerformed

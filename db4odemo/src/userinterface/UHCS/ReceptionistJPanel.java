@@ -7,6 +7,7 @@ package userinterface.UHCS;
 
 import Business.Complaint.Complaint;
 import Business.EcoSystem;
+import Business.Student.Student;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -403,10 +404,25 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         
         //original complaint updation
         Complaint originalObject = system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
-        originalObject.setStatus("UHCS Completed");
+        if (originalObject.getTypeOfIncident().equals("Injury")) {
+            originalObject.setStatus("CaseClosed");
+        } else if (originalObject.getTypeOfIncident().equals("Sexual Assault")) {
+            originalObject.setStatus("UHCS Completed");
+        }
         originalObject.setUHCS(false);
         originalObject.setDoctorFeedback(complaintWorkRequest.getDoctorFeedback());
-        originalObject.setAdvisorFeedback(originalObject.getAdvisorFeedback());
+        originalObject.setAdvisorFeedback(complaintWorkRequest.getAdvisorFeedback());
+        
+        //update in student's complaint
+        Student originalStudent = system.getStudentDirectory().getStudent(complaintWorkRequest.getVictimStudent().getUsername());
+            if (originalStudent !=null) {        
+                Complaint originalStudentComplaint = originalStudent.getMyComplaint(complaintWorkRequest.getComplaintID());
+                if (originalStudentComplaint!=null) {
+                    originalObject.setUHCS(false);
+                    originalObject.setDoctorFeedback(complaintWorkRequest.getDoctorFeedback());
+                    originalObject.setAdvisorFeedback(complaintWorkRequest.getAdvisorFeedback());
+                }
+            }
         
         JOptionPane.showMessageDialog(null,"UHCS, thats a great job of closing the complaint. Thank you!");
         
