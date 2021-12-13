@@ -50,7 +50,6 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
            
         }
         populateTable();
-        
     }
 
      public void populateTable()
@@ -75,6 +74,17 @@ public class AllComplaintsJPanel extends javax.swing.JPanel
                 row[4]=c.getLocation();
                 row[5]=c.getVictimStudent().getPhone();
                 md.addRow(row);
+                
+                //notifications
+                if (c.isNotifyFromDoctor()) {
+                    JOptionPane.showMessageDialog(null,"Notification: For complaint: "+c.getComplaintID()+" Doctor scheduled appointment, visit your doctor- name: "+c.getDoctorName(),"Warning",JOptionPane.WARNING_MESSAGE);
+                    c.setNotifyFromDoctor(false);
+                }
+                if (c.isNotifyFromAdvisor()) {
+                    JOptionPane.showMessageDialog(null,"Notification: For complaint: "+c.getComplaintID()+" Advisor scheduled appointment, visit your advisor- name: "+c.getAdvisorName(),"Warning",JOptionPane.WARNING_MESSAGE);
+                    c.setNotifyFromAdvisor(false);
+                }
+                
 
             }
         }

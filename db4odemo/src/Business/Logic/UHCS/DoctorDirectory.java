@@ -56,4 +56,13 @@ public class DoctorDirectory {
         }        
     }
     
+    public Doctor fetchDoctorWithUserName (String userName) {
+        for (Doctor d : doctorList) {
+            if (d.getEmployee().getUsername().equals(userName)) {
+                return d;
+            }
+        }
+        return null;
+    }
+    
 }
