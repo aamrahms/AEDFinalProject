@@ -278,7 +278,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         else{
            Complaint complaint= (Complaint) tblComplaints.getValueAt(selectedRow, 0);
             //String receiver=complaint.getReceiver();
-            if(complaint.getStatus().equalsIgnoreCase("FreshCase"))
+            if(complaint.getStatus().equalsIgnoreCase("FreshCase") || complaint.getStatus().equalsIgnoreCase("Arrange Pickup"))
             {
                 DriverAssignJPanel driverPanel= new DriverAssignJPanel(userProcessContainer, account, system, complaint);
                 userProcessContainer.add("AssignDriver",driverPanel);

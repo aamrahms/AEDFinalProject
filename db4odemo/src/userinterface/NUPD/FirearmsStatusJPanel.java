@@ -297,6 +297,8 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             
             currentComplaint=police.getComplaint();
             currentComplaint.setStatus("TaskCompleted");
+            int i=police.getPoliceComplaints().indexOf(currentComplaint);
+            police.getPoliceComplaints().get(i).setStatus("TaskCompleted");
             cmbAccusedName.setEnabled(false);
             mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
             mainComplaint.setPoliceOfficerFeedback(JOptionPane.showInputDialog("Enter your feedback for the case "));
@@ -314,15 +316,11 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
 
     private void btnSceneReachedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSceneReachedActionPerformed
         // TODO add your handling code here:
-        if(police.getComplaint().getStatus().equalsIgnoreCase("SceneReached"))
+        if(police.getComplaint().getStatus().equalsIgnoreCase("OnTheWay"))
         {
             
             currentComplaint=police.getComplaint();
-            currentComplaint.setStatus("Suspect Apprehended");
-            
-            
-            
-            
+            currentComplaint.setStatus("SceneReached");
         }
         else
         {
