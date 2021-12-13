@@ -37,11 +37,14 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
 
         model.setRowCount(0);
-        for (Network network : system.getNetworkList()) {
+         /*if(system!=null && system.getNetworkList().size()>1){
+           
+        for (Network network : this.system.getNetworkList()) {
             Object[] row = new Object[1];
             row[0] = network.getCity();
             model.addRow(row);
         }
+        }*/
     }
 
     /**

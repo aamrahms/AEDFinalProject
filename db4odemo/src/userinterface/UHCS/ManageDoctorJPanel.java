@@ -45,7 +45,6 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
         lblName = new javax.swing.JLabel();
         btnInBucketPage = new javax.swing.JButton();
         btnOldPage = new javax.swing.JButton();
-        btnDashboard = new javax.swing.JButton();
 
         jLabel1.setText("Welcome ");
 
@@ -63,13 +62,6 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDashboard.setText("Dashboard View");
-        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDashboardActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,15 +73,10 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
                 .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(329, 329, 329)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnOldPage)
-                            .addComponent(btnInBucketPage)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(374, 374, 374)
-                        .addComponent(btnDashboard)))
+                .addGap(329, 329, 329)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOldPage)
+                    .addComponent(btnInBucketPage))
                 .addContainerGap(412, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,18 +90,9 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
                 .addComponent(btnInBucketPage)
                 .addGap(46, 46, 46)
                 .addComponent(btnOldPage)
-                .addGap(45, 45, 45)
-                .addComponent(btnDashboard)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        DashboardDoctorJPanel page = new DashboardDoctorJPanel(userProcessContainer,account,system);
-        userProcessContainer.add("Doctor Dashboard Complaints",page);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnInBucketPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInBucketPageActionPerformed
         DoctorJPanel page = new DoctorJPanel(userProcessContainer,account,system);
@@ -132,7 +110,6 @@ public class ManageDoctorJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnInBucketPage;
     private javax.swing.JButton btnOldPage;
     private javax.swing.JLabel jLabel1;

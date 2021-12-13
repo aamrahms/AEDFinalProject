@@ -6,6 +6,7 @@
 package Business;
 
 import Business.Complaint.ComplaintDirectory;
+import Business.Enterprise.Enterprise;
 import Business.Enterprise.EnterpriseDirectory;
 import Business.Logic.UHCS.AdvisorDirectory;
 import Business.Logic.UHCS.DoctorDirectory;
@@ -59,6 +60,15 @@ public class EcoSystem extends Organisation{
         this.complaintDirectory= new ComplaintDirectory();
         this.enterpriseDirectory= new EnterpriseDirectory();
         this.studentDirectory= new StudentDirectory();
+        
+         Network n = this.createAndAddNetwork();
+         n.setCity("Boston");
+         EnterpriseDirectory e1 = new EnterpriseDirectory();
+         e1.createEnterpriseForDirectory("NUPDEnterprise", Enterprise.EnterpriseType.NUPDEnterprise);
+         e1.createEnterpriseForDirectory("OUECEnterprise", Enterprise.EnterpriseType.OUECEnterprise);
+         e1.createEnterpriseForDirectory("RedeyeEnterprise", Enterprise.EnterpriseType.RedeyeEnterprise);
+         e1.createEnterpriseForDirectory("UHCSEnterprise", Enterprise.EnterpriseType.UHCSEnterprise);
+         n.setEnterpriseDirectory(e1);
     }
 
     
