@@ -62,7 +62,8 @@ public class DoctorJPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
         btnStartTreatment = new javax.swing.JButton();
         btnTreatmentComplete = new javax.swing.JButton();
         btnScheduleTreatment = new javax.swing.JButton();
@@ -78,8 +79,23 @@ public class DoctorJPanel extends javax.swing.JPanel
         jLabel6 = new javax.swing.JLabel();
         txtDoctorFeedBack = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
-        lblTitle = new javax.swing.JLabel();
+
+        setLayout(null);
+
+        btnBack.setText("< Go Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(0, 27, 108, 29);
+
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("IN BUCKET COMPLAINTS");
+        add(lblTitle);
+        lblTitle.setBounds(0, 60, 1000, 59);
 
         btnStartTreatment.setText("Start Treatment");
         btnStartTreatment.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +103,8 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnStartTreatmentActionPerformed(evt);
             }
         });
+        add(btnStartTreatment);
+        btnStartTreatment.setBounds(43, 482, 141, 29);
 
         btnTreatmentComplete.setText("Treatment Complete");
         btnTreatmentComplete.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +112,8 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnTreatmentCompleteActionPerformed(evt);
             }
         });
+        add(btnTreatmentComplete);
+        btnTreatmentComplete.setBounds(221, 482, 172, 29);
 
         btnScheduleTreatment.setText("Schedule Treatment Appointment");
         btnScheduleTreatment.addActionListener(new java.awt.event.ActionListener() {
@@ -101,15 +121,21 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnScheduleTreatmentActionPerformed(evt);
             }
         });
+        add(btnScheduleTreatment);
+        btnScheduleTreatment.setBounds(170, 393, 254, 29);
 
-        btnRefreshStatus.setText("Refresh Status");
+        btnRefreshStatus.setText("Refresh ");
         btnRefreshStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshStatusActionPerformed(evt);
             }
         });
+        add(btnRefreshStatus);
+        btnRefreshStatus.setBounds(720, 160, 100, 29);
 
         jLabel2.setText("Open Complaints under you:");
+        add(jLabel2);
+        jLabel2.setBounds(120, 200, 180, 16);
 
         btnDecide.setText("Decide");
         btnDecide.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +143,8 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnDecideActionPerformed(evt);
             }
         });
+        add(btnDecide);
+        btnDecide.setBounds(840, 270, 87, 29);
 
         tblComplaintsWithOpenStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,14 +168,21 @@ public class DoctorJPanel extends javax.swing.JPanel
         tblComplaintsWithOpenStatus.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tblComplaintsWithOpenStatus);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(120, 230, 696, 107);
+
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptCaseActionPerformed(evt);
             }
         });
+        add(btnAcceptCase);
+        btnAcceptCase.setBounds(43, 393, 121, 29);
 
         jLabel5.setText("Once Student Accepts:");
+        add(jLabel5);
+        jLabel5.setBounds(42, 454, 142, 16);
 
         btnCloseComplaint.setText("Close Complaint");
         btnCloseComplaint.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +190,8 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnCloseComplaintActionPerformed(evt);
             }
         });
+        add(btnCloseComplaint);
+        btnCloseComplaint.setBounds(138, 632, 148, 29);
 
         btnAssignAdvisor.setText("Assign Advisor & Close");
         btnAssignAdvisor.addActionListener(new java.awt.event.ActionListener() {
@@ -162,139 +199,18 @@ public class DoctorJPanel extends javax.swing.JPanel
                 btnAssignAdvisorActionPerformed(evt);
             }
         });
+        add(btnAssignAdvisor);
+        btnAssignAdvisor.setBounds(292, 632, 191, 29);
 
         jLabel6.setText("Close the case from either of below options based on Complaint type:");
+        add(jLabel6);
+        jLabel6.setBounds(43, 604, 440, 16);
+        add(txtDoctorFeedBack);
+        txtDoctorFeedBack.setBounds(420, 500, 231, 30);
 
         jLabel1.setText("Enter Doctor Feedback:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnRefreshStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnDecide))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addGap(495, 495, 495)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btnCloseComplaint)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnAssignAdvisor))
-                                .addComponent(jLabel6)))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(92, 92, 92)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnAcceptCase)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(37, 37, 37)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnScheduleTreatment)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(200, 200, 200)
-                                                .addComponent(jLabel5)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGap(192, 192, 192)
-                                            .addComponent(btnStartTreatment)))
-                                    .addGap(186, 186, 186)
-                                    .addComponent(jLabel1))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(318, 318, 318)
-                                    .addComponent(btnTreatmentComplete)
-                                    .addGap(66, 66, 66)
-                                    .addComponent(txtDoctorFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(56, 56, 56))))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(btnRefreshStatus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnDecide))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(btnAcceptCase)
-                .addGap(18, 18, 18)
-                .addComponent(btnScheduleTreatment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnStartTreatment)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTreatmentComplete)
-                    .addComponent(txtDoctorFeedBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCloseComplaint)
-                    .addComponent(btnAssignAdvisor))
-                .addGap(192, 192, 192))
-        );
-
-        btnBack.setText("<-- Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
-        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("In-Bucket Complaint");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(btnBack)
-                .addGap(117, 117, 117)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(24, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack))
-                .addContainerGap(751, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(81, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(96, Short.MAX_VALUE)))
-        );
+        add(jLabel1);
+        jLabel1.setBounds(430, 480, 146, 20);
     }// </editor-fold>//GEN-END:initComponents
     
     public void disableAll() {
@@ -547,7 +463,6 @@ public class DoctorJPanel extends javax.swing.JPanel
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblComplaintsWithOpenStatus;

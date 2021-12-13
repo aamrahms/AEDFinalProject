@@ -58,7 +58,6 @@ public class DriverAssignJPanel extends javax.swing.JPanel
         lblHeading = new javax.swing.JLabel();
         btnAssign = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 153, 153));
         setLayout(null);
@@ -119,10 +118,6 @@ public class DriverAssignJPanel extends javax.swing.JPanel
         });
         add(btnRefresh);
         btnRefresh.setBounds(740, 80, 91, 29);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/resize-1639364037602700528redeye.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(30, 290, 210, 190);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -191,7 +186,6 @@ public class DriverAssignJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnAssign;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRefresh;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JTable tblDriver;

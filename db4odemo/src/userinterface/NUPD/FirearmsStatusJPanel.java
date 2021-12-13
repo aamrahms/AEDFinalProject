@@ -92,7 +92,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnAcceptCase);
-        btnAcceptCase.setBounds(540, 450, 121, 29);
+        btnAcceptCase.setBounds(270, 460, 121, 29);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -107,7 +107,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnOnTheWay);
-        btnOnTheWay.setBounds(740, 450, 118, 29);
+        btnOnTheWay.setBounds(470, 460, 118, 29);
 
         btnSuspectInCustody.setText("Suspect In Custody");
         btnSuspectInCustody.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnSuspectInCustody);
-        btnSuspectInCustody.setBounds(740, 520, 165, 29);
+        btnSuspectInCustody.setBounds(470, 530, 165, 29);
 
         btnTaskCompleted.setText("Task Completed");
         btnTaskCompleted.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnTaskCompleted);
-        btnTaskCompleted.setBounds(970, 520, 146, 29);
+        btnTaskCompleted.setBounds(700, 530, 146, 29);
 
         btnSceneReached.setText("Scene Reached");
         btnSceneReached.addActionListener(new java.awt.event.ActionListener() {
@@ -134,25 +134,25 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(btnSceneReached);
-        btnSceneReached.setBounds(970, 450, 136, 29);
+        btnSceneReached.setBounds(700, 460, 136, 29);
 
         lblReportedBy.setText("Reported By:");
         add(lblReportedBy);
-        lblReportedBy.setBounds(680, 230, 78, 16);
+        lblReportedBy.setBounds(410, 240, 78, 16);
 
         lblAccusedStudent.setText("Accused:");
         add(lblAccusedStudent);
-        lblAccusedStudent.setBounds(700, 260, 57, 16);
+        lblAccusedStudent.setBounds(430, 270, 57, 16);
 
         lblStatus.setText("Status:");
         add(lblStatus);
-        lblStatus.setBounds(720, 360, 43, 16);
+        lblStatus.setBounds(450, 370, 43, 16);
 
         lblType.setText("Type:");
         add(lblType);
-        lblType.setBounds(730, 290, 34, 16);
+        lblType.setBounds(460, 300, 34, 16);
         add(txtLocation);
-        txtLocation.setBounds(830, 320, 205, 26);
+        txtLocation.setBounds(560, 330, 205, 26);
 
         txtComplaintID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(txtComplaintID);
-        txtComplaintID.setBounds(830, 190, 205, 26);
+        txtComplaintID.setBounds(560, 200, 205, 26);
 
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,7 +168,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(txtStatus);
-        txtStatus.setBounds(830, 350, 205, 26);
+        txtStatus.setBounds(560, 360, 205, 26);
 
         txtReportedBy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +176,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(txtReportedBy);
-        txtReportedBy.setBounds(830, 230, 205, 26);
+        txtReportedBy.setBounds(560, 240, 205, 26);
 
         txtAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +184,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(txtAccused);
-        txtAccused.setBounds(830, 260, 205, 26);
+        txtAccused.setBounds(560, 270, 205, 26);
 
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,15 +192,15 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(txtType);
-        txtType.setBounds(830, 290, 205, 26);
+        txtType.setBounds(560, 300, 205, 26);
 
         lblLocation.setText("Location:");
         add(lblLocation);
-        lblLocation.setBounds(700, 330, 58, 16);
+        lblLocation.setBounds(430, 340, 58, 16);
 
         lblComplaintID.setText("Complaint ID:");
         add(lblComplaintID);
-        lblComplaintID.setBounds(670, 200, 87, 16);
+        lblComplaintID.setBounds(400, 210, 87, 16);
 
         cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
         cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
@@ -209,7 +209,7 @@ public class FirearmsStatusJPanel extends javax.swing.JPanel
             }
         });
         add(cmbAccusedName);
-        cmbAccusedName.setBounds(540, 520, 183, 27);
+        cmbAccusedName.setBounds(270, 530, 183, 27);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emergencyTeam512xx.png"))); // NOI18N
         add(jLabel1);
