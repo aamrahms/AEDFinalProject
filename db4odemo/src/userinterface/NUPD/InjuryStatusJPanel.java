@@ -324,7 +324,7 @@ public class InjuryStatusJPanel extends javax.swing.JPanel
 
     private void btnTaskCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskCompletedActionPerformed
         // TODO add your handling code here:
-        if(mainComplaint.isUHCS())
+        if(mainComplaint.isUHCS() && mainComplaint.isReceptionistAccepted())
         {
             
             currentComplaint=police.getComplaint();

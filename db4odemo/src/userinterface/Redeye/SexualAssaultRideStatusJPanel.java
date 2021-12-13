@@ -186,6 +186,15 @@ public class SexualAssaultRideStatusJPanel extends javax.swing.JPanel
 
     private void btnSafelyDroppedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSafelyDroppedActionPerformed
         // TODO add your handling code here:
+//         currentComplaint=police.getComplaint();
+//            currentComplaint.setStatus("DroppedToUHCS");
+//            currentComplaint.setUHCS(true);
+//            mainComplaint=system.getComplaintDirectory().getComplaint(currentComplaint.getComplaintID());
+//            mainComplaint.setUHCS(true);
+//            UserAccount receptionist = system.getUserAccountDirectory().fetchReceptionistFromUa();
+//            Complaint c = new Complaint(mainComplaint);
+//            c.setStatus("UHCS New");
+//            receptionist.getWorkQueue().getComplaintList().add(c); 
     }//GEN-LAST:event_btnSafelyDroppedActionPerformed
 
     private void txtStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStatusActionPerformed

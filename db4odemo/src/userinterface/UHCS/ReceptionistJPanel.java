@@ -30,6 +30,7 @@ public class ReceptionistJPanel extends javax.swing.JPanel
     JPanel userProcessContainer;
     UserAccount account;
     EcoSystem system;
+    Complaint mainComplaint;
     ArrayList<Complaint> complaintListWorkQueue;       //WorkRequest is complaint
     int selectedRow = -1;
     
@@ -308,7 +309,9 @@ public class ReceptionistJPanel extends javax.swing.JPanel
         Complaint complaintWorkRequest = (Complaint) tblSelectedTable.getValueAt(0, 0);
         complaintWorkRequest.setStatus("UHCS Accepted");
         
-        //enable buttons
+        mainComplaint=system.getComplaintDirectory().getComplaint(complaintWorkRequest.getComplaintID());
+        mainComplaint.setReceptionistAccepted(true);
+//enable buttons
         btnAssignDoctor.setEnabled(true);
         btnAcceptCase.setEnabled(false);
         
