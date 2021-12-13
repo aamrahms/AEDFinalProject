@@ -86,16 +86,23 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
         cmbAccusedName = new javax.swing.JComboBox<>();
         btnSendToOUEC = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         btnAcceptCase.setText("Accept Case");
         btnAcceptCase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptCaseActionPerformed(evt);
             }
         });
+        add(btnAcceptCase);
+        btnAcceptCase.setBounds(177, 456, 121, 29);
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("STATUS FOR SEXUAL ASSAULT COMPLAINTS");
+        add(lblTitle);
+        lblTitle.setBounds(0, 53, 1070, 56);
 
         btnOnTheWay.setText("On The Way");
         btnOnTheWay.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +110,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 btnOnTheWayActionPerformed(evt);
             }
         });
+        add(btnOnTheWay);
+        btnOnTheWay.setBounds(468, 456, 118, 29);
 
         btnRedEyeNotified.setText("Red Eye Notified");
         btnRedEyeNotified.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +119,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 btnRedEyeNotifiedActionPerformed(evt);
             }
         });
+        add(btnRedEyeNotified);
+        btnRedEyeNotified.setBounds(620, 523, 147, 29);
 
         btnTaskCompleted.setText("Task Completed");
         btnTaskCompleted.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +128,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 btnTaskCompletedActionPerformed(evt);
             }
         });
+        add(btnTaskCompleted);
+        btnTaskCompleted.setBounds(466, 637, 146, 29);
 
         btnSuspectInCustody.setText("Suspect In Custody");
         btnSuspectInCustody.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +137,8 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 btnSuspectInCustodyActionPerformed(evt);
             }
         });
+        add(btnSuspectInCustody);
+        btnSuspectInCustody.setBounds(307, 523, 165, 29);
 
         btnSceneReached.setText("Scene Reached");
         btnSceneReached.addActionListener(new java.awt.event.ActionListener() {
@@ -131,160 +146,68 @@ public class SexualAssaultStatusJPanel extends javax.swing.JPanel
                 btnSceneReachedActionPerformed(evt);
             }
         });
+        add(btnSceneReached);
+        btnSceneReached.setBounds(773, 456, 136, 29);
 
         lblType.setText("Type:");
+        add(lblType);
+        lblType.setBounds(401, 265, 34, 16);
+        add(txtComplaintID);
+        txtComplaintID.setBounds(505, 169, 205, 26);
 
         txtVictimName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtVictimNameActionPerformed(evt);
             }
         });
+        add(txtVictimName);
+        txtVictimName.setBounds(505, 201, 205, 26);
 
         txtAccused.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAccusedActionPerformed(evt);
             }
         });
+        add(txtAccused);
+        txtAccused.setBounds(505, 233, 205, 26);
 
         txtType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTypeActionPerformed(evt);
             }
         });
+        add(txtType);
+        txtType.setBounds(505, 265, 205, 26);
 
         lblComplaintID.setText("Complaint ID:");
+        add(lblComplaintID);
+        lblComplaintID.setBounds(348, 179, 87, 16);
 
         lblVIctimStudent.setText("Victim Name:");
+        add(lblVIctimStudent);
+        lblVIctimStudent.setBounds(351, 206, 84, 16);
 
         lblAccused.setText("Accused:");
+        add(lblAccused);
+        lblAccused.setBounds(378, 233, 57, 16);
 
         lblStatus.setText("Status:");
+        add(lblStatus);
+        lblStatus.setBounds(392, 334, 43, 16);
+        add(txtLocation);
+        txtLocation.setBounds(505, 297, 205, 26);
 
         txtStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStatusActionPerformed(evt);
             }
         });
+        add(txtStatus);
+        txtStatus.setBounds(505, 329, 205, 26);
 
         lblLocation.setText("Location:");
-
-        cmbAccusedName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    ", "   ", "  ", " " }));
-        cmbAccusedName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbAccusedNameActionPerformed(evt);
-            }
-        });
-
-        btnSendToOUEC.setText("Send Report to OUEC");
-        btnSendToOUEC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSendToOUECActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(btnSuspectInCustody)
-                                .addGap(117, 117, 117)
-                                .addComponent(btnSendToOUEC))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(btnTaskCompleted)
-                                .addGap(297, 297, 297)))
-                        .addGap(161, 161, 161))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnAcceptCase)
-                                .addGap(466, 466, 466))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(lblType)
-                                            .addComponent(lblAccused)
-                                            .addComponent(lblVIctimStudent)
-                                            .addComponent(lblComplaintID))
-                                        .addGap(70, 70, 70)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtComplaintID)
-                                            .addComponent(txtVictimName)
-                                            .addComponent(txtAccused)
-                                            .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnOnTheWay)
-                                            .addGap(94, 94, 94)
-                                            .addComponent(btnSceneReached))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(lblStatus)
-                                                .addComponent(lblLocation))
-                                            .addGap(70, 70, 70)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                                                .addComponent(txtStatus)))))
-                                .addGap(54, 54, 54)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRedEyeNotified)
-                        .addGap(159, 159, 159))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblComplaintID)
-                    .addComponent(txtComplaintID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVIctimStudent)
-                    .addComponent(txtVictimName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAccused)
-                    .addComponent(txtAccused, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblType)
-                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblLocation)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblStatus)
-                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(101, 101, 101)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAcceptCase)
-                    .addComponent(btnSceneReached)
-                    .addComponent(btnOnTheWay)
-                    .addComponent(btnRedEyeNotified))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSuspectInCustody)
-                    .addComponent(cmbAccusedName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSendToOUEC))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(btnTaskCompleted)
-                .addGap(67, 67, 67))
-        );
+        add(lblLocation);
+        lblLocation.setBounds(377, 307, 58, 16);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSuspectInCustodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuspectInCustodyActionPerformed

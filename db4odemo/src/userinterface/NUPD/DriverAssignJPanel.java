@@ -59,12 +59,17 @@ public class DriverAssignJPanel extends javax.swing.JPanel
         btnAssign = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(0, 0, 108, 29);
 
         tblDriver.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,9 +92,14 @@ public class DriverAssignJPanel extends javax.swing.JPanel
         });
         jScrollPane1.setViewportView(tblDriver);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(129, 121, 696, 82);
+
         lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeading.setText("DRIVERS AVAILABLE");
+        add(lblHeading);
+        lblHeading.setBounds(0, 55, 902, 22);
 
         btnAssign.setText("Assign");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +107,8 @@ public class DriverAssignJPanel extends javax.swing.JPanel
                 btnAssignActionPerformed(evt);
             }
         });
+        add(btnAssign);
+        btnAssign.setBounds(730, 230, 87, 29);
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -104,42 +116,8 @@ public class DriverAssignJPanel extends javax.swing.JPanel
                 btnRefreshActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblHeading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(129, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAssign))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(btnBack)
-                .addGap(26, 26, 26)
-                .addComponent(lblHeading)
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(btnAssign))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(btnRefresh)))
-                .addContainerGap(168, Short.MAX_VALUE))
-        );
+        add(btnRefresh);
+        btnRefresh.setBounds(740, 80, 91, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

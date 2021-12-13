@@ -113,10 +113,13 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         btnUhcs = new javax.swing.JButton();
         btnRedeye = new javax.swing.JButton();
         btnOUEC = new javax.swing.JButton();
-        lblAssign = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
         btnStatus = new javax.swing.JButton();
         lblCurrentStatus = new javax.swing.JLabel();
+        lblAssign1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
 
         tblComplaints.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -131,8 +134,14 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
         ));
         jScrollPane1.setViewportView(tblComplaints);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(0, 80, 1170, 179);
+
         lblHeading.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
-        lblHeading.setText("All Complaints");
+        lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeading.setText("ALL COMPLAINT");
+        add(lblHeading);
+        lblHeading.setBounds(-1, 24, 1170, 22);
 
         btnPoliceOfficer.setText("Police Officer");
         btnPoliceOfficer.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +149,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnPoliceOfficerActionPerformed(evt);
             }
         });
+        add(btnPoliceOfficer);
+        btnPoliceOfficer.setBounds(63, 347, 128, 29);
 
         btnUhcs.setText("University Health & Counselling Services");
         btnUhcs.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +158,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnUhcsActionPerformed(evt);
             }
         });
+        add(btnUhcs);
+        btnUhcs.setBounds(63, 404, 299, 29);
 
         btnRedeye.setText("RedEye Support");
         btnRedeye.addActionListener(new java.awt.event.ActionListener() {
@@ -154,6 +167,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnRedeyeActionPerformed(evt);
             }
         });
+        add(btnRedeye);
+        btnRedeye.setBounds(209, 347, 141, 29);
 
         btnOUEC.setText("Office of Equity and Compliance");
         btnOUEC.addActionListener(new java.awt.event.ActionListener() {
@@ -161,8 +176,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnOUECActionPerformed(evt);
             }
         });
-
-        lblAssign.setText("Assign to :");
+        add(btnOUEC);
+        btnOUEC.setBounds(356, 347, 247, 29);
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +185,8 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnRefreshActionPerformed(evt);
             }
         });
+        add(btnRefresh);
+        btnRefresh.setBounds(1070, 40, 91, 29);
 
         btnStatus.setText("See current Status");
         btnStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -177,64 +194,14 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
                 btnStatusActionPerformed(evt);
             }
         });
+        add(btnStatus);
+        btnStatus.setBounds(870, 330, 157, 29);
+        add(lblCurrentStatus);
+        lblCurrentStatus.setBounds(600, 470, 480, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(lblHeading)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAssign)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(btnPoliceOfficer)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnRedeye))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(btnUhcs)
-                                        .addGap(150, 150, 150)
-                                        .addComponent(btnOUEC)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblCurrentStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRefresh)))
-                .addGap(46, 46, 46))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(lblHeading)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRefresh)
-                .addGap(4, 4, 4)
-                .addComponent(lblAssign)
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPoliceOfficer)
-                    .addComponent(btnRedeye)
-                    .addComponent(btnStatus))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUhcs)
-                    .addComponent(btnOUEC)
-                    .addComponent(lblCurrentStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
+        lblAssign1.setText("Assign to :");
+        add(lblAssign1);
+        lblAssign1.setBounds(63, 298, 68, 16);
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnPoliceOfficerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoliceOfficerActionPerformed
@@ -404,7 +371,7 @@ public class ChiefOfficerJPanel extends javax.swing.JPanel
     private javax.swing.JButton btnStatus;
     private javax.swing.JButton btnUhcs;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAssign;
+    private javax.swing.JLabel lblAssign1;
     private javax.swing.JLabel lblCurrentStatus;
     private javax.swing.JLabel lblHeading;
     private javax.swing.JTable tblComplaints;
