@@ -59,9 +59,14 @@ public class ComplaintJPanel extends javax.swing.JPanel
         btnNormal = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+        setLayout(null);
+
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SELECT PRIORITY OF COMPLAINT");
+        add(jLabel1);
+        jLabel1.setBounds(0, 58, 953, 58);
 
         btnEmergency.setText("EMERGENCY");
         btnEmergency.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +74,8 @@ public class ComplaintJPanel extends javax.swing.JPanel
                 btnEmergencyActionPerformed(evt);
             }
         });
+        add(btnEmergency);
+        btnEmergency.setBounds(333, 201, 233, 29);
 
         btnNormal.setText("NORMAL");
         btnNormal.addActionListener(new java.awt.event.ActionListener() {
@@ -76,45 +83,17 @@ public class ComplaintJPanel extends javax.swing.JPanel
                 btnNormalActionPerformed(evt);
             }
         });
+        add(btnNormal);
+        btnNormal.setBounds(333, 263, 233, 29);
 
-        btnBack.setText("Go Back");
+        btnBack.setText("< Go Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 953, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(159, 159, 159)
-                        .addComponent(btnBack))
-                    .addComponent(btnEmergency, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97)
-                .addComponent(btnEmergency)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(btnNormal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(btnBack)))
-                .addContainerGap(338, Short.MAX_VALUE))
-        );
+        add(btnBack);
+        btnBack.setBounds(6, 23, 108, 29);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
